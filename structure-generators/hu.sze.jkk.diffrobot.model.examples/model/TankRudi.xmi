@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diffrobot:Robot
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:diffrobot="http://jkk.sze.hu/diffrobot"
+    xsi:schemaLocation="http://jkk.sze.hu/diffrobot ../../hu.sze.jkk.diffrobot.model/model/diffrobot.ecore">
+  <wheelaxis/>
+  <wheelaxis/>
+  <wheelparemeters/>
+  <hull/>
+</diffrobot:Robot>

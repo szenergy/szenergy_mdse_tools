@@ -1,0 +1,16 @@
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/Node.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/impl/LaunchImpl.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/Parameter.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/impl/NodeImpl.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/impl/Vec3Impl.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/impl/LaunchmodelPackageImpl.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/LaunchmodelPackage.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/impl/StaticTransformImpl.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/Vec3.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/impl/LaunchmodelFactoryImpl.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/StaticTransform.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/util/LaunchmodelAdapterFactory.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/LaunchmodelFactory.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/Launch.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/impl/ParameterImpl.java
+/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.robot.launch.model/src-gen/hu/sze/jkk/robot/launch/model/launchmodel/util/LaunchmodelSwitch.java

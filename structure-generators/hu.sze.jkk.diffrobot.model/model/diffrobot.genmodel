@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/hu.sze.jkk.diffrobot.model/src-gen" creationIcons="false"
+    editDirectory="/hu.sze.jkk.diffrobot.model.edit/src-gen" editorDirectory="/hu.sze.jkk.diffrobot.model.editor/src-gen"
+    modelPluginID="hu.sze.jkk.diffrobot.model" modelName="Diffrobot" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>diffrobot.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Diffrobot" basePackage="hu.sze.jkk.diffrobot.model" disposableProviderFactory="true"
+      ecorePackage="diffrobot.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="diffrobot.ecore#//AxisOrientation">
+      <genEnumLiterals ecoreEnumLiteral="diffrobot.ecore#//AxisOrientation/HORIZONTAL"/>
+      <genEnumLiterals ecoreEnumLiteral="diffrobot.ecore#//AxisOrientation/VERTICAL"/>
+    </genEnums>
+    <genClasses ecoreClass="diffrobot.ecore#//Robot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/wheelaxis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/kinematicparameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/wheelparemeters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Robot/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/hull"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/dynamicparameters"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/rootaxis"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//WheelAxis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelAxis/wheels"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelAxis/axis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelAxis/length"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference diffrobot.ecore#//WheelAxis/wheelparemeters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//WheelAxis/axislocation"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//KinematicParameters"/>
+    <genClasses ecoreClass="diffrobot.ecore#//WheelParemeters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParemeters/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParemeters/radius"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParemeters/mass"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//HullComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//HullComponent/mass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//HullComponent/mesh"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//HullComponent/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//HullComponent/depth"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//Mesh">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Mesh/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Mesh/package"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Mesh/name"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//DynamicParameters"/>
+    <genClasses ecoreClass="diffrobot.ecore#//AxisLocation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference diffrobot.ecore#//AxisLocation/wheelaxis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//AxisLocation/displacement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//AxisLocation/rotation"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//Displacement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Displacement/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Displacement/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Displacement/z"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//Rotation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Rotation/roll"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Rotation/pitch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Rotation/yaw"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
