@@ -22,6 +22,8 @@ class GenerateGazeboPlugin {
 	#include <szelectricity_gazebo_plugins/gazebo_wheel_plugin.hpp>
 	#include <szelectricity_gazebo_plugins/gazebo_szenergy_common.hpp>
 	
+	#include <autoware_msgs/VehicleStatus.h>
+	
 	using namespace szenergy::vehicle_dynamics_parameter;
 	using namespace szenergy;
 	
@@ -36,10 +38,11 @@ class GenerateGazeboPlugin {
 	      ros::Subscriber sub_angle;
 	      ros::Subscriber sub_velocity;
 	      ros::Subscriber sub_twist_cmd;
-	      /// Publish state
+	      // Publish state
 	      ros::Publisher  pub_current_velocity;
+	      ros::Publisher  pub_vehicle_status;   ///< Autoware vehicle status
 	      ros::Timer      state_timer;
-	      // COnnection handler
+	      // Connection handler
 	      event::ConnectionPtr updateConnection;
 	    public:
 	        «pluginSimulationName(vehicle)»()
@@ -77,8 +80,11 @@ class GenerateGazeboPlugin {
 	        void callbackUpdateState(const ros::TimerEvent&)
 	        {
 	        	updateFirstOrderState();
-	        	pluginstate->vehicle_firstorder_state.header.stamp = ros::Time::now();
-	        	pub_current_velocity.publish(pluginstate->vehicle_firstorder_state);
+	        	auto t = ros::Time::now();
+	            pluginstate->vehicle_firstorder_state.header.stamp = t;					///< REQ1.1 All messages published from Gazebo vehicle plugin shall be timestamped 
+	            pluginstate->vehicle_status.header.stamp = t;							///< REQ1.1
+	        	pub_current_velocity.publish(pluginstate->vehicle_firstorder_state);    ///< REQ2.1 Gazebo vehicle plugins shall publish current velcoity as standard geometry message
+	        	pub_vehicle_status.publish(pluginstate->vehicle_status); 				///< REQ9.1 Gazebo vehicle plugins should publish Autoware vehicle stati 
 	        }
 	
 	        void initRosNode()
@@ -92,7 +98,8 @@ class GenerateGazeboPlugin {
 	            sub_velocity = nh->subscribe("/«vehicle.name»/refvelocity", 10, &«pluginSimulationName(vehicle)»::onVelocity, this);
 	            sub_twist_cmd = nh->subscribe("/twist_cmd", 10, &«pluginSimulationName(vehicle)»::onTwistCmd, this);
 	            /// State publisher
-	            pub_current_velocity = nh->advertise<geometry_msgs::TwistStamped>("/current_velocity", 10);
+	            pub_current_velocity = nh->advertise<geometry_msgs::TwistStamped>("/current_velocity", 10);						///< Initialize publisher (current_velocity)
+	            pub_vehicle_status = nh->advertise<autoware_msgs::VehicleStatus>("/vehicle_status", 10);						///< Initialize publisher (vehicle_status)
 	            state_timer = nh->createTimer(ros::Duration(1.0/40.0), &NissanleafSimulationPlugin::callbackUpdateState, this);
 	            ROS_INFO("Starting ROS node");
 	        }
