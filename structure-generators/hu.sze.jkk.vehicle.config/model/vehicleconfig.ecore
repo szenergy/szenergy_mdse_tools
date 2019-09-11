@@ -29,6 +29,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="steeringparameters" lowerBound="1"
         eType="#//SteeringParameters" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference_point" eType="#//VehicleReferencePoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WheelParameters">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wheel_radius" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -219,5 +220,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="clip_near" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="clip_far" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontal_fov" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="VehicleReferencePoint">
+    <eLiterals name="REAR_AXLE"/>
+    <eLiterals name="COG" value="1"/>
   </eClassifiers>
 </ecore:EPackage>

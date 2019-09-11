@@ -1,3 +1,6 @@
+Bundle-Version: 0.0.1.qualifier
+Bundle-Name: hu.sze.jkk.vehicle.config.generator
+Bundle-SymbolicName: hu.sze.jkk.vehicle.config.generator;singleton:=true
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Require-Bundle: org.eclipse.xtext.xbase.lib,

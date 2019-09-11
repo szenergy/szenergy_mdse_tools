@@ -14,6 +14,10 @@
       <genEnumLiterals ecoreEnumLiteral="vehicleconfig.ecore#//CameraType/DEPTH"/>
       <genEnumLiterals ecoreEnumLiteral="vehicleconfig.ecore#//CameraType/STEREO"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="vehicleconfig.ecore#//VehicleReferencePoint">
+      <genEnumLiterals ecoreEnumLiteral="vehicleconfig.ecore#//VehicleReferencePoint/REAR_AXLE"/>
+      <genEnumLiterals ecoreEnumLiteral="vehicleconfig.ecore#//VehicleReferencePoint/COG"/>
+    </genEnums>
     <genClasses ecoreClass="vehicleconfig.ecore#//Vehicle">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Vehicle/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/kinematicparameters"/>
@@ -32,6 +36,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//KinematicParameters/wheelparameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//KinematicParameters/steeringparameters"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//KinematicParameters/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//KinematicParameters/reference_point"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//WheelParameters">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//WheelParameters/wheel_radius"/>

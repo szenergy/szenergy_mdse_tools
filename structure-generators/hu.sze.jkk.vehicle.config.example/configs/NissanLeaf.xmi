@@ -76,7 +76,7 @@
         collisionmesh="Nissan_LEAF_wo_wheels_yellow.obj"
         package="szelectricity_description/meshes/">
       <displacement
-          x="-2.15"
+          x="-0.8"
           z="-0.4"/>
     </shell>
     <wheelgeometry
@@ -94,7 +94,9 @@
         name="laser_front"
         update_rate="50.0">
       <displacement
-          x="2.5"/>
+          x="3.72"
+          y="-0.35"
+          z="0.15"/>
       <distancesettings
           samples="540"
           resolution="0.1"
@@ -122,8 +124,8 @@
         min_range="0.9"
         resolution="0.001">
       <displacement
-          x="0.4"
-          z="1.2"/>
+          x="1.93"
+          z="1.4"/>
       <horizontal_angle_param
           samples="2187"
           resolution="1.0"
@@ -155,7 +157,7 @@
         update_rate="10.0"
         type="STEREO">
       <displacement
-          x="0.9"
+          x="1.4"
           z="1.1"/>
       <cameraparameters
           width="1920"
