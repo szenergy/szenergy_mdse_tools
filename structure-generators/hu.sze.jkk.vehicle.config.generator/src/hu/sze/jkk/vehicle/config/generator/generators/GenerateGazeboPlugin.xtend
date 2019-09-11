@@ -81,10 +81,10 @@ class GenerateGazeboPlugin {
 	        {
 	        	updateFirstOrderState();
 	        	auto t = ros::Time::now();
-	            pluginstate->vehicle_firstorder_state.header.stamp = t;					///< REQ1.1 All messages published from Gazebo vehicle plugin shall be timestamped 
-	            pluginstate->vehicle_status.header.stamp = t;							///< REQ1.1
-	        	pub_current_velocity.publish(pluginstate->vehicle_firstorder_state);    ///< REQ2.1 Gazebo vehicle plugins shall publish current velcoity as standard geometry message
-	        	pub_vehicle_status.publish(pluginstate->vehicle_status); 				///< REQ9.1 Gazebo vehicle plugins should publish Autoware vehicle stati 
+	            pluginstate->vehicle_firstorder_state.header.stamp = t;					///< REQ2.1 All messages published from simulation vehicle plugin shall be timestamped 
+	            pluginstate->vehicle_status.header.stamp = t;							///< REQ2.1
+	        	pub_current_velocity.publish(pluginstate->vehicle_firstorder_state);    ///< REQ2.2 Simulation vehicle plugins shall publish current velcoity as standard geometry message
+	        	pub_vehicle_status.publish(pluginstate->vehicle_status); 				///< REQ2.3 Simulation vehicle plugins should publish Autoware vehicle stati 
 	        }
 	
 	        void initRosNode()
