@@ -146,9 +146,9 @@
           x="0.1"
           z="-0.1"/>
       <geolocation
-          longitude="17.6283"
-          latitude="47.694"
-          height="150.0"/>
+          longitude="16.8349298959"
+          latitude="46.8944633103"
+          height="250.0"/>
     </sensor>
     <sensor
         xsi:type="vehicleconfig:Camera"
