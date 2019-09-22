@@ -1,0 +1,13 @@
+package hu.sze.jkk.middleware.model.query
+
+import epackage "http://jkk.sze.hu/statepubsubmodel"
+
+pattern SelectNodes(n: Node){
+	Node.name(n, name);
+	check(name.length > 0);
+}
+
+pattern SelectIntermediateTopics(t: Topic){
+	Topic.topic_name(t, name);
+	check(name.length > 0);
+}

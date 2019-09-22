@@ -1,0 +1,66 @@
+package hu.sze.jkk.ros.code.generator.patterns
+
+import epackage "http://jkk.sze.hu/roscodegenerator"
+
+pattern incomingTopic(r: ROSNode, product: TopicReceive, topic: ROSTopic){
+	ROSNode.receiveFrom(r, product);
+	TopicReceive.rostopic(product, topic);
+}
+
+pattern outgoingTopic(r: ROSNode, product: TopicUpdate, topic: ROSTopic){
+	ROSNode.topicupdate(r, product);
+	TopicUpdate.producesTo(product, topic);
+}
+
+pattern syncTopicIncoming(r: ROSNode, topic: ROSTopic){
+	ROSNode.topicupdate(r, topicupdate);
+	TopicUpdate.sync(topicupdate, topic);
+	ROSNode.receiveFrom(r, product);
+	TopicReceive.rostopic(product, topic);
+}
+
+pattern synTopicNotIncoming(r: ROSNode){
+	neg find syncTopicIncoming(r, _);
+}
+
+pattern selfLoop(n: ROSNode, r: ROSTopic){
+	ROSTopic.source(r, s);
+	TopicUpdate.rosnode(s, n);
+	ROSTopic.product(r, p);
+	TopicReceive.rosnode(p, n);
+}
+
+pattern messagesFromTopics(n: ROSNode, m: ROSMsg){
+	ROSNode.receiveFrom(n, r);
+	TopicReceive.rostopic(r, t);
+	ROSTopic.rosmsg(t, m);
+}or{
+	ROSNode.topicupdate(n, r);
+	TopicUpdate.producesTo(r, t);
+	ROSTopic.rosmsg(t, m);
+}
+
+
+pattern duplicateReceive(r: ROSNode, product0: TopicReceive, product1: TopicReceive){
+	ROSNode.receiveFrom(r, product0);
+	TopicReceive.rostopic(product0, topic);
+	ROSNode.receiveFrom(r, product1);
+	TopicReceive.rostopic(product1, topic);
+	product0!=product1;
+}
+
+pattern noDuplciateReceive(r: ROSNode){
+	neg find duplicateReceive(r, _, _);
+}
+
+pattern duplicatePublish(r: ROSNode, product0: TopicUpdate, product1: TopicUpdate){
+	ROSNode.topicupdate(r, product0);
+	TopicUpdate.producesTo(product0, topic);
+	ROSNode.topicupdate(r, product1);
+	TopicUpdate.producesTo(product1, topic);
+	product0!=product1;
+}
+
+pattern noDuplciatePublish(r: ROSNode){
+	neg find duplicatePublish(r, _, _);
+}

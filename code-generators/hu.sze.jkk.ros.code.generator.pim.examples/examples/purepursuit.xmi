@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<roscodegenerator:ROSPackage
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:roscodegenerator="http://jkk.sze.hu/roscodegenerator"
+    xsi:schemaLocation="http://jkk.sze.hu/roscodegenerator ../../hu.sze.jkk.ros.code.generator.pim.model/model/roscodegenerator.ecore"
+    name="szenergy_trajectory_library">
+  <rosnode name="pure_pursuit_node">
+    <topicupdate
+        id="pub_twist_raw"
+        producesTo="//@rostopic.3"
+        sync="//@rostopic.0 //@rostopic.1 //@rostopic.2"
+        mimostate="//@rosnode.0/@state.0"/>
+    <topicupdate
+        id="pub_current_mark"
+        producesTo="//@rostopic.6"
+        mimostate="//@rosnode.0/@state.0"/>
+    <topicupdate
+        id="pub_next_mark"
+        producesTo="//@rostopic.7"
+        mimostate="//@rosnode.0/@state.0"/>
+    <receiveFrom
+        id="sub_current_velocity"
+        rostopic="//@rostopic.0"
+        mimostate="//@rosnode.0/@state.0"
+        triggerstates="//@rosnode.0/@state.0"/>
+    <receiveFrom
+        id="sub_current_pose"
+        rostopic="//@rostopic.1"
+        mimostate="//@rosnode.0/@state.0"/>
+    <receiveFrom
+        id="sub_final_waypoints"
+        rostopic="//@rostopic.2"
+        mimostate="//@rosnode.0/@state.0"/>
+    <receiveFrom
+        id="sub_danger_indicator"
+        rostopic="//@rostopic.4"
+        mimostate="//@rosnode.0/@state.0"
+        triggerstates="//@rosnode.0/@state.0"
+        triggertype="DANGER"/>
+    <state name="control_state"
+        output="//@rosnode.0/@topicupdate.0 //@rosnode.0/@topicupdate.1 //@rosnode.0/@topicupdate.2"
+        input="//@rosnode.0/@receiveFrom.0 //@rosnode.0/@receiveFrom.1 //@rosnode.0/@receiveFrom.2 //@rosnode.0/@receiveFrom.3"
+        order_past="1"/>
+  </rosnode>
+  <rosnode name="teb_local_planner">
+    <topicupdate
+        id="pub_teb_local_planner_final_waypoints"
+        producesTo="//@rostopic.2"
+        sync="//@rostopic.2 //@rostopic.1"
+        mimostate="//@rosnode.1/@state.0"/>
+    <receiveFrom
+        id="move_base_simple_goal"
+        rostopic="//@rostopic.5"
+        mimostate="//@rosnode.1/@state.0"
+        triggerstates="//@rosnode.1/@state.0"
+        triggertype="EVENT"/>
+    <receiveFrom
+        id="current_pose"
+        rostopic="//@rostopic.1"
+        mimostate="//@rosnode.1/@state.0"
+        triggerstates="//@rosnode.1/@state.0"/>
+    <receiveFrom
+        id="current_velocity"
+        rostopic="//@rostopic.0"
+        mimostate="//@rosnode.1/@state.0"/>
+    <state name="trajectory_state"
+        output="//@rosnode.1/@topicupdate.0"
+        input="//@rosnode.1/@receiveFrom.0 //@rosnode.1/@receiveFrom.1 //@rosnode.1/@receiveFrom.2"/>
+  </rosnode>
+  <rosmsg name="Lane"
+      prefix="autoware_msgs"/>
+  <rosmsg name="TwistStamped"
+      prefix="geometry_msgs"/>
+  <rosmsg name="PoseStamped"
+      prefix="geometry_msgs"/>
+  <rosmsg name="Int32"
+      prefix="std_msgs"/>
+  <rosmsg name="Goal"
+      prefix="nav_msgs"/>
+  <rosmsg name="Marker"
+      prefix="visualization_msgs"/>
+  <rostopic
+      topic_name="current_velocity"
+      rosmsg="//@rosmsg.1"
+      product="//@rosnode.0/@receiveFrom.0 //@rosnode.1/@receiveFrom.2"/>
+  <rostopic
+      topic_name="current_pose"
+      rosmsg="//@rosmsg.2"
+      product="//@rosnode.0/@receiveFrom.1 //@rosnode.1/@receiveFrom.1"/>
+  <rostopic
+      topic_name="final_waypoints"
+      rosmsg="//@rosmsg.0"
+      source="//@rosnode.1/@topicupdate.0"
+      product="//@rosnode.0/@receiveFrom.2"/>
+  <rostopic
+      topic_name="twist_raw"
+      rosmsg="//@rosmsg.1"
+      source="//@rosnode.0/@topicupdate.0"/>
+  <rostopic
+      topic_name="trajectory_following_danger"
+      rosmsg="//@rosmsg.3"
+      product="//@rosnode.0/@receiveFrom.3"/>
+  <rostopic
+      topic_name="move_base_simple/goal"
+      rosmsg="//@rosmsg.2"
+      product="//@rosnode.1/@receiveFrom.0"/>
+  <rostopic
+      topic_name="current_waypoint_mark"
+      rosmsg="//@rosmsg.5"
+      source="//@rosnode.0/@topicupdate.1"/>
+  <rostopic
+      topic_name="next_waypoint_mark"
+      rosmsg="//@rosmsg.5"
+      source="//@rosnode.0/@topicupdate.2"/>
+</roscodegenerator:ROSPackage>

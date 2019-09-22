@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="rosgenerator" version="12.0.0.2017041100">
+  <ownedViewpoints name="roscodegenerator">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="RoscodeRelationDiagram" domainClass="roscodegenerator::ROSPackage" enablePopupBars="true">
+      <metamodel href="../../hu.sze.jkk.ros.code.generator.pim.model/model/roscodegenerator.ecore#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="Topic definition" semanticCandidatesExpression="feature:rostopic" domainClass="roscodegenerator::ROSTopic">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="6" labelExpression="feature:topic_name" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Msg definition" semanticCandidatesExpression="feature:rosmsg" domainClass="ROSMsg">
+          <style xsi:type="style:SquareDescription" labelSize="6" labelPosition="node" resizeKind="NSEW" width="10" height="2">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Receive topic to internal state" sourceMapping="//@ownedViewpoints[name='roscodegenerator']/@ownedRepresentations[name='RoscodeRelationDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Receive%20Topic']" targetMapping="//@ownedViewpoints[name='roscodegenerator']/@ownedRepresentations[name='RoscodeRelationDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@subNodeMappings[name='Internal%20state%20definition']" targetFinderExpression="feature:mimostate">
+          <style sourceArrow="OutputFillClosedArrow" routingStyle="manhattan" endsCentering="Source">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Internal state updates topic" sourceMapping="//@ownedViewpoints[name='roscodegenerator']/@ownedRepresentations[name='RoscodeRelationDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@subNodeMappings[name='Internal%20state%20definition']" targetMapping="//@ownedViewpoints[name='roscodegenerator']/@ownedRepresentations[name='RoscodeRelationDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Update%20topic']" targetFinderExpression="feature:output">
+          <style sourceArrow="OutputFillClosedArrow" routingStyle="manhattan" endsCentering="Target">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Topic to bordered receive" sourceMapping="//@ownedViewpoints[name='roscodegenerator']/@ownedRepresentations[name='RoscodeRelationDiagram']/@defaultLayer/@nodeMappings[name='Topic%20definition']" targetMapping="//@ownedViewpoints[name='roscodegenerator']/@ownedRepresentations[name='RoscodeRelationDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Receive%20Topic']" targetFinderExpression="feature:product">
+          <style>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Topic update to topic" sourceMapping="//@ownedViewpoints[name='roscodegenerator']/@ownedRepresentations[name='RoscodeRelationDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Update%20topic']" targetMapping="//@ownedViewpoints[name='roscodegenerator']/@ownedRepresentations[name='RoscodeRelationDiagram']/@defaultLayer/@nodeMappings[name='Topic%20definition']" targetFinderExpression="feature:producesTo">
+          <style>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Message type" sourceMapping="//@ownedViewpoints[name='roscodegenerator']/@ownedRepresentations[name='RoscodeRelationDiagram']/@defaultLayer/@nodeMappings[name='Topic%20definition']" targetMapping="//@ownedViewpoints[name='roscodegenerator']/@ownedRepresentations[name='RoscodeRelationDiagram']/@defaultLayer/@nodeMappings[name='Msg%20definition']" targetFinderExpression="feature:rosmsg">
+          <style lineStyle="dash" targetArrow="InputClosedArrow" sizeComputationExpression="0.5">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Node definition" semanticCandidatesExpression="feature:rosnode" domainClass="roscodegenerator::ROSNode">
+          <borderedNodeMappings name="Receive Topic" semanticCandidatesExpression="feature:receiveFrom" domainClass="TopicReceive">
+            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelSize="5" labelExpression="feature:id" sizeComputationExpression="2" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="Update topic" semanticCandidatesExpression="feature:topicupdate" domainClass="TopicUpdate">
+            <style xsi:type="style:LozengeNodeDescription" labelSize="5" labelExpression="feature:id" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+            </style>
+          </borderedNodeMappings>
+          <subNodeMappings name="Internal state definition" semanticCandidatesExpression="feature:state" domainClass="MIMOState">
+            <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="hu.sze.jkk.ros.code.generator.design.Services"/>
+  </ownedViewpoints>
+</description:Group>
