@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: hu.sze.jkk.robot.launch.model;singleton:=true
+Automatic-Module-Name: hu.sze.jkk.robot.launch.model
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: hu.sze.jkk.robot.launch.model.launchmodel,
+ hu.sze.jkk.robot.launch.model.launchmodel.impl,
+ hu.sze.jkk.robot.launch.model.launchmodel.util
+Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
