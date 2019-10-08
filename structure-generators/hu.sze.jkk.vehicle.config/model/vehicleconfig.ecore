@@ -237,6 +237,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware_msg_type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="signalmapping" upperBound="-1"
         eType="#//SignalMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware_msg_topic_name"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SignalMapping">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="low_level_signal_name"

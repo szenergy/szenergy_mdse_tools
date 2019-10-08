@@ -198,6 +198,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MessageMapping/low_level_msg_name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MessageMapping/middleware_msg_type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//MessageMapping/signalmapping"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MessageMapping/middleware_msg_topic_name"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//SignalMapping">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SignalMapping/low_level_signal_name"/>
