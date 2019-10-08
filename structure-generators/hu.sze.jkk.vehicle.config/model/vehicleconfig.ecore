@@ -19,6 +19,8 @@
         eType="#//EngineParameters" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dynamicparameters" lowerBound="1"
         eType="#//DynamicParameters" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lowlevelcontrol" eType="#//LowLevelControl"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KinematicParameters">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wheelbase" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -224,5 +226,22 @@
   <eClassifiers xsi:type="ecore:EEnum" name="VehicleReferencePoint">
     <eLiterals name="REAR_AXLE"/>
     <eLiterals name="COG" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LowLevelControl">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="low_level_node" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" upperBound="-1"
+        eType="#//MessageMapping" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageMapping">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="low_level_msg_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware_msg_type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signalmapping" upperBound="-1"
+        eType="#//SignalMapping" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SignalMapping">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="low_level_signal_name"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware_message_field_name"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

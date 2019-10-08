@@ -28,6 +28,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/transmissionsetup"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/EngineParameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/dynamicparameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/lowlevelcontrol"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//KinematicParameters">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//KinematicParameters/wheelbase"/>
@@ -188,6 +189,19 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//CameraParameters/clip_near"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//CameraParameters/clip_far"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//CameraParameters/horizontal_fov"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//LowLevelControl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//LowLevelControl/low_level_node"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//LowLevelControl/message"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//MessageMapping">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MessageMapping/low_level_msg_name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MessageMapping/middleware_msg_type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//MessageMapping/signalmapping"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//SignalMapping">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SignalMapping/low_level_signal_name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SignalMapping/middleware_message_field_name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
