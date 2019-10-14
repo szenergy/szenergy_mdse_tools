@@ -240,6 +240,8 @@
         eType="#//SignalMapping" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware_msg_topic_name"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SignalMapping">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="low_level_signal_name"
