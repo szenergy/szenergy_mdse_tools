@@ -232,6 +232,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="message" upperBound="-1"
         eType="#//MessageMapping" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="can_model_path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="canports" upperBound="-1"
+        eType="#//LowLevelPort" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageMapping">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="low_level_msg_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -241,6 +243,7 @@
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="middlewaretopic" upperBound="-1"
         eType="#//MiddlewareTopic" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lowlevelport" eType="#//LowLevelPort"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SignalMapping">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="low_level_signal_name"
@@ -259,5 +262,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="signalmapping" upperBound="-1"
         eType="#//SignalMapping" eOpposite="#//SignalMapping/middlewaretopic"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LowLevelPort">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

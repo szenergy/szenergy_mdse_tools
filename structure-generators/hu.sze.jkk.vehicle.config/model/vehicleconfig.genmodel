@@ -194,12 +194,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//LowLevelControl/low_level_node"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//LowLevelControl/message"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//LowLevelControl/can_model_path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//LowLevelControl/canports"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//MessageMapping">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MessageMapping/low_level_msg_name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//MessageMapping/signalmapping"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MessageMapping/enabled"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//MessageMapping/middlewaretopic"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//MessageMapping/lowlevelport"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//SignalMapping">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SignalMapping/low_level_signal_name"/>
@@ -212,6 +214,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/middleware_msg_topic_name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//MiddlewareTopic/signalmapping"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//LowLevelPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//LowLevelPort/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
