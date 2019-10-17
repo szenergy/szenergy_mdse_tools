@@ -103,6 +103,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Sensor/mass"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Sensor/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Sensor/update_rate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Sensor/localizer"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//Laser">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Laser/distancesettings"/>

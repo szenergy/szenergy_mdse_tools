@@ -13,11 +13,13 @@
     <genClasses ecoreClass="launchmodel.ecore#//Launch">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/node"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Launch/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/argument"/>
     </genClasses>
     <genClasses ecoreClass="launchmodel.ecore#//Node">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Node/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Node/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Node/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Node/rospkg"/>
     </genClasses>
     <genClasses ecoreClass="launchmodel.ecore#//StaticTransform">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//StaticTransform/vec3"/>
@@ -32,6 +34,11 @@
     </genClasses>
     <genClasses ecoreClass="launchmodel.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Parameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Parameter/value"/>
+    </genClasses>
+    <genClasses ecoreClass="launchmodel.ecore#//Argument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Argument/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Argument/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
