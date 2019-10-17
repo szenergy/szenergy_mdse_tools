@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+import hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelPackage;
 import hu.sze.jkk.vehicle.config.generator.batch.transformation.SensorToStaticTransformation;
 import hu.sze.jkk.vehicle.config.vehicleconfig.Vehicle;
 import hu.sze.jkk.vehicle.config.vehicleconfig.VehicleconfigPackage;
@@ -20,7 +21,8 @@ public class GenerateStaticTfFromVehicleConfig {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
 				.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-		resourceSet.getPackageRegistry().put(VehicleconfigPackage.eNS_URI, VehicleconfigPackage.eINSTANCE);		 
+		resourceSet.getPackageRegistry().put(VehicleconfigPackage.eNS_URI, VehicleconfigPackage.eINSTANCE);
+		
 		final File file = new File("/home/kyberszittya/jkk_git/src/szenergy-modeling-sysml/structure-generators/hu.sze.jkk.vehicle.config.example/configs/NissanLeaf.xmi");
 		
 		final URI uri = URI.createFileURI(file.getAbsolutePath());

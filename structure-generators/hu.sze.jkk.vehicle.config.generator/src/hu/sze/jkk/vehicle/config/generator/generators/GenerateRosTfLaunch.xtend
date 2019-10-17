@@ -13,6 +13,7 @@ import javax.xml.transform.OutputKeys
 import javax.xml.transform.dom.DOMSource
 import javax.xml.transform.stream.StreamResult
 import java.io.IOException
+import java.io.StringWriter
 
 class GenerateRosTfLaunch {
 	val Document document
@@ -33,6 +34,18 @@ class GenerateRosTfLaunch {
 	    transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
 	    val DOMSource source = new DOMSource(document);
 	    transformer.transform(source, new StreamResult(pw));
+    }
+    
+    def writeDocumentToCharSequence(){
+    	val TransformerFactory transformerFactory = TransformerFactory
+		            .newInstance();
+	    val Transformer transformer = transformerFactory.newTransformer();
+	    transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+	    transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+	    val DOMSource source = new DOMSource(document);
+	    val StringWriter writer = new StringWriter
+	    transformer.transform(new DOMSource(document), new StreamResult(writer))
+	    return writer    	
     }
 	
 	def createXMLDocument(Launch launch){

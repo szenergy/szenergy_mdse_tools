@@ -10,13 +10,11 @@ import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchT
 import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformationStatements
 import org.eclipse.emf.ecore.resource.Resource
 import hu.sze.jkk.vehicle.dse.validation.SelectAllValidSensors
-import java.util.List
-import java.util.LinkedList
-import hu.sze.jkk.robot.launch.model.launchmodel.Node
 import hu.sze.jkk.robot.launch.model.launchmodel.Launch
 import hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelFactory
 import hu.sze.jkk.robot.launch.model.launchmodel.StaticTransform
 import org.eclipse.xtend.lib.annotations.Accessors
+import hu.sze.jkk.vehicle.config.vehicleconfig.Vehicle
 
 class SensorToStaticTransformation {
 
@@ -29,16 +27,26 @@ class SensorToStaticTransformation {
     extension IModelManipulations manipulation
 
     protected ViatraQueryEngine engine
-    protected Resource resource
+    //protected Resource resource
     protected BatchTransformationRule sensorStaticRule
     
     //protected BatchTransformationRule<?,?> exampleRule
     @Accessors(PUBLIC_GETTER) val Launch launch 
 
     new(Resource resource) {
-        this.resource = resource
+        //this.resource = resource
         // Create EMF scope and EMF IncQuery engine based on the resource
         val scope = new EMFScope(resource)
+        engine = ViatraQueryEngine.on(scope);
+        
+        createTransformation
+        launch = LaunchmodelFactory.eINSTANCE.createLaunch
+    }
+    
+    new(Vehicle vehicle) {
+        //this.resource = resource
+        // Create EMF scope and EMF IncQuery engine based on the resource
+        val scope = new EMFScope(vehicle)
         engine = ViatraQueryEngine.on(scope);
         
         createTransformation
@@ -48,9 +56,6 @@ class SensorToStaticTransformation {
     public def execute() {
     	println('''Executing sensor to static transformation''')
     	sensorRule.fireAllCurrent
-    	for (Node n: launch.node){
-    		System.out.println(n)
-    	}
     }
 
     private def createTransformation() {
