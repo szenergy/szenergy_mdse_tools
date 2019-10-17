@@ -230,9 +230,25 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qkEWAPDlEemU3ud1QvG8eA" id="(0.6101694915254238,1.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qkEWAfDlEemU3ud1QvG8eA" id="(0.310126582278481,0.0)"/>
         </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_9cc_YPE0Eem8o9ua8gjsqg" type="4001" element="_9cGaEPE0Eem8o9ua8gjsqg" source="_9CVqMMtsEemoaKjOobZUgA" target="_kmvokMttEemoaKjOobZUgA">
+          <children xmi:type="notation:Node" xmi:id="_9cgpwPE0Eem8o9ua8gjsqg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9cgpwfE0Eem8o9ua8gjsqg" x="10" y="-6"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_9chQ0PE0Eem8o9ua8gjsqg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9chQ0fE0Eem8o9ua8gjsqg" x="2" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_9ch34PE0Eem8o9ua8gjsqg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9ch34fE0Eem8o9ua8gjsqg" x="-1" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_9cc_YfE0Eem8o9ua8gjsqg" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_9cc_YvE0Eem8o9ua8gjsqg" fontColor="7490599" fontName="Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9cc_Y_E0Eem8o9ua8gjsqg" points="[0, 12, -338, 0]$[338, 12, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9cjtEPE0Eem8o9ua8gjsqg" id="(1.0,0.061224489795918366)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9cjtEfE0Eem8o9ua8gjsqg" id="(0.0,0.061224489795918366)"/>
+        </edges>
       </data>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_9BptsMtsEemoaKjOobZUgA" name="Launch" tooltipText="" outgoingEdges="_KdDi4MttEemoaKjOobZUgA _qj9oXPDlEemU3ud1QvG8eA" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_9BptsMtsEemoaKjOobZUgA" name="Launch" tooltipText="" outgoingEdges="_KdDi4MttEemoaKjOobZUgA _qj9oXPDlEemU3ud1QvG8eA _9cGaEPE0Eem8o9ua8gjsqg" width="12" height="10">
       <target xmi:type="ecore:EClass" href="launchmodel.ecore#//Launch"/>
       <semanticElements xmi:type="ecore:EClass" href="launchmodel.ecore#//Launch"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -386,7 +402,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_kmnswMttEemoaKjOobZUgA" name="Parameter" tooltipText="" incomingEdges="_llLmwMttEemoaKjOobZUgA" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_kmnswMttEemoaKjOobZUgA" name="Parameter" tooltipText="" incomingEdges="_llLmwMttEemoaKjOobZUgA _9cGaEPE0Eem8o9ua8gjsqg" width="12" height="10">
       <target xmi:type="ecore:EClass" href="launchmodel.ecore#//Parameter"/>
       <semanticElements xmi:type="ecore:EClass" href="launchmodel.ecore#//Parameter"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -474,6 +490,19 @@
           <customFeatures>labelSize</customFeatures>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_qj9oXvDlEemU3ud1QvG8eA" showIcon="false" labelColor="39,76,114">
+          <customFeatures>labelSize</customFeatures>
+        </endLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9cGaEPE0Eem8o9ua8gjsqg" name="[0..*] launchparameters" sourceNode="_9BptsMtsEemoaKjOobZUgA" targetNode="_kmnswMttEemoaKjOobZUgA">
+      <target xmi:type="ecore:EReference" href="launchmodel.ecore#//Launch/launchparameters"/>
+      <semanticElements xmi:type="ecore:EReference" href="launchmodel.ecore#//Launch/launchparameters"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_9cHBIPE0Eem8o9ua8gjsqg" description="_KdFYEMttEemoaKjOobZUgA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_9cHBIvE0Eem8o9ua8gjsqg" showIcon="false">
+          <customFeatures>labelSize</customFeatures>
+        </centerLabelStyle>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_9cHBIfE0Eem8o9ua8gjsqg" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
         </endLabelStyle>
       </ownedStyle>

@@ -14,6 +14,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/node"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Launch/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/argument"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/launchparameters"/>
     </genClasses>
     <genClasses ecoreClass="launchmodel.ecore#//Node">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Node/name"/>
