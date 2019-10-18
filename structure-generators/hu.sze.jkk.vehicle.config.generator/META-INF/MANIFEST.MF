@@ -7,3 +7,5 @@ Require-Bundle: org.eclipse.xtext.xbase.lib,
  org.eclipse.viatra.query.runtime,
  org.eclipse.viatra.transformation.runtime.emf,
  org.eclipse.viatra.transformation.evm
+Export-Package: hu.sze.jkk.vehicle.config.generator.batch.transformation,
+ hu.sze.jkk.vehicle.config.generator.generators
