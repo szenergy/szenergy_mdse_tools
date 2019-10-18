@@ -11,6 +11,10 @@
         eType="#//TopicReceive" containment="true" eOpposite="#//TopicReceive/rosnode"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" upperBound="-1"
         eType="#//MIMOState" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rosparam" upperBound="-1"
+        eType="#//RosParam" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instance_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pkg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ROSTopic">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="topic_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -33,6 +37,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rostopic" upperBound="-1"
         eType="#//ROSTopic" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="globalparam" upperBound="-1"
+        eType="#//RosParam" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TopicUpdate" eSuperTypes="#//TopicWorker">
     <eStructuralFeatures xsi:type="ecore:EReference" name="producesTo" lowerBound="1"
@@ -73,5 +79,9 @@
     <eLiterals name="ERROR" value="2"/>
     <eLiterals name="DANGER" value="2"/>
     <eLiterals name="EVENT" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RosParam">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

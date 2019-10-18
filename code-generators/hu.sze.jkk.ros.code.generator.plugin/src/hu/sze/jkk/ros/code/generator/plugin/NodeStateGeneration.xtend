@@ -1,10 +1,10 @@
 package hu.sze.jkk.ros.code.generator.plugin
 
 import java.util.Collection
-import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.ROSNode
 import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.ROSMsg
-import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.MIMOState
+import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.ROSNode
 import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.TopicReceive
+import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.MIMOState
 import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.TopicUpdate
 
 class NodeStateGeneration extends NamingConvention {

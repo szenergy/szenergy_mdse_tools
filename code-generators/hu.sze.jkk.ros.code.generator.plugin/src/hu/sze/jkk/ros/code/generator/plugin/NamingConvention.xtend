@@ -1,7 +1,7 @@
 package hu.sze.jkk.ros.code.generator.plugin
 
-import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.ROSNode
 import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.ROSTopic
+import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.ROSNode
 import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.TopicReceive
 import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.TopicUpdate
 import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.MIMOState

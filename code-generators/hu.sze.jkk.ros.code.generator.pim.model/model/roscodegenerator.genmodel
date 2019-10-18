@@ -22,6 +22,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSNode/threads"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSNode/receiveFrom"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSNode/state"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSNode/rosparam"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSNode/instance_name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSNode/pkg"/>
     </genClasses>
     <genClasses ecoreClass="roscodegenerator.ecore#//ROSTopic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSTopic/topic_name"/>
@@ -38,6 +41,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSPackage/rosmsg"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSPackage/rostopic"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSPackage/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSPackage/globalparam"/>
     </genClasses>
     <genClasses ecoreClass="roscodegenerator.ecore#//TopicUpdate">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//TopicUpdate/producesTo"/>
@@ -63,6 +67,10 @@
     </genClasses>
     <genClasses ecoreClass="roscodegenerator.ecore#//TopicWorker">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//TopicWorker/id"/>
+    </genClasses>
+    <genClasses ecoreClass="roscodegenerator.ecore#//RosParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//RosParam/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//RosParam/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

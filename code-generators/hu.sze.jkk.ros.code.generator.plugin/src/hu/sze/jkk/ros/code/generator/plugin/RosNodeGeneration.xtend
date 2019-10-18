@@ -3,8 +3,8 @@ package hu.sze.jkk.ros.code.generator.plugin
 import java.util.Collection
 import java.util.List
 import java.util.ArrayList
-import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.MIMOState
 import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.TopicUpdate
+import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.MIMOState
 import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.TopicReceive
 import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.TriggerType
 import hu.sze.jkk.ros.code.generator.pim.model.roscodegenerator.ROSNode
