@@ -4,6 +4,7 @@ package hu.sze.jkk.diffrobot.model.diffrobot.impl;
 
 import hu.sze.jkk.diffrobot.model.diffrobot.AxisLocation;
 import hu.sze.jkk.diffrobot.model.diffrobot.AxisOrientation;
+import hu.sze.jkk.diffrobot.model.diffrobot.Camera;
 import hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotFactory;
 import hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage;
 import hu.sze.jkk.diffrobot.model.diffrobot.Displacement;
@@ -13,6 +14,7 @@ import hu.sze.jkk.diffrobot.model.diffrobot.KinematicParameters;
 import hu.sze.jkk.diffrobot.model.diffrobot.Mesh;
 import hu.sze.jkk.diffrobot.model.diffrobot.Robot;
 import hu.sze.jkk.diffrobot.model.diffrobot.Rotation;
+import hu.sze.jkk.diffrobot.model.diffrobot.Sensor;
 import hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis;
 import hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters;
 
@@ -100,6 +102,20 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 	 * @generated
 	 */
 	private EClass rotationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sensorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cameraEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -242,6 +258,15 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 	 */
 	public EReference getRobot_Rootaxis() {
 		return (EReference) robotEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRobot_Sensor() {
+		return (EReference) robotEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -546,6 +571,24 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSensor() {
+		return sensorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCamera() {
+		return cameraEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getAxisOrientation() {
 		return axisOrientationEEnum;
 	}
@@ -587,6 +630,7 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 		createEReference(robotEClass, ROBOT__HULL);
 		createEReference(robotEClass, ROBOT__DYNAMICPARAMETERS);
 		createEReference(robotEClass, ROBOT__ROOTAXIS);
+		createEReference(robotEClass, ROBOT__SENSOR);
 
 		wheelAxisEClass = createEClass(WHEEL_AXIS);
 		createEAttribute(wheelAxisEClass, WHEEL_AXIS__WHEELS);
@@ -630,6 +674,10 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 		createEAttribute(rotationEClass, ROTATION__PITCH);
 		createEAttribute(rotationEClass, ROTATION__YAW);
 
+		sensorEClass = createEClass(SENSOR);
+
+		cameraEClass = createEClass(CAMERA);
+
 		// Create enums
 		axisOrientationEEnum = createEEnum(AXIS_ORIENTATION);
 	}
@@ -663,6 +711,7 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		cameraEClass.getESuperTypes().add(this.getSensor());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -686,6 +735,9 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 		initEReference(getRobot_Rootaxis(), this.getWheelAxis(), null, "rootaxis", null, 0, 1, Robot.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRobot_Sensor(), this.getSensor(), null, "sensor", null, 0, -1, Robot.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(wheelAxisEClass, WheelAxis.class, "WheelAxis", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -698,9 +750,9 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 		initEReference(getWheelAxis_Wheelparemeters(), this.getWheelParemeters(), null, "wheelparemeters", null, 0, 1,
 				WheelAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getWheelAxis_Axislocation(), this.getAxisLocation(), null, "axislocation", null, 0, -1,
-				WheelAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWheelAxis_Axislocation(), this.getAxisLocation(), this.getAxisLocation_Wheelaxis(),
+				"axislocation", null, 0, 1, WheelAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(kinematicParametersEClass, KinematicParameters.class, "KinematicParameters", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -740,9 +792,9 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 
 		initEClass(axisLocationEClass, AxisLocation.class, "AxisLocation", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAxisLocation_Wheelaxis(), this.getWheelAxis(), null, "wheelaxis", null, 0, 1,
-				AxisLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAxisLocation_Wheelaxis(), this.getWheelAxis(), this.getWheelAxis_Axislocation(), "wheelaxis",
+				null, 0, 1, AxisLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAxisLocation_Displacement(), this.getDisplacement(), null, "displacement", null, 0, 1,
 				AxisLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -767,6 +819,10 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRotation_Yaw(), ecorePackage.getEDouble(), "yaw", null, 0, 1, Rotation.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sensorEClass, Sensor.class, "Sensor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(cameraEClass, Camera.class, "Camera", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(axisOrientationEEnum, AxisOrientation.class, "AxisOrientation");

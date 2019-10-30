@@ -7,19 +7,14 @@ import hu.sze.jkk.diffrobot.model.diffrobot.AxisOrientation;
 import hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage;
 import hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis;
 import hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters;
-
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -110,14 +105,14 @@ public class WheelAxisImpl extends MinimalEObjectImpl.Container implements Wheel
 	protected WheelParemeters wheelparemeters;
 
 	/**
-	 * The cached value of the '{@link #getAxislocation() <em>Axislocation</em>}' containment reference list.
+	 * The cached value of the '{@link #getAxislocation() <em>Axislocation</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAxislocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AxisLocation> axislocation;
+	protected AxisLocation axislocation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -248,12 +243,66 @@ public class WheelAxisImpl extends MinimalEObjectImpl.Container implements Wheel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AxisLocation> getAxislocation() {
-		if (axislocation == null) {
-			axislocation = new EObjectContainmentEList<AxisLocation>(AxisLocation.class, this,
-					DiffrobotPackage.WHEEL_AXIS__AXISLOCATION);
-		}
+	public AxisLocation getAxislocation() {
 		return axislocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAxislocation(AxisLocation newAxislocation, NotificationChain msgs) {
+		AxisLocation oldAxislocation = axislocation;
+		axislocation = newAxislocation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					DiffrobotPackage.WHEEL_AXIS__AXISLOCATION, oldAxislocation, newAxislocation);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAxislocation(AxisLocation newAxislocation) {
+		if (newAxislocation != axislocation) {
+			NotificationChain msgs = null;
+			if (axislocation != null)
+				msgs = ((InternalEObject) axislocation).eInverseRemove(this, DiffrobotPackage.AXIS_LOCATION__WHEELAXIS,
+						AxisLocation.class, msgs);
+			if (newAxislocation != null)
+				msgs = ((InternalEObject) newAxislocation).eInverseAdd(this, DiffrobotPackage.AXIS_LOCATION__WHEELAXIS,
+						AxisLocation.class, msgs);
+			msgs = basicSetAxislocation(newAxislocation, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.WHEEL_AXIS__AXISLOCATION,
+					newAxislocation, newAxislocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case DiffrobotPackage.WHEEL_AXIS__AXISLOCATION:
+			if (axislocation != null)
+				msgs = ((InternalEObject) axislocation).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - DiffrobotPackage.WHEEL_AXIS__AXISLOCATION, null, msgs);
+			return basicSetAxislocation((AxisLocation) otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -265,7 +314,7 @@ public class WheelAxisImpl extends MinimalEObjectImpl.Container implements Wheel
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case DiffrobotPackage.WHEEL_AXIS__AXISLOCATION:
-			return ((InternalEList<?>) getAxislocation()).basicRemove(otherEnd, msgs);
+			return basicSetAxislocation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -316,8 +365,7 @@ public class WheelAxisImpl extends MinimalEObjectImpl.Container implements Wheel
 			setWheelparemeters((WheelParemeters) newValue);
 			return;
 		case DiffrobotPackage.WHEEL_AXIS__AXISLOCATION:
-			getAxislocation().clear();
-			getAxislocation().addAll((Collection<? extends AxisLocation>) newValue);
+			setAxislocation((AxisLocation) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -344,7 +392,7 @@ public class WheelAxisImpl extends MinimalEObjectImpl.Container implements Wheel
 			setWheelparemeters((WheelParemeters) null);
 			return;
 		case DiffrobotPackage.WHEEL_AXIS__AXISLOCATION:
-			getAxislocation().clear();
+			setAxislocation((AxisLocation) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -367,7 +415,7 @@ public class WheelAxisImpl extends MinimalEObjectImpl.Container implements Wheel
 		case DiffrobotPackage.WHEEL_AXIS__WHEELPAREMETERS:
 			return wheelparemeters != null;
 		case DiffrobotPackage.WHEEL_AXIS__AXISLOCATION:
-			return axislocation != null && !axislocation.isEmpty();
+			return axislocation != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -14,14 +14,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dynamicparameters" eType="#//DynamicParameters"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rootaxis" eType="#//WheelAxis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"
+        eType="#//Sensor" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WheelAxis">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wheels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="#//AxisOrientation"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="wheelparemeters" eType="#//WheelParemeters"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="axislocation" upperBound="-1"
-        eType="#//AxisLocation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="axislocation" eType="#//AxisLocation"
+        containment="true" eOpposite="#//AxisLocation/wheelaxis"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KinematicParameters"/>
   <eClassifiers xsi:type="ecore:EClass" name="WheelParemeters">
@@ -47,7 +49,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DynamicParameters"/>
   <eClassifiers xsi:type="ecore:EClass" name="AxisLocation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="wheelaxis" eType="#//WheelAxis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wheelaxis" eType="#//WheelAxis"
+        eOpposite="#//WheelAxis/axislocation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="displacement" eType="#//Displacement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rotation" eType="#//Rotation"
@@ -63,4 +66,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pitch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="yaw" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Camera" eSuperTypes="#//Sensor"/>
 </ecore:EPackage>

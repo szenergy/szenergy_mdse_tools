@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getHull <em>Hull</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getDynamicparameters <em>Dynamicparameters</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getRootaxis <em>Rootaxis</em>}</li>
+ *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getSensor <em>Sensor</em>}</li>
  * </ul>
  *
  * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getRobot()
@@ -172,5 +173,17 @@ public interface Robot extends EObject {
 	 * @generated
 	 */
 	void setRootaxis(WheelAxis value);
+
+	/**
+	 * Returns the value of the '<em><b>Sensor</b></em>' containment reference list.
+	 * The list contents are of type {@link hu.sze.jkk.diffrobot.model.diffrobot.Sensor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sensor</em>' containment reference list.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getRobot_Sensor()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Sensor> getSensor();
 
 } // Robot

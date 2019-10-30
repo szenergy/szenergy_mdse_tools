@@ -22,6 +22,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/hull"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/dynamicparameters"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/rootaxis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/sensor"/>
     </genClasses>
     <genClasses ecoreClass="diffrobot.ecore#//WheelAxis">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelAxis/wheels"/>
@@ -63,5 +64,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Rotation/pitch"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Rotation/yaw"/>
     </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//Sensor"/>
+    <genClasses ecoreClass="diffrobot.ecore#//Camera"/>
   </genPackages>
 </genmodel:GenModel>

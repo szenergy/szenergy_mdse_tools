@@ -131,13 +131,22 @@ public interface DiffrobotPackage extends EPackage {
 	int ROBOT__ROOTAXIS = 6;
 
 	/**
+	 * The feature id for the '<em><b>Sensor</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__SENSOR = 7;
+
+	/**
 	 * The number of structural features of the '<em>Robot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROBOT_FEATURE_COUNT = 7;
+	int ROBOT_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Robot</em>' class.
@@ -195,7 +204,7 @@ public interface DiffrobotPackage extends EPackage {
 	int WHEEL_AXIS__WHEELPAREMETERS = 3;
 
 	/**
-	 * The feature id for the '<em><b>Axislocation</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Axislocation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -462,7 +471,7 @@ public interface DiffrobotPackage extends EPackage {
 	int AXIS_LOCATION = 7;
 
 	/**
-	 * The feature id for the '<em><b>Wheelaxis</b></em>' reference.
+	 * The feature id for the '<em><b>Wheelaxis</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -617,6 +626,62 @@ public interface DiffrobotPackage extends EPackage {
 	int ROTATION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.SensorImpl <em>Sensor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.SensorImpl
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.DiffrobotPackageImpl#getSensor()
+	 * @generated
+	 */
+	int SENSOR = 10;
+
+	/**
+	 * The number of structural features of the '<em>Sensor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Sensor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.CameraImpl <em>Camera</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.CameraImpl
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.DiffrobotPackageImpl#getCamera()
+	 * @generated
+	 */
+	int CAMERA = 11;
+
+	/**
+	 * The number of structural features of the '<em>Camera</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Camera</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA_OPERATION_COUNT = SENSOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.AxisOrientation <em>Axis Orientation</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -624,7 +689,7 @@ public interface DiffrobotPackage extends EPackage {
 	 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.DiffrobotPackageImpl#getAxisOrientation()
 	 * @generated
 	 */
-	int AXIS_ORIENTATION = 10;
+	int AXIS_ORIENTATION = 12;
 
 	/**
 	 * Returns the meta object for class '{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot <em>Robot</em>}'.
@@ -714,6 +779,17 @@ public interface DiffrobotPackage extends EPackage {
 	EReference getRobot_Rootaxis();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getSensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sensor</em>'.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.Robot#getSensor()
+	 * @see #getRobot()
+	 * @generated
+	 */
+	EReference getRobot_Sensor();
+
+	/**
 	 * Returns the meta object for class '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis <em>Wheel Axis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -768,10 +844,10 @@ public interface DiffrobotPackage extends EPackage {
 	EReference getWheelAxis_Wheelparemeters();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getAxislocation <em>Axislocation</em>}'.
+	 * Returns the meta object for the containment reference '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getAxislocation <em>Axislocation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Axislocation</em>'.
+	 * @return the meta object for the containment reference '<em>Axislocation</em>'.
 	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getAxislocation()
 	 * @see #getWheelAxis()
 	 * @generated
@@ -949,10 +1025,10 @@ public interface DiffrobotPackage extends EPackage {
 	EClass getAxisLocation();
 
 	/**
-	 * Returns the meta object for the reference '{@link hu.sze.jkk.diffrobot.model.diffrobot.AxisLocation#getWheelaxis <em>Wheelaxis</em>}'.
+	 * Returns the meta object for the container reference '{@link hu.sze.jkk.diffrobot.model.diffrobot.AxisLocation#getWheelaxis <em>Wheelaxis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Wheelaxis</em>'.
+	 * @return the meta object for the container reference '<em>Wheelaxis</em>'.
 	 * @see hu.sze.jkk.diffrobot.model.diffrobot.AxisLocation#getWheelaxis()
 	 * @see #getAxisLocation()
 	 * @generated
@@ -1068,6 +1144,26 @@ public interface DiffrobotPackage extends EPackage {
 	EAttribute getRotation_Yaw();
 
 	/**
+	 * Returns the meta object for class '{@link hu.sze.jkk.diffrobot.model.diffrobot.Sensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sensor</em>'.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.Sensor
+	 * @generated
+	 */
+	EClass getSensor();
+
+	/**
+	 * Returns the meta object for class '{@link hu.sze.jkk.diffrobot.model.diffrobot.Camera <em>Camera</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Camera</em>'.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.Camera
+	 * @generated
+	 */
+	EClass getCamera();
+
+	/**
 	 * Returns the meta object for enum '{@link hu.sze.jkk.diffrobot.model.diffrobot.AxisOrientation <em>Axis Orientation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1167,6 +1263,14 @@ public interface DiffrobotPackage extends EPackage {
 		EReference ROBOT__ROOTAXIS = eINSTANCE.getRobot_Rootaxis();
 
 		/**
+		 * The meta object literal for the '<em><b>Sensor</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROBOT__SENSOR = eINSTANCE.getRobot_Sensor();
+
+		/**
 		 * The meta object literal for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelAxisImpl <em>Wheel Axis</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1209,7 +1313,7 @@ public interface DiffrobotPackage extends EPackage {
 		EReference WHEEL_AXIS__WHEELPAREMETERS = eINSTANCE.getWheelAxis_Wheelparemeters();
 
 		/**
-		 * The meta object literal for the '<em><b>Axislocation</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Axislocation</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1357,7 +1461,7 @@ public interface DiffrobotPackage extends EPackage {
 		EClass AXIS_LOCATION = eINSTANCE.getAxisLocation();
 
 		/**
-		 * The meta object literal for the '<em><b>Wheelaxis</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Wheelaxis</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1447,6 +1551,26 @@ public interface DiffrobotPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ROTATION__YAW = eINSTANCE.getRotation_Yaw();
+
+		/**
+		 * The meta object literal for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.SensorImpl <em>Sensor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.SensorImpl
+		 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.DiffrobotPackageImpl#getSensor()
+		 * @generated
+		 */
+		EClass SENSOR = eINSTANCE.getSensor();
+
+		/**
+		 * The meta object literal for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.CameraImpl <em>Camera</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.CameraImpl
+		 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.DiffrobotPackageImpl#getCamera()
+		 * @generated
+		 */
+		EClass CAMERA = eINSTANCE.getCamera();
 
 		/**
 		 * The meta object literal for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.AxisOrientation <em>Axis Orientation</em>}' enum.

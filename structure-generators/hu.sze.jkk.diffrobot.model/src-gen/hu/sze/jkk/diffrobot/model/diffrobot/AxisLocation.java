@@ -24,22 +24,24 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AxisLocation extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Wheelaxis</b></em>' reference.
+	 * Returns the value of the '<em><b>Wheelaxis</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getAxislocation <em>Axislocation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Wheelaxis</em>' reference.
+	 * @return the value of the '<em>Wheelaxis</em>' container reference.
 	 * @see #setWheelaxis(WheelAxis)
 	 * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getAxisLocation_Wheelaxis()
-	 * @model
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getAxislocation
+	 * @model opposite="axislocation" transient="false"
 	 * @generated
 	 */
 	WheelAxis getWheelaxis();
 
 	/**
-	 * Sets the value of the '{@link hu.sze.jkk.diffrobot.model.diffrobot.AxisLocation#getWheelaxis <em>Wheelaxis</em>}' reference.
+	 * Sets the value of the '{@link hu.sze.jkk.diffrobot.model.diffrobot.AxisLocation#getWheelaxis <em>Wheelaxis</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Wheelaxis</em>' reference.
+	 * @param value the new value of the '<em>Wheelaxis</em>' container reference.
 	 * @see #getWheelaxis()
 	 * @generated
 	 */

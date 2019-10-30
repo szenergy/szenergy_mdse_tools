@@ -77,6 +77,8 @@ public class DiffrobotFactoryImpl extends EFactoryImpl implements DiffrobotFacto
 			return createDisplacement();
 		case DiffrobotPackage.ROTATION:
 			return createRotation();
+		case DiffrobotPackage.CAMERA:
+			return createCamera();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -210,6 +212,16 @@ public class DiffrobotFactoryImpl extends EFactoryImpl implements DiffrobotFacto
 	public Rotation createRotation() {
 		RotationImpl rotation = new RotationImpl();
 		return rotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Camera createCamera() {
+		CameraImpl camera = new CameraImpl();
+		return camera;
 	}
 
 	/**

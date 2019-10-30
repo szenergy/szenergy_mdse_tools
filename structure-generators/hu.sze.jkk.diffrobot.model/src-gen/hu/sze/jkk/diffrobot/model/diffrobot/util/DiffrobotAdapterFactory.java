@@ -117,6 +117,16 @@ public class DiffrobotAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseSensor(Sensor object) {
+			return createSensorAdapter();
+		}
+
+		@Override
+		public Adapter caseCamera(Camera object) {
+			return createCameraAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -272,6 +282,34 @@ public class DiffrobotAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRotationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hu.sze.jkk.diffrobot.model.diffrobot.Sensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.Sensor
+	 * @generated
+	 */
+	public Adapter createSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hu.sze.jkk.diffrobot.model.diffrobot.Camera <em>Camera</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.Camera
+	 * @generated
+	 */
+	public Adapter createCameraAdapter() {
 		return null;
 	}
 

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,16 +34,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class AxisLocationImpl extends MinimalEObjectImpl.Container implements AxisLocation {
-	/**
-	 * The cached value of the '{@link #getWheelaxis() <em>Wheelaxis</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWheelaxis()
-	 * @generated
-	 * @ordered
-	 */
-	protected WheelAxis wheelaxis;
-
 	/**
 	 * The cached value of the '{@link #getDisplacement() <em>Displacement</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -88,16 +79,9 @@ public class AxisLocationImpl extends MinimalEObjectImpl.Container implements Ax
 	 * @generated
 	 */
 	public WheelAxis getWheelaxis() {
-		if (wheelaxis != null && wheelaxis.eIsProxy()) {
-			InternalEObject oldWheelaxis = (InternalEObject) wheelaxis;
-			wheelaxis = (WheelAxis) eResolveProxy(oldWheelaxis);
-			if (wheelaxis != oldWheelaxis) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiffrobotPackage.AXIS_LOCATION__WHEELAXIS,
-							oldWheelaxis, wheelaxis));
-			}
-		}
-		return wheelaxis;
+		if (eContainerFeatureID() != DiffrobotPackage.AXIS_LOCATION__WHEELAXIS)
+			return null;
+		return (WheelAxis) eInternalContainer();
 	}
 
 	/**
@@ -105,8 +89,9 @@ public class AxisLocationImpl extends MinimalEObjectImpl.Container implements Ax
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public WheelAxis basicGetWheelaxis() {
-		return wheelaxis;
+	public NotificationChain basicSetWheelaxis(WheelAxis newWheelaxis, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newWheelaxis, DiffrobotPackage.AXIS_LOCATION__WHEELAXIS, msgs);
+		return msgs;
 	}
 
 	/**
@@ -115,11 +100,22 @@ public class AxisLocationImpl extends MinimalEObjectImpl.Container implements Ax
 	 * @generated
 	 */
 	public void setWheelaxis(WheelAxis newWheelaxis) {
-		WheelAxis oldWheelaxis = wheelaxis;
-		wheelaxis = newWheelaxis;
-		if (eNotificationRequired())
+		if (newWheelaxis != eInternalContainer()
+				|| (eContainerFeatureID() != DiffrobotPackage.AXIS_LOCATION__WHEELAXIS && newWheelaxis != null)) {
+			if (EcoreUtil.isAncestor(this, newWheelaxis))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newWheelaxis != null)
+				msgs = ((InternalEObject) newWheelaxis).eInverseAdd(this, DiffrobotPackage.WHEEL_AXIS__AXISLOCATION,
+						WheelAxis.class, msgs);
+			msgs = basicSetWheelaxis(newWheelaxis, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.AXIS_LOCATION__WHEELAXIS,
-					oldWheelaxis, wheelaxis));
+					newWheelaxis, newWheelaxis));
 	}
 
 	/**
@@ -228,8 +224,26 @@ public class AxisLocationImpl extends MinimalEObjectImpl.Container implements Ax
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case DiffrobotPackage.AXIS_LOCATION__WHEELAXIS:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetWheelaxis((WheelAxis) otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case DiffrobotPackage.AXIS_LOCATION__WHEELAXIS:
+			return basicSetWheelaxis(null, msgs);
 		case DiffrobotPackage.AXIS_LOCATION__DISPLACEMENT:
 			return basicSetDisplacement(null, msgs);
 		case DiffrobotPackage.AXIS_LOCATION__ROTATION:
@@ -244,12 +258,25 @@ public class AxisLocationImpl extends MinimalEObjectImpl.Container implements Ax
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+		case DiffrobotPackage.AXIS_LOCATION__WHEELAXIS:
+			return eInternalContainer().eInverseRemove(this, DiffrobotPackage.WHEEL_AXIS__AXISLOCATION, WheelAxis.class,
+					msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case DiffrobotPackage.AXIS_LOCATION__WHEELAXIS:
-			if (resolve)
-				return getWheelaxis();
-			return basicGetWheelaxis();
+			return getWheelaxis();
 		case DiffrobotPackage.AXIS_LOCATION__DISPLACEMENT:
 			return getDisplacement();
 		case DiffrobotPackage.AXIS_LOCATION__ROTATION:
@@ -309,7 +336,7 @@ public class AxisLocationImpl extends MinimalEObjectImpl.Container implements Ax
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case DiffrobotPackage.AXIS_LOCATION__WHEELAXIS:
-			return wheelaxis != null;
+			return getWheelaxis() != null;
 		case DiffrobotPackage.AXIS_LOCATION__DISPLACEMENT:
 			return displacement != null;
 		case DiffrobotPackage.AXIS_LOCATION__ROTATION:

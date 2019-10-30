@@ -2,7 +2,6 @@
  */
 package hu.sze.jkk.diffrobot.model.diffrobot;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -118,15 +117,27 @@ public interface WheelAxis extends EObject {
 	void setWheelparemeters(WheelParemeters value);
 
 	/**
-	 * Returns the value of the '<em><b>Axislocation</b></em>' containment reference list.
-	 * The list contents are of type {@link hu.sze.jkk.diffrobot.model.diffrobot.AxisLocation}.
+	 * Returns the value of the '<em><b>Axislocation</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link hu.sze.jkk.diffrobot.model.diffrobot.AxisLocation#getWheelaxis <em>Wheelaxis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Axislocation</em>' containment reference list.
+	 * @return the value of the '<em>Axislocation</em>' containment reference.
+	 * @see #setAxislocation(AxisLocation)
 	 * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getWheelAxis_Axislocation()
-	 * @model containment="true"
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.AxisLocation#getWheelaxis
+	 * @model opposite="wheelaxis" containment="true"
 	 * @generated
 	 */
-	EList<AxisLocation> getAxislocation();
+	AxisLocation getAxislocation();
+
+	/**
+	 * Sets the value of the '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getAxislocation <em>Axislocation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Axislocation</em>' containment reference.
+	 * @see #getAxislocation()
+	 * @generated
+	 */
+	void setAxislocation(AxisLocation value);
 
 } // WheelAxis

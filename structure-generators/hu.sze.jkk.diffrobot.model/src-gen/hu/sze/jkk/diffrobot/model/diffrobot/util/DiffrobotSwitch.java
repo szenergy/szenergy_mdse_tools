@@ -136,6 +136,22 @@ public class DiffrobotSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case DiffrobotPackage.SENSOR: {
+			Sensor sensor = (Sensor) theEObject;
+			T result = caseSensor(sensor);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case DiffrobotPackage.CAMERA: {
+			Camera camera = (Camera) theEObject;
+			T result = caseCamera(camera);
+			if (result == null)
+				result = caseSensor(camera);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -288,6 +304,36 @@ public class DiffrobotSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRotation(Rotation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sensor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSensor(Sensor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Camera</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Camera</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCamera(Camera object) {
 		return null;
 	}
 

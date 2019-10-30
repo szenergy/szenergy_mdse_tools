@@ -7,6 +7,7 @@ import hu.sze.jkk.diffrobot.model.diffrobot.DynamicParameters;
 import hu.sze.jkk.diffrobot.model.diffrobot.HullComponent;
 import hu.sze.jkk.diffrobot.model.diffrobot.KinematicParameters;
 import hu.sze.jkk.diffrobot.model.diffrobot.Robot;
+import hu.sze.jkk.diffrobot.model.diffrobot.Sensor;
 import hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis;
 import hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters;
 
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.RobotImpl#getHull <em>Hull</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.RobotImpl#getDynamicparameters <em>Dynamicparameters</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.RobotImpl#getRootaxis <em>Rootaxis</em>}</li>
+ *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.RobotImpl#getSensor <em>Sensor</em>}</li>
  * </ul>
  *
  * @generated
@@ -125,6 +127,16 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * @ordered
 	 */
 	protected WheelAxis rootaxis;
+
+	/**
+	 * The cached value of the '{@link #getSensor() <em>Sensor</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSensor()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Sensor> sensor;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -424,6 +436,18 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Sensor> getSensor() {
+		if (sensor == null) {
+			sensor = new EObjectContainmentEList<Sensor>(Sensor.class, this, DiffrobotPackage.ROBOT__SENSOR);
+		}
+		return sensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -437,6 +461,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			return basicSetHull(null, msgs);
 		case DiffrobotPackage.ROBOT__DYNAMICPARAMETERS:
 			return basicSetDynamicparameters(null, msgs);
+		case DiffrobotPackage.ROBOT__SENSOR:
+			return ((InternalEList<?>) getSensor()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -465,6 +491,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			if (resolve)
 				return getRootaxis();
 			return basicGetRootaxis();
+		case DiffrobotPackage.ROBOT__SENSOR:
+			return getSensor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -500,6 +528,10 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 		case DiffrobotPackage.ROBOT__ROOTAXIS:
 			setRootaxis((WheelAxis) newValue);
 			return;
+		case DiffrobotPackage.ROBOT__SENSOR:
+			getSensor().clear();
+			getSensor().addAll((Collection<? extends Sensor>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -533,6 +565,9 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 		case DiffrobotPackage.ROBOT__ROOTAXIS:
 			setRootaxis((WheelAxis) null);
 			return;
+		case DiffrobotPackage.ROBOT__SENSOR:
+			getSensor().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -559,6 +594,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			return dynamicparameters != null;
 		case DiffrobotPackage.ROBOT__ROOTAXIS:
 			return rootaxis != null;
+		case DiffrobotPackage.ROBOT__SENSOR:
+			return sensor != null && !sensor.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
