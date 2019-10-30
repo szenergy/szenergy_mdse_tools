@@ -258,7 +258,7 @@ class VehicleConfigToKinematicTree {
     			setupVehicleKinematicStructure(kinematic_param, geom_settings, dyn_param, kinematic_param.wheelbase, 0.0)
     		}
     	}
-    	vehicle.nodeconfiguration.computationnode.forEach[
+    	vehicle.nodeconfiguration?.computationnode?.forEach[
     		if (it instanceof VehicleControl)
     		{
 				val control_plugin = robotdescriptionpackageFactory.createPlugin

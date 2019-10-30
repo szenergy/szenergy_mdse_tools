@@ -22,7 +22,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import hu.sze.jkk.vehicle.config.vehicleconfig.ComputationNode;
-import hu.sze.jkk.vehicle.config.vehicleconfig.IMU;
 import hu.sze.jkk.vehicle.config.vehicleconfig.ImuTopic;
 import hu.sze.jkk.vehicle.config.vehicleconfig.JointStateTopic;
 import hu.sze.jkk.vehicle.config.vehicleconfig.KinematicParameters;
@@ -160,36 +159,7 @@ public class GenerateXMLConfiguration {
 		Element roselement = doc.createElement("ros");
 		
 		for (ComputationNode cn: vehicle.getNodeconfiguration().getComputationnode()) {
-			if (cn instanceof Odometry) {
-				Element odometry_element = doc.createElement("odom");
-				odometry_element.appendChild(
-					GenerateXMLConfiguration.generateTopicConfiguration(
-						doc,
-						((Odometry) cn).getOdomtopic()
-					)
-				);
-				odometry_element.appendChild(GenerateXMLConfiguration
-						.generateTopicConfiguration(
-								doc, 
-								((Odometry)cn).getSteertopic())
-				);
-				odometry_element.appendChild(GenerateXMLConfiguration
-						.generateTopicConfiguration(
-								doc, 
-								((Odometry)cn).getThrottletopic())
-				);
-				roselement.appendChild(odometry_element);
-			}
-			if (cn instanceof IMU) {
-				Element imu_element = doc.createElement("imu");
-				imu_element.appendChild(
-					GenerateXMLConfiguration.generateTopicConfiguration(
-						doc,
-						((IMU) cn).getImutopic()
-					)
-				);
-				roselement.appendChild(imu_element);
-			}
+			
 			if (cn instanceof VehicleControl) {
 				Element vehicle_element = doc.createElement("vehicle");
 				vehicle_element.appendChild(

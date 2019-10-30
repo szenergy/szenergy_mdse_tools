@@ -42,7 +42,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="topicname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Odometry" eSuperTypes="#//SensorNode">
+  <eClassifiers xsi:type="ecore:EClass" name="Odometry" eSuperTypes="#//Sensor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="throttletopic" lowerBound="1"
         eType="#//ThrottleTopic"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="steertopic" lowerBound="1"
@@ -53,13 +53,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="ComputationNode" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="callbackqueue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SensorNode" abstract="true" eSuperTypes="#//ComputationNode"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IMU" eSuperTypes="#//SensorNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imutopic" lowerBound="1"
-        eType="#//ImuTopic"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imusensor" lowerBound="1"
-        eType="#//ImuSensor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ControlNode" abstract="true" eSuperTypes="#//ComputationNode"/>
   <eClassifiers xsi:type="ecore:EClass" name="VehicleControl" eSuperTypes="#//ControlNode">
@@ -73,11 +66,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="ImuTopic" eSuperTypes="#//RosTopicConfiguration"/>
   <eClassifiers xsi:type="ecore:EClass" name="OdomTopic" eSuperTypes="#//RosTopicConfiguration"/>
   <eClassifiers xsi:type="ecore:EClass" name="LaserTopic" eSuperTypes="#//RosTopicConfiguration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LaserNode" eSuperTypes="#//SensorNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lasertopic" lowerBound="1"
-        eType="#//LaserTopic"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="laser" lowerBound="1" eType="#//Laser"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RosConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rostopicconfiguration"
         upperBound="-1" eType="#//RosTopicConfiguration" containment="true"/>
@@ -117,6 +105,8 @@
         eType="#//DistanceSettings" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="angleparameters" lowerBound="1"
         eType="#//AngleParameters" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lasertopic" lowerBound="1"
+        eType="#//LaserTopic"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SensorConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"

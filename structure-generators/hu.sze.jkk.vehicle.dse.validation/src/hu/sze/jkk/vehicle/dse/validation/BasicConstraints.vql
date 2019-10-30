@@ -14,19 +14,20 @@ pattern notLaserSensorEquipped(v: Vehicle){
 	neg find LaserSensorEquipped(v, _);
 }
 
-pattern ImuSensorEquipped(v: Vehicle, i: IMU)
+pattern ImuSensorEquipped(v: Vehicle, i: ImuSensor)
 {
-	Vehicle.nodeconfiguration(v,n);
-	NodeConfiguration.computationnode(n,i);
-	IMU(i);
+	Vehicle.sensorconfiguration(v, sn);
+	SensorConfiguration.sensor(sn, i);
+	ImuSensor(i);
 }
 
 pattern nodeConfiguration(v:Vehicle){
 	Vehicle.nodeconfiguration(v,c);
 	NodeConfiguration.computationnode(c,vc);
 	VehicleControl(vc);
-	NodeConfiguration.computationnode(c,l);
-	LaserNode(l);
+	Vehicle.sensorconfiguration(v, sn);
+	SensorConfiguration.sensor(sn,l);
+	Laser(l);
 	
 }
 
