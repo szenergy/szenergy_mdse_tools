@@ -31,6 +31,10 @@ import hu.sze.jkk.vehicle.config.vehicleconfig.GNSS
 import hu.sze.jkk.vehicle.config.vehicleconfig.Camera
 import robotdescriptionpackage.CameraType
 
+class InvalidSensorModel extends Exception{
+	
+}
+
 class SensorConfigToSensor {
 	extension BatchTransformation transformation
     extension BatchTransformationStatements statements
@@ -132,16 +136,28 @@ class SensorConfigToSensor {
     			val Lidar lidar = robotdescriptionpackageFactory.createLidar
     			
     			lidar.name = abstractlidar.name    			
-    			lidar.horizontal_angle_limit = robotdescriptionpackageFactory.createAngleLimit
-    			lidar.horizontal_angle_limit.resolution = abstractlidar.horizontal_angle_param.resolution
-    			lidar.horizontal_angle_limit.sample = abstractlidar.horizontal_angle_param.samples
-    			lidar.horizontal_angle_limit.max_angle = abstractlidar.horizontal_angle_param.max_angle*Math.PI/180.0
-    			lidar.horizontal_angle_limit.min_angle = abstractlidar.horizontal_angle_param.min_angle*Math.PI/180.0
-    			lidar.vertical_angle_limit = robotdescriptionpackageFactory.createAngleLimit
-    			lidar.vertical_angle_limit.resolution = abstractlidar.vertical_angle_param.resolution
-    			lidar.vertical_angle_limit.sample = abstractlidar.vertical_angle_param.samples
-    			lidar.vertical_angle_limit.max_angle = abstractlidar.vertical_angle_param.max_angle*Math.PI/180.0
-    			lidar.vertical_angle_limit.min_angle = abstractlidar.vertical_angle_param.min_angle*Math.PI/180.0
+    			if (abstractlidar.horizontal_angle_param !== null) {
+    				lidar.horizontal_angle_limit = robotdescriptionpackageFactory.createAngleLimit
+    				lidar.horizontal_angle_limit.resolution = abstractlidar.horizontal_angle_param.resolution
+	    			lidar.horizontal_angle_limit.sample = abstractlidar.horizontal_angle_param.samples
+	    			lidar.horizontal_angle_limit.max_angle = abstractlidar.horizontal_angle_param.max_angle*Math.PI/180.0
+	    			lidar.horizontal_angle_limit.min_angle = abstractlidar.horizontal_angle_param.min_angle*Math.PI/180.0
+    			}
+    			else {
+    				throw new InvalidSensorModel
+    			}
+    			if (abstractlidar.vertical_angle_param !== null){
+    				lidar.vertical_angle_limit = robotdescriptionpackageFactory.createAngleLimit
+	    			lidar.vertical_angle_limit.resolution = abstractlidar.vertical_angle_param.resolution
+	    			lidar.vertical_angle_limit.sample = abstractlidar.vertical_angle_param.samples
+	    			lidar.vertical_angle_limit.max_angle = abstractlidar.vertical_angle_param.max_angle*Math.PI/180.0
+	    			lidar.vertical_angle_limit.min_angle = abstractlidar.vertical_angle_param.min_angle*Math.PI/180.0    				
+    			}
+    			else
+    			{
+    				throw new InvalidSensorModel
+    			}
+    			
     			lidar.rangeprop = robotdescriptionpackageFactory.createRangeProp
     			lidar.rangeprop.measMax = abstractlidar.max_range
     			lidar.rangeprop.measMin = abstractlidar.min_range

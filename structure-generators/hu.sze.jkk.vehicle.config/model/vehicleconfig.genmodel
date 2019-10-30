@@ -47,6 +47,7 @@
     <genClasses ecoreClass="vehicleconfig.ecore#//RosTopicConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//RosTopicConfiguration/topicname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//RosTopicConfiguration/frequency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//RosTopicConfiguration/name"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//Odometry">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Odometry/throttletopic"/>

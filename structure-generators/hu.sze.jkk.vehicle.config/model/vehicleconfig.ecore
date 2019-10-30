@@ -41,6 +41,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="RosTopicConfiguration" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="topicname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Odometry" eSuperTypes="#//Sensor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="throttletopic" lowerBound="1"
