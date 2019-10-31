@@ -96,6 +96,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Sensor/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Sensor/update_rate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Sensor/localizer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Sensor/networkdefinition"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//Laser">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Laser/distancesettings"/>
@@ -211,6 +212,10 @@
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//LowLevelPort">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//LowLevelPort/name"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//NetworkDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//NetworkDefinition/ip_address"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//NetworkDefinition/port"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
