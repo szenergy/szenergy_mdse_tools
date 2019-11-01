@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.Node#getName <em>Name</em>}</li>
  *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.Node#getType <em>Type</em>}</li>
  *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.Node#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.Node#getRospkg <em>Rospkg</em>}</li>
  * </ul>
  *
  * @see hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelPackage#getNode()
@@ -80,5 +81,27 @@ public interface Node extends EObject {
 	 * @generated
 	 */
 	EList<Parameter> getParameter();
+
+	/**
+	 * Returns the value of the '<em><b>Rospkg</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rospkg</em>' attribute.
+	 * @see #setRospkg(String)
+	 * @see hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelPackage#getNode_Rospkg()
+	 * @model
+	 * @generated
+	 */
+	String getRospkg();
+
+	/**
+	 * Sets the value of the '{@link hu.sze.jkk.robot.launch.model.launchmodel.Node#getRospkg <em>Rospkg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rospkg</em>' attribute.
+	 * @see #getRospkg()
+	 * @generated
+	 */
+	void setRospkg(String value);
 
 } // Node

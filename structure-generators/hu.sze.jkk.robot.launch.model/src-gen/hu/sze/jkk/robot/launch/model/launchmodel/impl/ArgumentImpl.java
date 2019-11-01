@@ -2,8 +2,8 @@
  */
 package hu.sze.jkk.robot.launch.model.launchmodel.impl;
 
+import hu.sze.jkk.robot.launch.model.launchmodel.Argument;
 import hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelPackage;
-import hu.sze.jkk.robot.launch.model.launchmodel.Parameter;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,19 +14,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Parameter</b></em>'.
+ * An implementation of the model object '<em><b>Argument</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.ParameterImpl#getName <em>Name</em>}</li>
- *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.ParameterImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.ArgumentImpl#getName <em>Name</em>}</li>
+ *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.ArgumentImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ParameterImpl extends MinimalEObjectImpl.Container implements Parameter {
+public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argument {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,7 +72,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterImpl() {
+	protected ArgumentImpl() {
 		super();
 	}
 
@@ -83,7 +83,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LaunchmodelPackage.Literals.PARAMETER;
+		return LaunchmodelPackage.Literals.ARGUMENT;
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LaunchmodelPackage.PARAMETER__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, LaunchmodelPackage.ARGUMENT__NAME, oldName, name));
 	}
 
 	/**
@@ -125,8 +125,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LaunchmodelPackage.PARAMETER__VALUE, oldValue,
-					value));
+			eNotify(new ENotificationImpl(this, Notification.SET, LaunchmodelPackage.ARGUMENT__VALUE, oldValue, value));
 	}
 
 	/**
@@ -137,9 +136,9 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case LaunchmodelPackage.PARAMETER__NAME:
+		case LaunchmodelPackage.ARGUMENT__NAME:
 			return getName();
-		case LaunchmodelPackage.PARAMETER__VALUE:
+		case LaunchmodelPackage.ARGUMENT__VALUE:
 			return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -153,10 +152,10 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case LaunchmodelPackage.PARAMETER__NAME:
+		case LaunchmodelPackage.ARGUMENT__NAME:
 			setName((String) newValue);
 			return;
-		case LaunchmodelPackage.PARAMETER__VALUE:
+		case LaunchmodelPackage.ARGUMENT__VALUE:
 			setValue((String) newValue);
 			return;
 		}
@@ -171,10 +170,10 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case LaunchmodelPackage.PARAMETER__NAME:
+		case LaunchmodelPackage.ARGUMENT__NAME:
 			setName(NAME_EDEFAULT);
 			return;
-		case LaunchmodelPackage.PARAMETER__VALUE:
+		case LaunchmodelPackage.ARGUMENT__VALUE:
 			setValue(VALUE_EDEFAULT);
 			return;
 		}
@@ -189,9 +188,9 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case LaunchmodelPackage.PARAMETER__NAME:
+		case LaunchmodelPackage.ARGUMENT__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		case LaunchmodelPackage.PARAMETER__VALUE:
+		case LaunchmodelPackage.ARGUMENT__VALUE:
 			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
@@ -216,4 +215,4 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 		return result.toString();
 	}
 
-} //ParameterImpl
+} //ArgumentImpl

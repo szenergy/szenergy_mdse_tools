@@ -85,13 +85,31 @@ public interface LaunchmodelPackage extends EPackage {
 	int LAUNCH__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Argument</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH__ARGUMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Launchparameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH__LAUNCHPARAMETERS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Launch</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LAUNCH_FEATURE_COUNT = 2;
+	int LAUNCH_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Launch</em>' class.
@@ -140,13 +158,22 @@ public interface LaunchmodelPackage extends EPackage {
 	int NODE__PARAMETER = 2;
 
 	/**
+	 * The feature id for the '<em><b>Rospkg</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__ROSPKG = 3;
+
+	/**
 	 * The number of structural features of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_FEATURE_COUNT = 3;
+	int NODE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -193,6 +220,15 @@ public interface LaunchmodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_TRANSFORM__PARAMETER = NODE__PARAMETER;
+
+	/**
+	 * The feature id for the '<em><b>Rospkg</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_TRANSFORM__ROSPKG = NODE__ROSPKG;
 
 	/**
 	 * The feature id for the '<em><b>Vec3</b></em>' containment reference.
@@ -323,13 +359,22 @@ public interface LaunchmodelPackage extends EPackage {
 	int PARAMETER__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__VALUE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = 1;
+	int PARAMETER_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -339,6 +384,52 @@ public interface LaunchmodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.ArgumentImpl <em>Argument</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hu.sze.jkk.robot.launch.model.launchmodel.impl.ArgumentImpl
+	 * @see hu.sze.jkk.robot.launch.model.launchmodel.impl.LaunchmodelPackageImpl#getArgument()
+	 * @generated
+	 */
+	int ARGUMENT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARGUMENT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARGUMENT__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Argument</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARGUMENT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Argument</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARGUMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link hu.sze.jkk.robot.launch.model.launchmodel.Launch <em>Launch</em>}'.
@@ -371,6 +462,28 @@ public interface LaunchmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLaunch_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link hu.sze.jkk.robot.launch.model.launchmodel.Launch#getArgument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Argument</em>'.
+	 * @see hu.sze.jkk.robot.launch.model.launchmodel.Launch#getArgument()
+	 * @see #getLaunch()
+	 * @generated
+	 */
+	EReference getLaunch_Argument();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link hu.sze.jkk.robot.launch.model.launchmodel.Launch#getLaunchparameters <em>Launchparameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Launchparameters</em>'.
+	 * @see hu.sze.jkk.robot.launch.model.launchmodel.Launch#getLaunchparameters()
+	 * @see #getLaunch()
+	 * @generated
+	 */
+	EReference getLaunch_Launchparameters();
 
 	/**
 	 * Returns the meta object for class '{@link hu.sze.jkk.robot.launch.model.launchmodel.Node <em>Node</em>}'.
@@ -414,6 +527,17 @@ public interface LaunchmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNode_Parameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hu.sze.jkk.robot.launch.model.launchmodel.Node#getRospkg <em>Rospkg</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rospkg</em>'.
+	 * @see hu.sze.jkk.robot.launch.model.launchmodel.Node#getRospkg()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EAttribute getNode_Rospkg();
 
 	/**
 	 * Returns the meta object for class '{@link hu.sze.jkk.robot.launch.model.launchmodel.StaticTransform <em>Static Transform</em>}'.
@@ -534,6 +658,49 @@ public interface LaunchmodelPackage extends EPackage {
 	EAttribute getParameter_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link hu.sze.jkk.robot.launch.model.launchmodel.Parameter#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see hu.sze.jkk.robot.launch.model.launchmodel.Parameter#getValue()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Value();
+
+	/**
+	 * Returns the meta object for class '{@link hu.sze.jkk.robot.launch.model.launchmodel.Argument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Argument</em>'.
+	 * @see hu.sze.jkk.robot.launch.model.launchmodel.Argument
+	 * @generated
+	 */
+	EClass getArgument();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hu.sze.jkk.robot.launch.model.launchmodel.Argument#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see hu.sze.jkk.robot.launch.model.launchmodel.Argument#getName()
+	 * @see #getArgument()
+	 * @generated
+	 */
+	EAttribute getArgument_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hu.sze.jkk.robot.launch.model.launchmodel.Argument#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see hu.sze.jkk.robot.launch.model.launchmodel.Argument#getValue()
+	 * @see #getArgument()
+	 * @generated
+	 */
+	EAttribute getArgument_Value();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -583,6 +750,22 @@ public interface LaunchmodelPackage extends EPackage {
 		EAttribute LAUNCH__NAME = eINSTANCE.getLaunch_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Argument</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LAUNCH__ARGUMENT = eINSTANCE.getLaunch_Argument();
+
+		/**
+		 * The meta object literal for the '<em><b>Launchparameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LAUNCH__LAUNCHPARAMETERS = eINSTANCE.getLaunch_Launchparameters();
+
+		/**
 		 * The meta object literal for the '{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.NodeImpl <em>Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -615,6 +798,14 @@ public interface LaunchmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NODE__PARAMETER = eINSTANCE.getNode_Parameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Rospkg</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE__ROSPKG = eINSTANCE.getNode_Rospkg();
 
 		/**
 		 * The meta object literal for the '{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.StaticTransformImpl <em>Static Transform</em>}' class.
@@ -709,6 +900,40 @@ public interface LaunchmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__VALUE = eINSTANCE.getParameter_Value();
+
+		/**
+		 * The meta object literal for the '{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.ArgumentImpl <em>Argument</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hu.sze.jkk.robot.launch.model.launchmodel.impl.ArgumentImpl
+		 * @see hu.sze.jkk.robot.launch.model.launchmodel.impl.LaunchmodelPackageImpl#getArgument()
+		 * @generated
+		 */
+		EClass ARGUMENT = eINSTANCE.getArgument();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARGUMENT__NAME = eINSTANCE.getArgument_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARGUMENT__VALUE = eINSTANCE.getArgument_Value();
 
 	}
 

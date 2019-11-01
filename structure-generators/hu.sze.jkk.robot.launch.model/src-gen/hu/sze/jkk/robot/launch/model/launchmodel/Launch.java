@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.Launch#getNode <em>Node</em>}</li>
  *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.Launch#getName <em>Name</em>}</li>
+ *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.Launch#getArgument <em>Argument</em>}</li>
+ *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.Launch#getLaunchparameters <em>Launchparameters</em>}</li>
  * </ul>
  *
  * @see hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelPackage#getLaunch()
@@ -57,5 +59,29 @@ public interface Launch extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Argument</b></em>' containment reference list.
+	 * The list contents are of type {@link hu.sze.jkk.robot.launch.model.launchmodel.Argument}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Argument</em>' containment reference list.
+	 * @see hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelPackage#getLaunch_Argument()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Argument> getArgument();
+
+	/**
+	 * Returns the value of the '<em><b>Launchparameters</b></em>' containment reference list.
+	 * The list contents are of type {@link hu.sze.jkk.robot.launch.model.launchmodel.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Launchparameters</em>' containment reference list.
+	 * @see hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelPackage#getLaunch_Launchparameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Parameter> getLaunchparameters();
 
 } // Launch

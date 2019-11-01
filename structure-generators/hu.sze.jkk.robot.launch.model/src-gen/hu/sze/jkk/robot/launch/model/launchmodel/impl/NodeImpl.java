@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.NodeImpl#getName <em>Name</em>}</li>
  *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.NodeImpl#getType <em>Type</em>}</li>
  *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.NodeImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.NodeImpl#getRospkg <em>Rospkg</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +88,26 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * @ordered
 	 */
 	protected EList<Parameter> parameter;
+
+	/**
+	 * The default value of the '{@link #getRospkg() <em>Rospkg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRospkg()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ROSPKG_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRospkg() <em>Rospkg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRospkg()
+	 * @generated
+	 * @ordered
+	 */
+	protected String rospkg = ROSPKG_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,6 +188,27 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getRospkg() {
+		return rospkg;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRospkg(String newRospkg) {
+		String oldRospkg = rospkg;
+		rospkg = newRospkg;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LaunchmodelPackage.NODE__ROSPKG, oldRospkg, rospkg));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -190,6 +232,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 			return getType();
 		case LaunchmodelPackage.NODE__PARAMETER:
 			return getParameter();
+		case LaunchmodelPackage.NODE__ROSPKG:
+			return getRospkg();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -213,6 +257,9 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 			getParameter().clear();
 			getParameter().addAll((Collection<? extends Parameter>) newValue);
 			return;
+		case LaunchmodelPackage.NODE__ROSPKG:
+			setRospkg((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -234,6 +281,9 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 		case LaunchmodelPackage.NODE__PARAMETER:
 			getParameter().clear();
 			return;
+		case LaunchmodelPackage.NODE__ROSPKG:
+			setRospkg(ROSPKG_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -252,6 +302,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 			return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 		case LaunchmodelPackage.NODE__PARAMETER:
 			return parameter != null && !parameter.isEmpty();
+		case LaunchmodelPackage.NODE__ROSPKG:
+			return ROSPKG_EDEFAULT == null ? rospkg != null : !ROSPKG_EDEFAULT.equals(rospkg);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -271,6 +323,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 		result.append(name);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", rospkg: ");
+		result.append(rospkg);
 		result.append(')');
 		return result.toString();
 	}

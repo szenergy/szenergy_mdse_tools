@@ -2,10 +2,12 @@
  */
 package hu.sze.jkk.robot.launch.model.launchmodel.impl;
 
+import hu.sze.jkk.robot.launch.model.launchmodel.Argument;
 import hu.sze.jkk.robot.launch.model.launchmodel.Launch;
 import hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelPackage;
 import hu.sze.jkk.robot.launch.model.launchmodel.Node;
 
+import hu.sze.jkk.robot.launch.model.launchmodel.Parameter;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -32,6 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.LaunchImpl#getNode <em>Node</em>}</li>
  *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.LaunchImpl#getName <em>Name</em>}</li>
+ *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.LaunchImpl#getArgument <em>Argument</em>}</li>
+ *   <li>{@link hu.sze.jkk.robot.launch.model.launchmodel.impl.LaunchImpl#getLaunchparameters <em>Launchparameters</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +70,26 @@ public class LaunchImpl extends MinimalEObjectImpl.Container implements Launch {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getArgument() <em>Argument</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArgument()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Argument> argument;
+
+	/**
+	 * The cached value of the '{@link #getLaunchparameters() <em>Launchparameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLaunchparameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> launchparameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,11 +148,40 @@ public class LaunchImpl extends MinimalEObjectImpl.Container implements Launch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Argument> getArgument() {
+		if (argument == null) {
+			argument = new EObjectContainmentEList<Argument>(Argument.class, this, LaunchmodelPackage.LAUNCH__ARGUMENT);
+		}
+		return argument;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Parameter> getLaunchparameters() {
+		if (launchparameters == null) {
+			launchparameters = new EObjectContainmentEList<Parameter>(Parameter.class, this,
+					LaunchmodelPackage.LAUNCH__LAUNCHPARAMETERS);
+		}
+		return launchparameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case LaunchmodelPackage.LAUNCH__NODE:
 			return ((InternalEList<?>) getNode()).basicRemove(otherEnd, msgs);
+		case LaunchmodelPackage.LAUNCH__ARGUMENT:
+			return ((InternalEList<?>) getArgument()).basicRemove(otherEnd, msgs);
+		case LaunchmodelPackage.LAUNCH__LAUNCHPARAMETERS:
+			return ((InternalEList<?>) getLaunchparameters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -145,6 +198,10 @@ public class LaunchImpl extends MinimalEObjectImpl.Container implements Launch {
 			return getNode();
 		case LaunchmodelPackage.LAUNCH__NAME:
 			return getName();
+		case LaunchmodelPackage.LAUNCH__ARGUMENT:
+			return getArgument();
+		case LaunchmodelPackage.LAUNCH__LAUNCHPARAMETERS:
+			return getLaunchparameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,6 +222,14 @@ public class LaunchImpl extends MinimalEObjectImpl.Container implements Launch {
 		case LaunchmodelPackage.LAUNCH__NAME:
 			setName((String) newValue);
 			return;
+		case LaunchmodelPackage.LAUNCH__ARGUMENT:
+			getArgument().clear();
+			getArgument().addAll((Collection<? extends Argument>) newValue);
+			return;
+		case LaunchmodelPackage.LAUNCH__LAUNCHPARAMETERS:
+			getLaunchparameters().clear();
+			getLaunchparameters().addAll((Collection<? extends Parameter>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -183,6 +248,12 @@ public class LaunchImpl extends MinimalEObjectImpl.Container implements Launch {
 		case LaunchmodelPackage.LAUNCH__NAME:
 			setName(NAME_EDEFAULT);
 			return;
+		case LaunchmodelPackage.LAUNCH__ARGUMENT:
+			getArgument().clear();
+			return;
+		case LaunchmodelPackage.LAUNCH__LAUNCHPARAMETERS:
+			getLaunchparameters().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,6 +270,10 @@ public class LaunchImpl extends MinimalEObjectImpl.Container implements Launch {
 			return node != null && !node.isEmpty();
 		case LaunchmodelPackage.LAUNCH__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case LaunchmodelPackage.LAUNCH__ARGUMENT:
+			return argument != null && !argument.isEmpty();
+		case LaunchmodelPackage.LAUNCH__LAUNCHPARAMETERS:
+			return launchparameters != null && !launchparameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

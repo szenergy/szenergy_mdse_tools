@@ -2,6 +2,7 @@
  */
 package hu.sze.jkk.robot.launch.model.launchmodel.impl;
 
+import hu.sze.jkk.robot.launch.model.launchmodel.Argument;
 import hu.sze.jkk.robot.launch.model.launchmodel.Launch;
 import hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelFactory;
 import hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelPackage;
@@ -58,6 +59,13 @@ public class LaunchmodelPackageImpl extends EPackageImpl implements LaunchmodelP
 	 * @generated
 	 */
 	private EClass parameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass argumentEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -155,6 +163,24 @@ public class LaunchmodelPackageImpl extends EPackageImpl implements LaunchmodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getLaunch_Argument() {
+		return (EReference) launchEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLaunch_Launchparameters() {
+		return (EReference) launchEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNode() {
 		return nodeEClass;
 	}
@@ -184,6 +210,15 @@ public class LaunchmodelPackageImpl extends EPackageImpl implements LaunchmodelP
 	 */
 	public EReference getNode_Parameter() {
 		return (EReference) nodeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNode_Rospkg() {
+		return (EAttribute) nodeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -290,6 +325,42 @@ public class LaunchmodelPackageImpl extends EPackageImpl implements LaunchmodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getParameter_Value() {
+		return (EAttribute) parameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getArgument() {
+		return argumentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getArgument_Name() {
+		return (EAttribute) argumentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getArgument_Value() {
+		return (EAttribute) argumentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public LaunchmodelFactory getLaunchmodelFactory() {
 		return (LaunchmodelFactory) getEFactoryInstance();
 	}
@@ -317,11 +388,14 @@ public class LaunchmodelPackageImpl extends EPackageImpl implements LaunchmodelP
 		launchEClass = createEClass(LAUNCH);
 		createEReference(launchEClass, LAUNCH__NODE);
 		createEAttribute(launchEClass, LAUNCH__NAME);
+		createEReference(launchEClass, LAUNCH__ARGUMENT);
+		createEReference(launchEClass, LAUNCH__LAUNCHPARAMETERS);
 
 		nodeEClass = createEClass(NODE);
 		createEAttribute(nodeEClass, NODE__NAME);
 		createEAttribute(nodeEClass, NODE__TYPE);
 		createEReference(nodeEClass, NODE__PARAMETER);
+		createEAttribute(nodeEClass, NODE__ROSPKG);
 
 		staticTransformEClass = createEClass(STATIC_TRANSFORM);
 		createEReference(staticTransformEClass, STATIC_TRANSFORM__VEC3);
@@ -336,6 +410,11 @@ public class LaunchmodelPackageImpl extends EPackageImpl implements LaunchmodelP
 
 		parameterEClass = createEClass(PARAMETER);
 		createEAttribute(parameterEClass, PARAMETER__NAME);
+		createEAttribute(parameterEClass, PARAMETER__VALUE);
+
+		argumentEClass = createEClass(ARGUMENT);
+		createEAttribute(argumentEClass, ARGUMENT__NAME);
+		createEAttribute(argumentEClass, ARGUMENT__VALUE);
 	}
 
 	/**
@@ -376,6 +455,12 @@ public class LaunchmodelPackageImpl extends EPackageImpl implements LaunchmodelP
 				IS_ORDERED);
 		initEAttribute(getLaunch_Name(), ecorePackage.getEString(), "name", null, 0, 1, Launch.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLaunch_Argument(), this.getArgument(), null, "argument", null, 0, -1, Launch.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLaunch_Launchparameters(), this.getParameter(), null, "launchparameters", null, 0, -1,
+				Launch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Node.class, !IS_TRANSIENT,
@@ -385,6 +470,8 @@ public class LaunchmodelPackageImpl extends EPackageImpl implements LaunchmodelP
 		initEReference(getNode_Parameter(), this.getParameter(), null, "parameter", null, 0, -1, Node.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNode_Rospkg(), ecorePackage.getEString(), "rospkg", null, 0, 1, Node.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(staticTransformEClass, StaticTransform.class, "StaticTransform", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -412,6 +499,15 @@ public class LaunchmodelPackageImpl extends EPackageImpl implements LaunchmodelP
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, Parameter.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(argumentEClass, Argument.class, "Argument", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getArgument_Name(), ecorePackage.getEString(), "name", null, 0, 1, Argument.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getArgument_Value(), ecorePackage.getEString(), "value", null, 0, 1, Argument.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

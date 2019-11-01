@@ -66,6 +66,8 @@ public class LaunchmodelFactoryImpl extends EFactoryImpl implements LaunchmodelF
 			return createVec3();
 		case LaunchmodelPackage.PARAMETER:
 			return createParameter();
+		case LaunchmodelPackage.ARGUMENT:
+			return createArgument();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -119,6 +121,16 @@ public class LaunchmodelFactoryImpl extends EFactoryImpl implements LaunchmodelF
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Argument createArgument() {
+		ArgumentImpl argument = new ArgumentImpl();
+		return argument;
 	}
 
 	/**
