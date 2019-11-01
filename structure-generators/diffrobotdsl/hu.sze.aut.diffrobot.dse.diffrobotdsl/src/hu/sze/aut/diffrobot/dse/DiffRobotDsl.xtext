@@ -10,7 +10,7 @@ Robot returns Robot:
 	name=EString
 	'{'
 		('rootaxis' rootaxis=[WheelAxis|EString])?
-		('wheelaxis' '{' wheelaxis+=WheelAxis ( "," wheelaxis+=WheelAxis)* '}' )?
+		('wheelaxes' '{' wheelaxis+=WheelAxis ( "," wheelaxis+=WheelAxis)* '}' )?
 		('kinematicparameters' kinematicparameters=KinematicParameters)?
 		('wheelparemeters' wheelparemeters=WheelParemeters)?
 		('hull' hull=HullComponent)?
@@ -32,6 +32,7 @@ Sensor returns Sensor:
 
 WheelAxis returns WheelAxis:
 	{WheelAxis}
+	'axis'
 	'{'
 		('wheels' wheels=EInt)?
 		('axis' axis=AxisOrientation)?

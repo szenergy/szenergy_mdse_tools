@@ -1,0 +1,19 @@
+robot fiekrobot {
+	
+	wheelaxes {
+		axis {
+			wheels 2		
+			axis HORIZONTAL
+			length 0.5
+			axislocation { displacement { x 0.5 y 0.0 z -0.1 } }
+			
+		},
+		axis {
+			wheels 1
+			axis VERTICAL
+			length 0.1
+			axislocation { displacement { x -0.4 y 0.0 z -0.2}}
+		}
+	}
+	
+}
