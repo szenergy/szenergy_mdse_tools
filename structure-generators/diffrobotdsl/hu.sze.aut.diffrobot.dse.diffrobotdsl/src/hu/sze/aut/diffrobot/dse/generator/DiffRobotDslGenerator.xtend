@@ -15,6 +15,7 @@ import java.io.ByteArrayOutputStream
 import org.eclipse.emf.ecore.util.EcoreUtil
 import java.io.ByteArrayInputStream
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.emf.common.util.URI
 
 /**
  * Generates code from your model files on save.
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 class DiffRobotDslGenerator extends AbstractGenerator {
 	
 	val ResourceSet resourceset = new ResourceSetImpl()
-	var Resource _resource_can_model
+	var Resource _resource_robot_output
 	
 	new(){
 		resourceset.getResourceFactoryRegistry().getExtensionToFactoryMap()
@@ -37,6 +38,7 @@ class DiffRobotDslGenerator extends AbstractGenerator {
 		val Robot robot = resource.allContents.filter[it instanceof Robot].head as Robot
 		//val Resource output_resource = Resource.
 		val Resource output_resource = resourceset.createResource(resource.URI)
+		
 		output_resource.contents.add(EcoreUtil.copy(robot))
 		val	bin = new ByteArrayOutputStream()
 		output_resource.save(bin ,null)

@@ -24,6 +24,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="wheelparemeters" eType="#//WheelParemeters"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="axislocation" eType="#//AxisLocation"
         containment="true" eOpposite="#//AxisLocation/wheelaxis"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KinematicParameters"/>
   <eClassifiers xsi:type="ecore:EClass" name="WheelParemeters">

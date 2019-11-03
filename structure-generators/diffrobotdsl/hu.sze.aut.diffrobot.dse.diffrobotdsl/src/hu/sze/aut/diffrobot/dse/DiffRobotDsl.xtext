@@ -32,7 +32,7 @@ Sensor returns Sensor:
 
 WheelAxis returns WheelAxis:
 	{WheelAxis}
-	'axis'
+	'axis' name=EString
 	'{'
 		('wheels' wheels=EInt)?
 		('axis' axis=AxisOrientation)?

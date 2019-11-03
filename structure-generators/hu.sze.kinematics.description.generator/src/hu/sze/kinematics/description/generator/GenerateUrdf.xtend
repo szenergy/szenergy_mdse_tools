@@ -46,6 +46,12 @@ import robotdescriptionpackage.Lidar
 import robotdescriptionpackage.GNSS
 import robotdescriptionpackage.Camera
 
+class InvalidJointElement extends Exception{
+	new(String message){
+		super(message);
+	}
+}
+
 class GenerateUrdf {
 	val Element kinematic_tree;
 	val Map<Joint, ArrayList<Joint>> jointsetup;
@@ -486,30 +492,35 @@ class GenerateUrdf {
 		// Template scaling
 		var float sx = 1.0f
 		var float sy = 1.0f
-		var float sz = 1.0f		
+		var float sz = 1.0f
+		if (j.child!==null){
 		 
-		if (j.getChild() instanceof TemplateInstantiation){
+			if (j.getChild() instanceof TemplateInstantiation){
+				
+				val child_name = j.getChild().getName() + "_" + (j.child as TemplateInstantiation).template.link.get(0).name;
+				link_child_name_attr.setValue(prefix + child_name);
+				generateTemplate(doc, j, prefix)
+			}
+			else{			
+				link_child_name_attr.setValue(prefix + j.getChild().getName());
+			}
+			child_link_element.setAttributeNode(link_child_name_attr);
+			joint_elemnt.appendChild(parent_link_element);
+			joint_elemnt.appendChild(child_link_element);
 			
-			val child_name = j.getChild().getName() + "_" + (j.child as TemplateInstantiation).template.link.get(0).name;
-			link_child_name_attr.setValue(prefix + child_name);
-			generateTemplate(doc, j, prefix)
-		}
-		else{
-			link_child_name_attr.setValue(prefix + j.getChild().getName());
-		}
-		child_link_element.setAttributeNode(link_child_name_attr);
-		joint_elemnt.appendChild(parent_link_element);
-		joint_elemnt.appendChild(child_link_element);
+			joint_elemnt.appendChild(generateAxisElement(doc, j.axis));
+			if (j.getOrigin()!==null) {
+				joint_elemnt.appendChild(generateOriginElement(doc, j.getOrigin()));
+			}
+			if (!(j instanceof SphericalJoint))		
+			{
+				if (j.axis.limit!==null){
+					joint_elemnt.appendChild(generateLimitElement(doc, j));
+				}	
+			}
 		
-		joint_elemnt.appendChild(generateAxisElement(doc, j.axis));
-		if (j.getOrigin()!==null) {
-			joint_elemnt.appendChild(generateOriginElement(doc, j.getOrigin()));
-		}
-		if (!(j instanceof SphericalJoint))		
-		{
-			if (j.axis.limit!==null){
-				joint_elemnt.appendChild(generateLimitElement(doc, j));
-			}	
+		}else{
+			throw new InvalidJointElement('''Child element is not set: «j.name»''')
 		}
 		return joint_elemnt;
 	}

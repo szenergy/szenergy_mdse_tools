@@ -30,6 +30,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelAxis/length"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference diffrobot.ecore#//WheelAxis/wheelparemeters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//WheelAxis/axislocation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelAxis/name"/>
     </genClasses>
     <genClasses ecoreClass="diffrobot.ecore#//KinematicParameters"/>
     <genClasses ecoreClass="diffrobot.ecore#//WheelParemeters">

@@ -72,6 +72,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_agi1sc0PEem1CMySHjsINg" fontColor="2697711" fontName="Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_agi1ss0PEem1CMySHjsINg"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_MSQ7AP5EEemE86HYzS623w" type="3010" element="_MRiiQP5EEemE86HYzS623w">
+              <styles xmi:type="notation:FontStyle" xmi:id="_MSQ7Af5EEemE86HYzS623w" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_MSQ7Av5EEemE86HYzS623w"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_eqW1os0NEem1CMySHjsINg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_eqW1o80NEem1CMySHjsINg"/>
           </children>
@@ -436,7 +440,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_bvfVEs0PEem1CMySHjsINg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_MzjqNf5EEemE86HYzS623w" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
@@ -460,6 +464,14 @@
         <target xmi:type="ecore:EAttribute" href="diffrobot.ecore#//WheelAxis/length"/>
         <semanticElements xmi:type="ecore:EAttribute" href="diffrobot.ecore#//WheelAxis/length"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_bvhKQs0PEem1CMySHjsINg" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_MRiiQP5EEemE86HYzS623w" name="name : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="diffrobot.ecore#//WheelAxis/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="diffrobot.ecore#//WheelAxis/name"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_Mzpw0P5EEemE86HYzS623w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>

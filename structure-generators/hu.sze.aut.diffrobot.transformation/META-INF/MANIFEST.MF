@@ -11,3 +11,4 @@ Require-Bundle: com.google.guava,
  org.eclipse.xtend.lib.macro,
  hu.sze.jkk.diffrobot.model;bundle-version="0.1.0",
  hu.sze.kinematics.robot.description.model;bundle-version="1.0.0"
+Export-Package: hu.sze.aut.diffrobot.transformation
