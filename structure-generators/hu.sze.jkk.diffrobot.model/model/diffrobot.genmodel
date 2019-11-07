@@ -37,12 +37,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParemeters/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParemeters/radius"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParemeters/mass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//WheelParemeters/mesh"/>
     </genClasses>
     <genClasses ecoreClass="diffrobot.ecore#//HullComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//HullComponent/mass"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//HullComponent/mesh"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//HullComponent/width"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//HullComponent/depth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//HullComponent/height"/>
     </genClasses>
     <genClasses ecoreClass="diffrobot.ecore#//Mesh">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Mesh/path"/>

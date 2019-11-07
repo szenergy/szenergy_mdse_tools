@@ -6,8 +6,8 @@
         eType="#//WheelAxis" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="kinematicparameters" eType="#//KinematicParameters"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="wheelparemeters" eType="#//WheelParemeters"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wheelparemeters" upperBound="-1"
+        eType="#//WheelParemeters" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hull" eType="#//HullComponent"
         containment="true"/>
@@ -31,6 +31,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="radius" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mesh" eType="#//Mesh" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AxisOrientation">
     <eLiterals name="HORIZONTAL"/>
@@ -38,10 +39,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HullComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mesh" upperBound="-1" eType="#//Mesh"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mesh" eType="#//Mesh" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mesh">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

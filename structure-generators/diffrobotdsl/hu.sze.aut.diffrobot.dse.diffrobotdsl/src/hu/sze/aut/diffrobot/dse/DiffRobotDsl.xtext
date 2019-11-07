@@ -63,6 +63,7 @@ HullComponent returns HullComponent:
 		('mass' mass=EDouble)?
 		('width' width=EDouble)?
 		('depth' depth=EDouble)?
+		('height' depth=EDouble)?
 		('mesh' '{' mesh+=Mesh ( "," mesh+=Mesh)* '}' )?
 	'}';
 
