@@ -17,7 +17,7 @@
     <genClasses ecoreClass="diffrobot.ecore#//Robot">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/wheelaxis"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/kinematicparameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/wheelparemeters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/wheelparameters"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Robot/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/hull"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/dynamicparameters"/>
@@ -28,16 +28,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelAxis/wheels"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelAxis/axis"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelAxis/length"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference diffrobot.ecore#//WheelAxis/wheelparemeters"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference diffrobot.ecore#//WheelAxis/wheelparameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//WheelAxis/axislocation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelAxis/name"/>
     </genClasses>
     <genClasses ecoreClass="diffrobot.ecore#//KinematicParameters"/>
-    <genClasses ecoreClass="diffrobot.ecore#//WheelParemeters">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParemeters/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParemeters/radius"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParemeters/mass"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//WheelParemeters/mesh"/>
+    <genClasses ecoreClass="diffrobot.ecore#//WheelParameters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParameters/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParameters/radius"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParameters/mass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//WheelParameters/mesh"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelParameters/width"/>
     </genClasses>
     <genClasses ecoreClass="diffrobot.ecore#//HullComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//HullComponent/mass"/>

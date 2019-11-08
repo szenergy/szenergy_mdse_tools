@@ -2,6 +2,8 @@ package hu.sze.aut.diffrobot.transformation.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.StringWriter;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -36,13 +38,20 @@ class TestDiffrobotKinematicGeneration {
 		    transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 		    transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
 		    StringWriter writer = new StringWriter();
-		    transformer.transform(new DOMSource(doc), new StreamResult(System.out));
+		    // Save as test artifact output
+		    FileWriter fw = new FileWriter("./test-output-data/"+robot.getName().toLowerCase()+".urdf");
+		    transformer.transform(new DOMSource(doc), new StreamResult(fw));
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			fail(e.getMessage());
 		} catch (TransformerException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			fail(e.getMessage());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			fail(e.getMessage());
+		}finally {
+			
 		}
 		
 	}

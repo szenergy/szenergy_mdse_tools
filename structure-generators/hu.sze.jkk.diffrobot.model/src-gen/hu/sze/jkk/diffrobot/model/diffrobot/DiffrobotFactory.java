@@ -49,13 +49,13 @@ public interface DiffrobotFactory extends EFactory {
 	KinematicParameters createKinematicParameters();
 
 	/**
-	 * Returns a new object of class '<em>Wheel Paremeters</em>'.
+	 * Returns a new object of class '<em>Wheel Parameters</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Wheel Paremeters</em>'.
+	 * @return a new object of class '<em>Wheel Parameters</em>'.
 	 * @generated
 	 */
-	WheelParemeters createWheelParemeters();
+	WheelParameters createWheelParameters();
 
 	/**
 	 * Returns a new object of class '<em>Hull Component</em>'.

@@ -63,8 +63,8 @@ public class DiffrobotFactoryImpl extends EFactoryImpl implements DiffrobotFacto
 			return createWheelAxis();
 		case DiffrobotPackage.KINEMATIC_PARAMETERS:
 			return createKinematicParameters();
-		case DiffrobotPackage.WHEEL_PAREMETERS:
-			return createWheelParemeters();
+		case DiffrobotPackage.WHEEL_PARAMETERS:
+			return createWheelParameters();
 		case DiffrobotPackage.HULL_COMPONENT:
 			return createHullComponent();
 		case DiffrobotPackage.MESH:
@@ -149,9 +149,9 @@ public class DiffrobotFactoryImpl extends EFactoryImpl implements DiffrobotFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public WheelParemeters createWheelParemeters() {
-		WheelParemetersImpl wheelParemeters = new WheelParemetersImpl();
-		return wheelParemeters;
+	public WheelParameters createWheelParameters() {
+		WheelParametersImpl wheelParameters = new WheelParametersImpl();
+		return wheelParameters;
 	}
 
 	/**

@@ -87,9 +87,9 @@ public class DiffrobotSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case DiffrobotPackage.WHEEL_PAREMETERS: {
-			WheelParemeters wheelParemeters = (WheelParemeters) theEObject;
-			T result = caseWheelParemeters(wheelParemeters);
+		case DiffrobotPackage.WHEEL_PARAMETERS: {
+			WheelParameters wheelParameters = (WheelParameters) theEObject;
+			T result = caseWheelParameters(wheelParameters);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -203,17 +203,17 @@ public class DiffrobotSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Wheel Paremeters</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Wheel Parameters</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Wheel Paremeters</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Wheel Parameters</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseWheelParemeters(WheelParemeters object) {
+	public T caseWheelParameters(WheelParameters object) {
 		return null;
 	}
 

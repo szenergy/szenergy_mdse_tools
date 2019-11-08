@@ -2,8 +2,6 @@
  */
 package hu.sze.jkk.diffrobot.model.diffrobot;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.HullComponent#getMesh <em>Mesh</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.HullComponent#getWidth <em>Width</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.HullComponent#getDepth <em>Depth</em>}</li>
+ *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.HullComponent#getHeight <em>Height</em>}</li>
  * </ul>
  *
  * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getHullComponent()
@@ -49,16 +48,26 @@ public interface HullComponent extends EObject {
 	void setMass(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Mesh</b></em>' containment reference list.
-	 * The list contents are of type {@link hu.sze.jkk.diffrobot.model.diffrobot.Mesh}.
+	 * Returns the value of the '<em><b>Mesh</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mesh</em>' containment reference list.
+	 * @return the value of the '<em>Mesh</em>' containment reference.
+	 * @see #setMesh(Mesh)
 	 * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getHullComponent_Mesh()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Mesh> getMesh();
+	Mesh getMesh();
+
+	/**
+	 * Sets the value of the '{@link hu.sze.jkk.diffrobot.model.diffrobot.HullComponent#getMesh <em>Mesh</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mesh</em>' containment reference.
+	 * @see #getMesh()
+	 * @generated
+	 */
+	void setMesh(Mesh value);
 
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' attribute.
@@ -103,5 +112,27 @@ public interface HullComponent extends EObject {
 	 * @generated
 	 */
 	void setDepth(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Height</em>' attribute.
+	 * @see #setHeight(double)
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getHullComponent_Height()
+	 * @model
+	 * @generated
+	 */
+	double getHeight();
+
+	/**
+	 * Sets the value of the '{@link hu.sze.jkk.diffrobot.model.diffrobot.HullComponent#getHeight <em>Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Height</em>' attribute.
+	 * @see #getHeight()
+	 * @generated
+	 */
+	void setHeight(double value);
 
 } // HullComponent
