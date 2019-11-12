@@ -16,8 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getWheels <em>Wheels</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getAxis <em>Axis</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getLength <em>Length</em>}</li>
- *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getWheelparemeters <em>Wheelparemeters</em>}</li>
+ *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getWheelparameters <em>Wheelparameters</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getAxislocation <em>Axislocation</em>}</li>
+ *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getWheelAxis()
@@ -95,26 +96,26 @@ public interface WheelAxis extends EObject {
 	void setLength(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Wheelparemeters</b></em>' reference.
+	 * Returns the value of the '<em><b>Wheelparameters</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Wheelparemeters</em>' reference.
-	 * @see #setWheelparemeters(WheelParemeters)
-	 * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getWheelAxis_Wheelparemeters()
+	 * @return the value of the '<em>Wheelparameters</em>' reference.
+	 * @see #setWheelparameters(WheelParameters)
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getWheelAxis_Wheelparameters()
 	 * @model
 	 * @generated
 	 */
-	WheelParemeters getWheelparemeters();
+	WheelParameters getWheelparameters();
 
 	/**
-	 * Sets the value of the '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getWheelparemeters <em>Wheelparemeters</em>}' reference.
+	 * Sets the value of the '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getWheelparameters <em>Wheelparameters</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Wheelparemeters</em>' reference.
-	 * @see #getWheelparemeters()
+	 * @param value the new value of the '<em>Wheelparameters</em>' reference.
+	 * @see #getWheelparameters()
 	 * @generated
 	 */
-	void setWheelparemeters(WheelParemeters value);
+	void setWheelparameters(WheelParameters value);
 
 	/**
 	 * Returns the value of the '<em><b>Axislocation</b></em>' containment reference.
@@ -139,5 +140,27 @@ public interface WheelAxis extends EObject {
 	 * @generated
 	 */
 	void setAxislocation(AxisLocation value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getWheelAxis_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // WheelAxis

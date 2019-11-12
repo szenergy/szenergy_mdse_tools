@@ -3,8 +3,8 @@
 package hu.sze.jkk.diffrobot.model.diffrobot.impl;
 
 import hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage;
-import hu.sze.jkk.diffrobot.model.diffrobot.HullComponent;
 import hu.sze.jkk.diffrobot.model.diffrobot.Mesh;
+import hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -17,22 +17,62 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Hull Component</b></em>'.
+ * An implementation of the model object '<em><b>Wheel Parameters</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.HullComponentImpl#getMass <em>Mass</em>}</li>
- *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.HullComponentImpl#getMesh <em>Mesh</em>}</li>
- *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.HullComponentImpl#getWidth <em>Width</em>}</li>
- *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.HullComponentImpl#getDepth <em>Depth</em>}</li>
- *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.HullComponentImpl#getHeight <em>Height</em>}</li>
+ *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParametersImpl#getName <em>Name</em>}</li>
+ *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParametersImpl#getRadius <em>Radius</em>}</li>
+ *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParametersImpl#getMass <em>Mass</em>}</li>
+ *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParametersImpl#getMesh <em>Mesh</em>}</li>
+ *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParametersImpl#getWidth <em>Width</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class HullComponentImpl extends MinimalEObjectImpl.Container implements HullComponent {
+public class WheelParametersImpl extends MinimalEObjectImpl.Container implements WheelParameters {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRadius() <em>Radius</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRadius()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double RADIUS_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getRadius() <em>Radius</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRadius()
+	 * @generated
+	 * @ordered
+	 */
+	protected double radius = RADIUS_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getMass() <em>Mass</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -84,51 +124,11 @@ public class HullComponentImpl extends MinimalEObjectImpl.Container implements H
 	protected double width = WIDTH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDepth() <em>Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDepth()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double DEPTH_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getDepth() <em>Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDepth()
-	 * @generated
-	 * @ordered
-	 */
-	protected double depth = DEPTH_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getHeight() <em>Height</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHeight()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double HEIGHT_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getHeight() <em>Height</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHeight()
-	 * @generated
-	 * @ordered
-	 */
-	protected double height = HEIGHT_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected HullComponentImpl() {
+	protected WheelParametersImpl() {
 		super();
 	}
 
@@ -139,7 +139,51 @@ public class HullComponentImpl extends MinimalEObjectImpl.Container implements H
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DiffrobotPackage.Literals.HULL_COMPONENT;
+		return DiffrobotPackage.Literals.WHEEL_PARAMETERS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.WHEEL_PARAMETERS__NAME, oldName,
+					name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getRadius() {
+		return radius;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRadius(double newRadius) {
+		double oldRadius = radius;
+		radius = newRadius;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.WHEEL_PARAMETERS__RADIUS, oldRadius,
+					radius));
 	}
 
 	/**
@@ -160,7 +204,7 @@ public class HullComponentImpl extends MinimalEObjectImpl.Container implements H
 		double oldMass = mass;
 		mass = newMass;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.HULL_COMPONENT__MASS, oldMass,
+			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.WHEEL_PARAMETERS__MASS, oldMass,
 					mass));
 	}
 
@@ -183,7 +227,7 @@ public class HullComponentImpl extends MinimalEObjectImpl.Container implements H
 		mesh = newMesh;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					DiffrobotPackage.HULL_COMPONENT__MESH, oldMesh, newMesh);
+					DiffrobotPackage.WHEEL_PARAMETERS__MESH, oldMesh, newMesh);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -202,15 +246,15 @@ public class HullComponentImpl extends MinimalEObjectImpl.Container implements H
 			NotificationChain msgs = null;
 			if (mesh != null)
 				msgs = ((InternalEObject) mesh).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - DiffrobotPackage.HULL_COMPONENT__MESH, null, msgs);
+						EOPPOSITE_FEATURE_BASE - DiffrobotPackage.WHEEL_PARAMETERS__MESH, null, msgs);
 			if (newMesh != null)
 				msgs = ((InternalEObject) newMesh).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - DiffrobotPackage.HULL_COMPONENT__MESH, null, msgs);
+						EOPPOSITE_FEATURE_BASE - DiffrobotPackage.WHEEL_PARAMETERS__MESH, null, msgs);
 			msgs = basicSetMesh(newMesh, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.HULL_COMPONENT__MESH, newMesh,
+			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.WHEEL_PARAMETERS__MESH, newMesh,
 					newMesh));
 	}
 
@@ -232,52 +276,8 @@ public class HullComponentImpl extends MinimalEObjectImpl.Container implements H
 		double oldWidth = width;
 		width = newWidth;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.HULL_COMPONENT__WIDTH, oldWidth,
+			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.WHEEL_PARAMETERS__WIDTH, oldWidth,
 					width));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getDepth() {
-		return depth;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDepth(double newDepth) {
-		double oldDepth = depth;
-		depth = newDepth;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.HULL_COMPONENT__DEPTH, oldDepth,
-					depth));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getHeight() {
-		return height;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setHeight(double newHeight) {
-		double oldHeight = height;
-		height = newHeight;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.HULL_COMPONENT__HEIGHT, oldHeight,
-					height));
 	}
 
 	/**
@@ -288,7 +288,7 @@ public class HullComponentImpl extends MinimalEObjectImpl.Container implements H
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case DiffrobotPackage.HULL_COMPONENT__MESH:
+		case DiffrobotPackage.WHEEL_PARAMETERS__MESH:
 			return basicSetMesh(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -302,16 +302,16 @@ public class HullComponentImpl extends MinimalEObjectImpl.Container implements H
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case DiffrobotPackage.HULL_COMPONENT__MASS:
+		case DiffrobotPackage.WHEEL_PARAMETERS__NAME:
+			return getName();
+		case DiffrobotPackage.WHEEL_PARAMETERS__RADIUS:
+			return getRadius();
+		case DiffrobotPackage.WHEEL_PARAMETERS__MASS:
 			return getMass();
-		case DiffrobotPackage.HULL_COMPONENT__MESH:
+		case DiffrobotPackage.WHEEL_PARAMETERS__MESH:
 			return getMesh();
-		case DiffrobotPackage.HULL_COMPONENT__WIDTH:
+		case DiffrobotPackage.WHEEL_PARAMETERS__WIDTH:
 			return getWidth();
-		case DiffrobotPackage.HULL_COMPONENT__DEPTH:
-			return getDepth();
-		case DiffrobotPackage.HULL_COMPONENT__HEIGHT:
-			return getHeight();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -324,20 +324,20 @@ public class HullComponentImpl extends MinimalEObjectImpl.Container implements H
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case DiffrobotPackage.HULL_COMPONENT__MASS:
+		case DiffrobotPackage.WHEEL_PARAMETERS__NAME:
+			setName((String) newValue);
+			return;
+		case DiffrobotPackage.WHEEL_PARAMETERS__RADIUS:
+			setRadius((Double) newValue);
+			return;
+		case DiffrobotPackage.WHEEL_PARAMETERS__MASS:
 			setMass((Double) newValue);
 			return;
-		case DiffrobotPackage.HULL_COMPONENT__MESH:
+		case DiffrobotPackage.WHEEL_PARAMETERS__MESH:
 			setMesh((Mesh) newValue);
 			return;
-		case DiffrobotPackage.HULL_COMPONENT__WIDTH:
+		case DiffrobotPackage.WHEEL_PARAMETERS__WIDTH:
 			setWidth((Double) newValue);
-			return;
-		case DiffrobotPackage.HULL_COMPONENT__DEPTH:
-			setDepth((Double) newValue);
-			return;
-		case DiffrobotPackage.HULL_COMPONENT__HEIGHT:
-			setHeight((Double) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -351,20 +351,20 @@ public class HullComponentImpl extends MinimalEObjectImpl.Container implements H
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case DiffrobotPackage.HULL_COMPONENT__MASS:
+		case DiffrobotPackage.WHEEL_PARAMETERS__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case DiffrobotPackage.WHEEL_PARAMETERS__RADIUS:
+			setRadius(RADIUS_EDEFAULT);
+			return;
+		case DiffrobotPackage.WHEEL_PARAMETERS__MASS:
 			setMass(MASS_EDEFAULT);
 			return;
-		case DiffrobotPackage.HULL_COMPONENT__MESH:
+		case DiffrobotPackage.WHEEL_PARAMETERS__MESH:
 			setMesh((Mesh) null);
 			return;
-		case DiffrobotPackage.HULL_COMPONENT__WIDTH:
+		case DiffrobotPackage.WHEEL_PARAMETERS__WIDTH:
 			setWidth(WIDTH_EDEFAULT);
-			return;
-		case DiffrobotPackage.HULL_COMPONENT__DEPTH:
-			setDepth(DEPTH_EDEFAULT);
-			return;
-		case DiffrobotPackage.HULL_COMPONENT__HEIGHT:
-			setHeight(HEIGHT_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -378,16 +378,16 @@ public class HullComponentImpl extends MinimalEObjectImpl.Container implements H
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case DiffrobotPackage.HULL_COMPONENT__MASS:
+		case DiffrobotPackage.WHEEL_PARAMETERS__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case DiffrobotPackage.WHEEL_PARAMETERS__RADIUS:
+			return radius != RADIUS_EDEFAULT;
+		case DiffrobotPackage.WHEEL_PARAMETERS__MASS:
 			return mass != MASS_EDEFAULT;
-		case DiffrobotPackage.HULL_COMPONENT__MESH:
+		case DiffrobotPackage.WHEEL_PARAMETERS__MESH:
 			return mesh != null;
-		case DiffrobotPackage.HULL_COMPONENT__WIDTH:
+		case DiffrobotPackage.WHEEL_PARAMETERS__WIDTH:
 			return width != WIDTH_EDEFAULT;
-		case DiffrobotPackage.HULL_COMPONENT__DEPTH:
-			return depth != DEPTH_EDEFAULT;
-		case DiffrobotPackage.HULL_COMPONENT__HEIGHT:
-			return height != HEIGHT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -403,16 +403,16 @@ public class HullComponentImpl extends MinimalEObjectImpl.Container implements H
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (mass: ");
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", radius: ");
+		result.append(radius);
+		result.append(", mass: ");
 		result.append(mass);
 		result.append(", width: ");
 		result.append(width);
-		result.append(", depth: ");
-		result.append(depth);
-		result.append(", height: ");
-		result.append(height);
 		result.append(')');
 		return result.toString();
 	}
 
-} //HullComponentImpl
+} //WheelParametersImpl

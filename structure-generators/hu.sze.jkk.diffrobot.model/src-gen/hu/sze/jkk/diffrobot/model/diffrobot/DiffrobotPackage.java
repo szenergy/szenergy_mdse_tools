@@ -86,13 +86,13 @@ public interface DiffrobotPackage extends EPackage {
 	int ROBOT__KINEMATICPARAMETERS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Wheelparemeters</b></em>' containment reference.
+	 * The feature id for the '<em><b>Wheelparameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROBOT__WHEELPAREMETERS = 2;
+	int ROBOT__WHEELPARAMETERS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -195,13 +195,13 @@ public interface DiffrobotPackage extends EPackage {
 	int WHEEL_AXIS__LENGTH = 2;
 
 	/**
-	 * The feature id for the '<em><b>Wheelparemeters</b></em>' reference.
+	 * The feature id for the '<em><b>Wheelparameters</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WHEEL_AXIS__WHEELPAREMETERS = 3;
+	int WHEEL_AXIS__WHEELPARAMETERS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Axislocation</b></em>' containment reference.
@@ -213,13 +213,22 @@ public interface DiffrobotPackage extends EPackage {
 	int WHEEL_AXIS__AXISLOCATION = 4;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHEEL_AXIS__NAME = 5;
+
+	/**
 	 * The number of structural features of the '<em>Wheel Axis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WHEEL_AXIS_FEATURE_COUNT = 5;
+	int WHEEL_AXIS_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Wheel Axis</em>' class.
@@ -259,14 +268,14 @@ public interface DiffrobotPackage extends EPackage {
 	int KINEMATIC_PARAMETERS_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParemetersImpl <em>Wheel Paremeters</em>}' class.
+	 * The meta object id for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParametersImpl <em>Wheel Parameters</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParemetersImpl
-	 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.DiffrobotPackageImpl#getWheelParemeters()
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParametersImpl
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.DiffrobotPackageImpl#getWheelParameters()
 	 * @generated
 	 */
-	int WHEEL_PAREMETERS = 3;
+	int WHEEL_PARAMETERS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -275,7 +284,7 @@ public interface DiffrobotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WHEEL_PAREMETERS__NAME = 0;
+	int WHEEL_PARAMETERS__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Radius</b></em>' attribute.
@@ -284,7 +293,7 @@ public interface DiffrobotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WHEEL_PAREMETERS__RADIUS = 1;
+	int WHEEL_PARAMETERS__RADIUS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Mass</b></em>' attribute.
@@ -293,25 +302,43 @@ public interface DiffrobotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WHEEL_PAREMETERS__MASS = 2;
+	int WHEEL_PARAMETERS__MASS = 2;
 
 	/**
-	 * The number of structural features of the '<em>Wheel Paremeters</em>' class.
+	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WHEEL_PAREMETERS_FEATURE_COUNT = 3;
+	int WHEEL_PARAMETERS__MESH = 3;
 
 	/**
-	 * The number of operations of the '<em>Wheel Paremeters</em>' class.
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WHEEL_PAREMETERS_OPERATION_COUNT = 0;
+	int WHEEL_PARAMETERS__WIDTH = 4;
+
+	/**
+	 * The number of structural features of the '<em>Wheel Parameters</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHEEL_PARAMETERS_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Wheel Parameters</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHEEL_PARAMETERS_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.HullComponentImpl <em>Hull Component</em>}' class.
@@ -333,7 +360,7 @@ public interface DiffrobotPackage extends EPackage {
 	int HULL_COMPONENT__MASS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Mesh</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -360,13 +387,22 @@ public interface DiffrobotPackage extends EPackage {
 	int HULL_COMPONENT__DEPTH = 3;
 
 	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HULL_COMPONENT__HEIGHT = 4;
+
+	/**
 	 * The number of structural features of the '<em>Hull Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HULL_COMPONENT_FEATURE_COUNT = 4;
+	int HULL_COMPONENT_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Hull Component</em>' class.
@@ -724,15 +760,15 @@ public interface DiffrobotPackage extends EPackage {
 	EReference getRobot_Kinematicparameters();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getWheelparemeters <em>Wheelparemeters</em>}'.
+	 * Returns the meta object for the containment reference list '{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getWheelparameters <em>Wheelparameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Wheelparemeters</em>'.
-	 * @see hu.sze.jkk.diffrobot.model.diffrobot.Robot#getWheelparemeters()
+	 * @return the meta object for the containment reference list '<em>Wheelparameters</em>'.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.Robot#getWheelparameters()
 	 * @see #getRobot()
 	 * @generated
 	 */
-	EReference getRobot_Wheelparemeters();
+	EReference getRobot_Wheelparameters();
 
 	/**
 	 * Returns the meta object for the attribute '{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getName <em>Name</em>}'.
@@ -833,15 +869,15 @@ public interface DiffrobotPackage extends EPackage {
 	EAttribute getWheelAxis_Length();
 
 	/**
-	 * Returns the meta object for the reference '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getWheelparemeters <em>Wheelparemeters</em>}'.
+	 * Returns the meta object for the reference '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getWheelparameters <em>Wheelparameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Wheelparemeters</em>'.
-	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getWheelparemeters()
+	 * @return the meta object for the reference '<em>Wheelparameters</em>'.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getWheelparameters()
 	 * @see #getWheelAxis()
 	 * @generated
 	 */
-	EReference getWheelAxis_Wheelparemeters();
+	EReference getWheelAxis_Wheelparameters();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getAxislocation <em>Axislocation</em>}'.
@@ -855,6 +891,17 @@ public interface DiffrobotPackage extends EPackage {
 	EReference getWheelAxis_Axislocation();
 
 	/**
+	 * Returns the meta object for the attribute '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis#getName()
+	 * @see #getWheelAxis()
+	 * @generated
+	 */
+	EAttribute getWheelAxis_Name();
+
+	/**
 	 * Returns the meta object for class '{@link hu.sze.jkk.diffrobot.model.diffrobot.KinematicParameters <em>Kinematic Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -865,47 +912,69 @@ public interface DiffrobotPackage extends EPackage {
 	EClass getKinematicParameters();
 
 	/**
-	 * Returns the meta object for class '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters <em>Wheel Paremeters</em>}'.
+	 * Returns the meta object for class '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters <em>Wheel Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Wheel Paremeters</em>'.
-	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters
+	 * @return the meta object for class '<em>Wheel Parameters</em>'.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters
 	 * @generated
 	 */
-	EClass getWheelParemeters();
+	EClass getWheelParameters();
 
 	/**
-	 * Returns the meta object for the attribute '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters#getName()
-	 * @see #getWheelParemeters()
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters#getName()
+	 * @see #getWheelParameters()
 	 * @generated
 	 */
-	EAttribute getWheelParemeters_Name();
+	EAttribute getWheelParameters_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters#getRadius <em>Radius</em>}'.
+	 * Returns the meta object for the attribute '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters#getRadius <em>Radius</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Radius</em>'.
-	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters#getRadius()
-	 * @see #getWheelParemeters()
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters#getRadius()
+	 * @see #getWheelParameters()
 	 * @generated
 	 */
-	EAttribute getWheelParemeters_Radius();
+	EAttribute getWheelParameters_Radius();
 
 	/**
-	 * Returns the meta object for the attribute '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters#getMass <em>Mass</em>}'.
+	 * Returns the meta object for the attribute '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters#getMass <em>Mass</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mass</em>'.
-	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters#getMass()
-	 * @see #getWheelParemeters()
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters#getMass()
+	 * @see #getWheelParameters()
 	 * @generated
 	 */
-	EAttribute getWheelParemeters_Mass();
+	EAttribute getWheelParameters_Mass();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters#getMesh <em>Mesh</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Mesh</em>'.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters#getMesh()
+	 * @see #getWheelParameters()
+	 * @generated
+	 */
+	EReference getWheelParameters_Mesh();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width</em>'.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters#getWidth()
+	 * @see #getWheelParameters()
+	 * @generated
+	 */
+	EAttribute getWheelParameters_Width();
 
 	/**
 	 * Returns the meta object for class '{@link hu.sze.jkk.diffrobot.model.diffrobot.HullComponent <em>Hull Component</em>}'.
@@ -929,10 +998,10 @@ public interface DiffrobotPackage extends EPackage {
 	EAttribute getHullComponent_Mass();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link hu.sze.jkk.diffrobot.model.diffrobot.HullComponent#getMesh <em>Mesh</em>}'.
+	 * Returns the meta object for the containment reference '{@link hu.sze.jkk.diffrobot.model.diffrobot.HullComponent#getMesh <em>Mesh</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Mesh</em>'.
+	 * @return the meta object for the containment reference '<em>Mesh</em>'.
 	 * @see hu.sze.jkk.diffrobot.model.diffrobot.HullComponent#getMesh()
 	 * @see #getHullComponent()
 	 * @generated
@@ -960,6 +1029,17 @@ public interface DiffrobotPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getHullComponent_Depth();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hu.sze.jkk.diffrobot.model.diffrobot.HullComponent#getHeight <em>Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Height</em>'.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.HullComponent#getHeight()
+	 * @see #getHullComponent()
+	 * @generated
+	 */
+	EAttribute getHullComponent_Height();
 
 	/**
 	 * Returns the meta object for class '{@link hu.sze.jkk.diffrobot.model.diffrobot.Mesh <em>Mesh</em>}'.
@@ -1223,12 +1303,12 @@ public interface DiffrobotPackage extends EPackage {
 		EReference ROBOT__KINEMATICPARAMETERS = eINSTANCE.getRobot_Kinematicparameters();
 
 		/**
-		 * The meta object literal for the '<em><b>Wheelparemeters</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Wheelparameters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROBOT__WHEELPAREMETERS = eINSTANCE.getRobot_Wheelparemeters();
+		EReference ROBOT__WHEELPARAMETERS = eINSTANCE.getRobot_Wheelparameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1305,12 +1385,12 @@ public interface DiffrobotPackage extends EPackage {
 		EAttribute WHEEL_AXIS__LENGTH = eINSTANCE.getWheelAxis_Length();
 
 		/**
-		 * The meta object literal for the '<em><b>Wheelparemeters</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Wheelparameters</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference WHEEL_AXIS__WHEELPAREMETERS = eINSTANCE.getWheelAxis_Wheelparemeters();
+		EReference WHEEL_AXIS__WHEELPARAMETERS = eINSTANCE.getWheelAxis_Wheelparameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Axislocation</b></em>' containment reference feature.
@@ -1319,6 +1399,14 @@ public interface DiffrobotPackage extends EPackage {
 		 * @generated
 		 */
 		EReference WHEEL_AXIS__AXISLOCATION = eINSTANCE.getWheelAxis_Axislocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WHEEL_AXIS__NAME = eINSTANCE.getWheelAxis_Name();
 
 		/**
 		 * The meta object literal for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.KinematicParametersImpl <em>Kinematic Parameters</em>}' class.
@@ -1331,14 +1419,14 @@ public interface DiffrobotPackage extends EPackage {
 		EClass KINEMATIC_PARAMETERS = eINSTANCE.getKinematicParameters();
 
 		/**
-		 * The meta object literal for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParemetersImpl <em>Wheel Paremeters</em>}' class.
+		 * The meta object literal for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParametersImpl <em>Wheel Parameters</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParemetersImpl
-		 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.DiffrobotPackageImpl#getWheelParemeters()
+		 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.WheelParametersImpl
+		 * @see hu.sze.jkk.diffrobot.model.diffrobot.impl.DiffrobotPackageImpl#getWheelParameters()
 		 * @generated
 		 */
-		EClass WHEEL_PAREMETERS = eINSTANCE.getWheelParemeters();
+		EClass WHEEL_PARAMETERS = eINSTANCE.getWheelParameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1346,7 +1434,7 @@ public interface DiffrobotPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute WHEEL_PAREMETERS__NAME = eINSTANCE.getWheelParemeters_Name();
+		EAttribute WHEEL_PARAMETERS__NAME = eINSTANCE.getWheelParameters_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Radius</b></em>' attribute feature.
@@ -1354,7 +1442,7 @@ public interface DiffrobotPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute WHEEL_PAREMETERS__RADIUS = eINSTANCE.getWheelParemeters_Radius();
+		EAttribute WHEEL_PARAMETERS__RADIUS = eINSTANCE.getWheelParameters_Radius();
 
 		/**
 		 * The meta object literal for the '<em><b>Mass</b></em>' attribute feature.
@@ -1362,7 +1450,23 @@ public interface DiffrobotPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute WHEEL_PAREMETERS__MASS = eINSTANCE.getWheelParemeters_Mass();
+		EAttribute WHEEL_PARAMETERS__MASS = eINSTANCE.getWheelParameters_Mass();
+
+		/**
+		 * The meta object literal for the '<em><b>Mesh</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WHEEL_PARAMETERS__MESH = eINSTANCE.getWheelParameters_Mesh();
+
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WHEEL_PARAMETERS__WIDTH = eINSTANCE.getWheelParameters_Width();
 
 		/**
 		 * The meta object literal for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.HullComponentImpl <em>Hull Component</em>}' class.
@@ -1383,7 +1487,7 @@ public interface DiffrobotPackage extends EPackage {
 		EAttribute HULL_COMPONENT__MASS = eINSTANCE.getHullComponent_Mass();
 
 		/**
-		 * The meta object literal for the '<em><b>Mesh</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Mesh</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1405,6 +1509,14 @@ public interface DiffrobotPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute HULL_COMPONENT__DEPTH = eINSTANCE.getHullComponent_Depth();
+
+		/**
+		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HULL_COMPONENT__HEIGHT = eINSTANCE.getHullComponent_Height();
 
 		/**
 		 * The meta object literal for the '{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.MeshImpl <em>Mesh</em>}' class.

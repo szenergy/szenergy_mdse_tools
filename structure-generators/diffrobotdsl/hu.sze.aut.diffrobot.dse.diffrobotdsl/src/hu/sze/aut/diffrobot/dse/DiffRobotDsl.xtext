@@ -12,7 +12,7 @@ Robot returns Robot:
 		('rootaxis' rootaxis=[WheelAxis|EString])?
 		('wheelaxes' '{' wheelaxis+=WheelAxis ( "," wheelaxis+=WheelAxis)* '}' )?
 		('kinematicparameters' kinematicparameters=KinematicParameters)?
-		('wheelparemeters' wheelparemeters=WheelParemeters)?
+		('wheelparameters' wheelparameters+=WheelParameters  (',' wheelparameters+=WheelParameters)*)?
 		('hull' hull=HullComponent)?
 		('dynamicparameters' dynamicparameters=DynamicParameters)?
 		('sensor' '{' sensor+=Sensor ( "," sensor+=Sensor)* '}' )?
@@ -37,7 +37,7 @@ WheelAxis returns WheelAxis:
 		('wheels' wheels=EInt)?
 		('axis' axis=AxisOrientation)?
 		('length' length=EDouble)?
-		('wheelparemeters' wheelparemeters=[WheelParemeters|EString])?
+		('wheelparemeters' wheelparameters=[WheelParameters|EString])?
 		('axislocation' axislocation=AxisLocation)?
 	'}';
 
@@ -46,11 +46,12 @@ KinematicParameters returns KinematicParameters:
 	'KinematicParameters'
 	;
 
-WheelParemeters returns WheelParemeters:
-	{WheelParemeters}
+WheelParameters returns WheelParameters:
+	{WheelParameters}
 	name=EString
 	'{'
 		('radius' radius=EDouble)?
+		('width' width=EDouble)?
 		('mass' mass=EDouble)?
 	'}';
 
@@ -63,7 +64,8 @@ HullComponent returns HullComponent:
 		('mass' mass=EDouble)?
 		('width' width=EDouble)?
 		('depth' depth=EDouble)?
-		('mesh' '{' mesh+=Mesh ( "," mesh+=Mesh)* '}' )?
+		('height' height=EDouble)?
+		('mesh' '{' mesh=Mesh '}' )?
 	'}';
 
 DynamicParameters returns DynamicParameters:

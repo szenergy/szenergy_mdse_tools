@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getWheelaxis <em>Wheelaxis</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getKinematicparameters <em>Kinematicparameters</em>}</li>
- *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getWheelparemeters <em>Wheelparemeters</em>}</li>
+ *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getWheelparameters <em>Wheelparameters</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getName <em>Name</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getHull <em>Hull</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getDynamicparameters <em>Dynamicparameters</em>}</li>
@@ -65,26 +65,16 @@ public interface Robot extends EObject {
 	void setKinematicparameters(KinematicParameters value);
 
 	/**
-	 * Returns the value of the '<em><b>Wheelparemeters</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Wheelparameters</b></em>' containment reference list.
+	 * The list contents are of type {@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Wheelparemeters</em>' containment reference.
-	 * @see #setWheelparemeters(WheelParemeters)
-	 * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getRobot_Wheelparemeters()
+	 * @return the value of the '<em>Wheelparameters</em>' containment reference list.
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.DiffrobotPackage#getRobot_Wheelparameters()
 	 * @model containment="true"
 	 * @generated
 	 */
-	WheelParemeters getWheelparemeters();
-
-	/**
-	 * Sets the value of the '{@link hu.sze.jkk.diffrobot.model.diffrobot.Robot#getWheelparemeters <em>Wheelparemeters</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Wheelparemeters</em>' containment reference.
-	 * @see #getWheelparemeters()
-	 * @generated
-	 */
-	void setWheelparemeters(WheelParemeters value);
+	EList<WheelParameters> getWheelparameters();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

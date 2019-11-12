@@ -16,7 +16,7 @@ import hu.sze.jkk.diffrobot.model.diffrobot.Robot;
 import hu.sze.jkk.diffrobot.model.diffrobot.Rotation;
 import hu.sze.jkk.diffrobot.model.diffrobot.Sensor;
 import hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis;
-import hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters;
+import hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -59,7 +59,7 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass wheelParemetersEClass = null;
+	private EClass wheelParametersEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -220,7 +220,7 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRobot_Wheelparemeters() {
+	public EReference getRobot_Wheelparameters() {
 		return (EReference) robotEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -310,7 +310,7 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getWheelAxis_Wheelparemeters() {
+	public EReference getWheelAxis_Wheelparameters() {
 		return (EReference) wheelAxisEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -328,6 +328,15 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getWheelAxis_Name() {
+		return (EAttribute) wheelAxisEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getKinematicParameters() {
 		return kinematicParametersEClass;
 	}
@@ -337,8 +346,8 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getWheelParemeters() {
-		return wheelParemetersEClass;
+	public EClass getWheelParameters() {
+		return wheelParametersEClass;
 	}
 
 	/**
@@ -346,8 +355,8 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWheelParemeters_Name() {
-		return (EAttribute) wheelParemetersEClass.getEStructuralFeatures().get(0);
+	public EAttribute getWheelParameters_Name() {
+		return (EAttribute) wheelParametersEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -355,8 +364,8 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWheelParemeters_Radius() {
-		return (EAttribute) wheelParemetersEClass.getEStructuralFeatures().get(1);
+	public EAttribute getWheelParameters_Radius() {
+		return (EAttribute) wheelParametersEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -364,8 +373,26 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWheelParemeters_Mass() {
-		return (EAttribute) wheelParemetersEClass.getEStructuralFeatures().get(2);
+	public EAttribute getWheelParameters_Mass() {
+		return (EAttribute) wheelParametersEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWheelParameters_Mesh() {
+		return (EReference) wheelParametersEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWheelParameters_Width() {
+		return (EAttribute) wheelParametersEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -411,6 +438,15 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 	 */
 	public EAttribute getHullComponent_Depth() {
 		return (EAttribute) hullComponentEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHullComponent_Height() {
+		return (EAttribute) hullComponentEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -625,7 +661,7 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 		robotEClass = createEClass(ROBOT);
 		createEReference(robotEClass, ROBOT__WHEELAXIS);
 		createEReference(robotEClass, ROBOT__KINEMATICPARAMETERS);
-		createEReference(robotEClass, ROBOT__WHEELPAREMETERS);
+		createEReference(robotEClass, ROBOT__WHEELPARAMETERS);
 		createEAttribute(robotEClass, ROBOT__NAME);
 		createEReference(robotEClass, ROBOT__HULL);
 		createEReference(robotEClass, ROBOT__DYNAMICPARAMETERS);
@@ -636,21 +672,25 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 		createEAttribute(wheelAxisEClass, WHEEL_AXIS__WHEELS);
 		createEAttribute(wheelAxisEClass, WHEEL_AXIS__AXIS);
 		createEAttribute(wheelAxisEClass, WHEEL_AXIS__LENGTH);
-		createEReference(wheelAxisEClass, WHEEL_AXIS__WHEELPAREMETERS);
+		createEReference(wheelAxisEClass, WHEEL_AXIS__WHEELPARAMETERS);
 		createEReference(wheelAxisEClass, WHEEL_AXIS__AXISLOCATION);
+		createEAttribute(wheelAxisEClass, WHEEL_AXIS__NAME);
 
 		kinematicParametersEClass = createEClass(KINEMATIC_PARAMETERS);
 
-		wheelParemetersEClass = createEClass(WHEEL_PAREMETERS);
-		createEAttribute(wheelParemetersEClass, WHEEL_PAREMETERS__NAME);
-		createEAttribute(wheelParemetersEClass, WHEEL_PAREMETERS__RADIUS);
-		createEAttribute(wheelParemetersEClass, WHEEL_PAREMETERS__MASS);
+		wheelParametersEClass = createEClass(WHEEL_PARAMETERS);
+		createEAttribute(wheelParametersEClass, WHEEL_PARAMETERS__NAME);
+		createEAttribute(wheelParametersEClass, WHEEL_PARAMETERS__RADIUS);
+		createEAttribute(wheelParametersEClass, WHEEL_PARAMETERS__MASS);
+		createEReference(wheelParametersEClass, WHEEL_PARAMETERS__MESH);
+		createEAttribute(wheelParametersEClass, WHEEL_PARAMETERS__WIDTH);
 
 		hullComponentEClass = createEClass(HULL_COMPONENT);
 		createEAttribute(hullComponentEClass, HULL_COMPONENT__MASS);
 		createEReference(hullComponentEClass, HULL_COMPONENT__MESH);
 		createEAttribute(hullComponentEClass, HULL_COMPONENT__WIDTH);
 		createEAttribute(hullComponentEClass, HULL_COMPONENT__DEPTH);
+		createEAttribute(hullComponentEClass, HULL_COMPONENT__HEIGHT);
 
 		meshEClass = createEClass(MESH);
 		createEAttribute(meshEClass, MESH__PATH);
@@ -721,7 +761,7 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 		initEReference(getRobot_Kinematicparameters(), this.getKinematicParameters(), null, "kinematicparameters", null,
 				0, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRobot_Wheelparemeters(), this.getWheelParemeters(), null, "wheelparemeters", null, 0, 1,
+		initEReference(getRobot_Wheelparameters(), this.getWheelParameters(), null, "wheelparameters", null, 0, -1,
 				Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRobot_Name(), ecorePackage.getEString(), "name", null, 0, 1, Robot.class, !IS_TRANSIENT,
@@ -747,36 +787,46 @@ public class DiffrobotPackageImpl extends EPackageImpl implements DiffrobotPacka
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWheelAxis_Length(), ecorePackage.getEDouble(), "length", null, 0, 1, WheelAxis.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getWheelAxis_Wheelparemeters(), this.getWheelParemeters(), null, "wheelparemeters", null, 0, 1,
+		initEReference(getWheelAxis_Wheelparameters(), this.getWheelParameters(), null, "wheelparameters", null, 0, 1,
 				WheelAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWheelAxis_Axislocation(), this.getAxisLocation(), this.getAxisLocation_Wheelaxis(),
 				"axislocation", null, 0, 1, WheelAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWheelAxis_Name(), ecorePackage.getEString(), "name", null, 0, 1, WheelAxis.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(kinematicParametersEClass, KinematicParameters.class, "KinematicParameters", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(wheelParemetersEClass, WheelParemeters.class, "WheelParemeters", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(wheelParametersEClass, WheelParameters.class, "WheelParameters", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getWheelParemeters_Name(), ecorePackage.getEString(), "name", null, 0, 1, WheelParemeters.class,
+		initEAttribute(getWheelParameters_Name(), ecorePackage.getEString(), "name", null, 0, 1, WheelParameters.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getWheelParemeters_Radius(), ecorePackage.getEDouble(), "radius", null, 0, 1,
-				WheelParemeters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+		initEAttribute(getWheelParameters_Radius(), ecorePackage.getEDouble(), "radius", null, 0, 1,
+				WheelParameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getWheelParemeters_Mass(), ecorePackage.getEDouble(), "mass", null, 0, 1, WheelParemeters.class,
+		initEAttribute(getWheelParameters_Mass(), ecorePackage.getEDouble(), "mass", null, 0, 1, WheelParameters.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWheelParameters_Mesh(), this.getMesh(), null, "mesh", null, 0, 1, WheelParameters.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWheelParameters_Width(), ecorePackage.getEDouble(), "width", null, 0, 1,
+				WheelParameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(hullComponentEClass, HullComponent.class, "HullComponent", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHullComponent_Mass(), ecorePackage.getEDouble(), "mass", null, 0, 1, HullComponent.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getHullComponent_Mesh(), this.getMesh(), null, "mesh", null, 0, -1, HullComponent.class,
+		initEReference(getHullComponent_Mesh(), this.getMesh(), null, "mesh", null, 0, 1, HullComponent.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHullComponent_Width(), ecorePackage.getEDouble(), "width", null, 0, 1, HullComponent.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHullComponent_Depth(), ecorePackage.getEDouble(), "depth", null, 0, 1, HullComponent.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHullComponent_Height(), ecorePackage.getEDouble(), "height", null, 0, 1, HullComponent.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(meshEClass, Mesh.class, "Mesh", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -9,7 +9,7 @@ import hu.sze.jkk.diffrobot.model.diffrobot.KinematicParameters;
 import hu.sze.jkk.diffrobot.model.diffrobot.Robot;
 import hu.sze.jkk.diffrobot.model.diffrobot.Sensor;
 import hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis;
-import hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters;
+import hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters;
 
 import java.util.Collection;
 
@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.RobotImpl#getWheelaxis <em>Wheelaxis</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.RobotImpl#getKinematicparameters <em>Kinematicparameters</em>}</li>
- *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.RobotImpl#getWheelparemeters <em>Wheelparemeters</em>}</li>
+ *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.RobotImpl#getWheelparameters <em>Wheelparameters</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.RobotImpl#getName <em>Name</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.RobotImpl#getHull <em>Hull</em>}</li>
  *   <li>{@link hu.sze.jkk.diffrobot.model.diffrobot.impl.RobotImpl#getDynamicparameters <em>Dynamicparameters</em>}</li>
@@ -69,14 +69,14 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	protected KinematicParameters kinematicparameters;
 
 	/**
-	 * The cached value of the '{@link #getWheelparemeters() <em>Wheelparemeters</em>}' containment reference.
+	 * The cached value of the '{@link #getWheelparameters() <em>Wheelparameters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWheelparemeters()
+	 * @see #getWheelparameters()
 	 * @generated
 	 * @ordered
 	 */
-	protected WheelParemeters wheelparemeters;
+	protected EList<WheelParameters> wheelparameters;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -226,49 +226,12 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public WheelParemeters getWheelparemeters() {
-		return wheelparemeters;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetWheelparemeters(WheelParemeters newWheelparemeters, NotificationChain msgs) {
-		WheelParemeters oldWheelparemeters = wheelparemeters;
-		wheelparemeters = newWheelparemeters;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					DiffrobotPackage.ROBOT__WHEELPAREMETERS, oldWheelparemeters, newWheelparemeters);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+	public EList<WheelParameters> getWheelparameters() {
+		if (wheelparameters == null) {
+			wheelparameters = new EObjectContainmentEList<WheelParameters>(WheelParameters.class, this,
+					DiffrobotPackage.ROBOT__WHEELPARAMETERS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWheelparemeters(WheelParemeters newWheelparemeters) {
-		if (newWheelparemeters != wheelparemeters) {
-			NotificationChain msgs = null;
-			if (wheelparemeters != null)
-				msgs = ((InternalEObject) wheelparemeters).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - DiffrobotPackage.ROBOT__WHEELPAREMETERS, null, msgs);
-			if (newWheelparemeters != null)
-				msgs = ((InternalEObject) newWheelparemeters).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - DiffrobotPackage.ROBOT__WHEELPAREMETERS, null, msgs);
-			msgs = basicSetWheelparemeters(newWheelparemeters, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiffrobotPackage.ROBOT__WHEELPAREMETERS,
-					newWheelparemeters, newWheelparemeters));
+		return wheelparameters;
 	}
 
 	/**
@@ -455,8 +418,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			return ((InternalEList<?>) getWheelaxis()).basicRemove(otherEnd, msgs);
 		case DiffrobotPackage.ROBOT__KINEMATICPARAMETERS:
 			return basicSetKinematicparameters(null, msgs);
-		case DiffrobotPackage.ROBOT__WHEELPAREMETERS:
-			return basicSetWheelparemeters(null, msgs);
+		case DiffrobotPackage.ROBOT__WHEELPARAMETERS:
+			return ((InternalEList<?>) getWheelparameters()).basicRemove(otherEnd, msgs);
 		case DiffrobotPackage.ROBOT__HULL:
 			return basicSetHull(null, msgs);
 		case DiffrobotPackage.ROBOT__DYNAMICPARAMETERS:
@@ -479,8 +442,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			return getWheelaxis();
 		case DiffrobotPackage.ROBOT__KINEMATICPARAMETERS:
 			return getKinematicparameters();
-		case DiffrobotPackage.ROBOT__WHEELPAREMETERS:
-			return getWheelparemeters();
+		case DiffrobotPackage.ROBOT__WHEELPARAMETERS:
+			return getWheelparameters();
 		case DiffrobotPackage.ROBOT__NAME:
 			return getName();
 		case DiffrobotPackage.ROBOT__HULL:
@@ -513,8 +476,9 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 		case DiffrobotPackage.ROBOT__KINEMATICPARAMETERS:
 			setKinematicparameters((KinematicParameters) newValue);
 			return;
-		case DiffrobotPackage.ROBOT__WHEELPAREMETERS:
-			setWheelparemeters((WheelParemeters) newValue);
+		case DiffrobotPackage.ROBOT__WHEELPARAMETERS:
+			getWheelparameters().clear();
+			getWheelparameters().addAll((Collection<? extends WheelParameters>) newValue);
 			return;
 		case DiffrobotPackage.ROBOT__NAME:
 			setName((String) newValue);
@@ -550,8 +514,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 		case DiffrobotPackage.ROBOT__KINEMATICPARAMETERS:
 			setKinematicparameters((KinematicParameters) null);
 			return;
-		case DiffrobotPackage.ROBOT__WHEELPAREMETERS:
-			setWheelparemeters((WheelParemeters) null);
+		case DiffrobotPackage.ROBOT__WHEELPARAMETERS:
+			getWheelparameters().clear();
 			return;
 		case DiffrobotPackage.ROBOT__NAME:
 			setName(NAME_EDEFAULT);
@@ -584,8 +548,8 @@ public class RobotImpl extends MinimalEObjectImpl.Container implements Robot {
 			return wheelaxis != null && !wheelaxis.isEmpty();
 		case DiffrobotPackage.ROBOT__KINEMATICPARAMETERS:
 			return kinematicparameters != null;
-		case DiffrobotPackage.ROBOT__WHEELPAREMETERS:
-			return wheelparemeters != null;
+		case DiffrobotPackage.ROBOT__WHEELPARAMETERS:
+			return wheelparameters != null && !wheelparameters.isEmpty();
 		case DiffrobotPackage.ROBOT__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case DiffrobotPackage.ROBOT__HULL:

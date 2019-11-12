@@ -82,8 +82,8 @@ public class DiffrobotAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseWheelParemeters(WheelParemeters object) {
-			return createWheelParemetersAdapter();
+		public Adapter caseWheelParameters(WheelParameters object) {
+			return createWheelParametersAdapter();
 		}
 
 		@Override
@@ -188,16 +188,16 @@ public class DiffrobotAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters <em>Wheel Paremeters</em>}'.
+	 * Creates a new adapter for an object of class '{@link hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters <em>Wheel Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelParemeters
+	 * @see hu.sze.jkk.diffrobot.model.diffrobot.WheelParameters
 	 * @generated
 	 */
-	public Adapter createWheelParemetersAdapter() {
+	public Adapter createWheelParametersAdapter() {
 		return null;
 	}
 
