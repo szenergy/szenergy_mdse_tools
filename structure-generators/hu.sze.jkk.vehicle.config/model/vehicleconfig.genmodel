@@ -126,6 +126,7 @@
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//EngineParameters">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//EngineParameters/maxtorque"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//EngineParameters/name"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//ImuSensor"/>
     <genClasses ecoreClass="vehicleconfig.ecore#//JointStateTopic">

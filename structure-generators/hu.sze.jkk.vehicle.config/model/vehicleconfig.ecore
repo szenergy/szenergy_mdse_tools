@@ -140,6 +140,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EngineParameters">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxtorque" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImuSensor" eSuperTypes="#//Sensor"/>
   <eClassifiers xsi:type="ecore:EClass" name="JointStateTopic" abstract="true">
