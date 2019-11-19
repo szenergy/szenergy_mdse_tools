@@ -56,14 +56,11 @@ class GenerateUrdf {
 	val Element kinematic_tree;
 	val Map<Joint, ArrayList<Joint>> jointsetup;
 	val List<Transmission> mapped_transmission;
-	//private val GenerateRosControlConfiguration ros_control_config;
-	
 	new(Document doc)
 	{
 		kinematic_tree = doc.createElement("robot");
 		jointsetup = new HashMap();
 		mapped_transmission = new LinkedList();
-		//ros_control_config = new GenerateRosControlConfiguration();
 	}
 	
 	def List<Transmission> getTransmissions(){
@@ -798,7 +795,7 @@ class GenerateUrdf {
 		);
 		*/
 		kinematic_tree.appendChild(doc.createComment("GEN START: Control plugins"))
-		kinematic_tree.appendChild(GenerateRosControlGazebo.generateRosControl(doc, r))
+		//kinematic_tree.appendChild(GenerateRosControlGazebo.generateRosControl(doc, r))
 		r.plugin.forEach[
 			kinematic_tree.appendChild(generateRosCustomControl(doc, it))			
 		]

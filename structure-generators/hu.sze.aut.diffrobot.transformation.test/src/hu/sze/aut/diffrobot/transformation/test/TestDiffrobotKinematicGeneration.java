@@ -19,6 +19,7 @@ import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
 
 import hu.sze.aut.diffrobot.transformation.GenerateDiffRobotKinematic;
+import hu.sze.aut.diffrobot.transformation.GenerateSensorError;
 import hu.sze.jkk.diffrobot.model.diffrobot.Robot;
 
 class TestDiffrobotKinematicGeneration {
@@ -50,7 +51,8 @@ class TestDiffrobotKinematicGeneration {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			fail(e.getMessage());
-		}finally {
+		}
+		finally {
 			
 		}
 		

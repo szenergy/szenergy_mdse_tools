@@ -23,6 +23,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/dynamicparameters"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/rootaxis"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/sensor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/sensorparameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Robot/simulationparameters"/>
     </genClasses>
     <genClasses ecoreClass="diffrobot.ecore#//WheelAxis">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//WheelAxis/wheels"/>
@@ -68,7 +70,42 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Rotation/pitch"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Rotation/yaw"/>
     </genClasses>
-    <genClasses ecoreClass="diffrobot.ecore#//Sensor"/>
-    <genClasses ecoreClass="diffrobot.ecore#//Camera"/>
+    <genClasses ecoreClass="diffrobot.ecore#//Sensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//Sensor/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Sensor/displacement"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//Camera">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference diffrobot.ecore#//Camera/cameraparameter"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//LaserScanner">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference diffrobot.ecore#//LaserScanner/laserparameter"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//SensorParameters">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diffrobot.ecore#//SensorParameters/sensorparameter"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//LaserParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//LaserParameter/min_range"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//LaserParameter/max_range"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//LaserParameter/min_angle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//LaserParameter/max_angle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//LaserParameter/range_resolution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//LaserParameter/angle_resolution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//LaserParameter/samples"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//CameraParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//CameraParameter/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//CameraParameter/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//CameraParameter/fov"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//CameraParameter/clip_far"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//CameraParameter/clip_near"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//SensorParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//SensorParameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//SensorParameter/update_rate"/>
+    </genClasses>
+    <genClasses ecoreClass="diffrobot.ecore#//StereoCamera"/>
+    <genClasses ecoreClass="diffrobot.ecore#//SimulationParameters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diffrobot.ecore#//SimulationParameters/simulation_control_plugin"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

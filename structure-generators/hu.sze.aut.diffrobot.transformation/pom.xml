@@ -62,15 +62,15 @@
   		</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
-  	<dependency>
-  		<groupId>hu.sze.jkk.diffrobot.model</groupId>
-  		<artifactId>hu.sze.jkk.diffrobot.model</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
   	    <dependency>
       <groupId>org.eclipse.xtend</groupId>
       <artifactId>org.eclipse.xtend.lib</artifactId>
       <version>2.19.0</version>
     </dependency>
+  	    <dependency>
+  	    	<groupId>hu.sze.jkk.diffrobot.model</groupId>
+  	    	<artifactId>hu.sze.jkk.diffrobot.model</artifactId>
+  	    	<version>0.0.1-SNAPSHOT</version>
+  	    </dependency>
   </dependencies>
 </project>

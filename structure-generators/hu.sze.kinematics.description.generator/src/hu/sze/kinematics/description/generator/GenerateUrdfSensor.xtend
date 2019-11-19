@@ -61,7 +61,7 @@ class GenerateUrdfSensor {
 		val Element topicname_element = doc.createElement("topicName");
 		// TODO: recreate topic names
 		//topicname_element.appendChild(doc.createTextNode(l.getTopic().getName()));
-		topicname_element.appendChild(doc.createTextNode("/scan"));
+		topicname_element.appendChild(doc.createTextNode('''/«l.name»/scan'''));
 		plugin_element.appendChild(topicname_element);
 		val Element framename_element = doc.createElement("frameName");
 		framename_element.appendChild(doc.createTextNode(l.getLink().getName()));
@@ -310,7 +310,7 @@ class GenerateUrdfSensor {
 				sensor_element.setAttribute("type", "camera");
 				plugin_element.setAttribute("filename", "libgazebo_ros_camera.so");
                 val Element topicname_element = doc.createElement("imageTopicName");
-                topicname_element.appendChild(doc.createTextNode("/image_raw"));
+                topicname_element.appendChild(doc.createTextNode('''/«camera.name»/image_raw'''));
                 plugin_element.appendChild(topicname_element)
 				sensor_element.appendChild(generateCameraSubElement(doc, camera, camera.name+"_main"))
 			}
@@ -319,7 +319,7 @@ class GenerateUrdfSensor {
 				sensor_element.setAttribute("type", "multicamera");
 				plugin_element.setAttribute("filename", "libgazebo_ros_multicamera.so");
                 val Element topicname_element = doc.createElement("imageTopicName");
-                topicname_element.appendChild(doc.createTextNode("/image_raw"));
+                topicname_element.appendChild(doc.createTextNode('''/«camera.name»/image_raw'''));
                 plugin_element.appendChild(topicname_element)
                 // Add left and right cameras
                 sensor_element.appendChild(generateCameraSubElement(doc, camera, camera.name+"_right", -0.07))
