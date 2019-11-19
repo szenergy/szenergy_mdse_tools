@@ -2,9 +2,7 @@
 <projectDescription>
   <name>hu.sze.kinematics.description.generator</name>
   <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
-  <projects>
-    <project>hu.sze.kinematics.robot.description.model</project>
-  </projects>
+  <projects/>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.xtext.ui.shared.xtextBuilder</name>
