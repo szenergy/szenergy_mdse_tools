@@ -22,8 +22,9 @@ class VehicleConfigLinkJointSetup {
     		steer_joint.axis.limit.limit_max = sgn*steer.inner_angle*Math.PI/180.0;
     		steer_joint.axis.limit.limit_min = sgn*steer.outer_angle*Math.PI/180.0;
     	}
-    	steer_joint.axis.limit.velocity = 0.05f;
-    	steer_joint.axis.limit.effort = 80.0f;
+    	// TODO: some calculation of angle velocity
+    	steer_joint.axis.limit.velocity = 0.2f;
+    	steer_joint.axis.limit.effort = 8000.0f;
     }
 
     def static void setupSteerLink(Link steer_link){

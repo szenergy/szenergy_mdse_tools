@@ -3157,6 +3157,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_Y0jIkftfEemaHrd_bwjJiA" fontColor="8224125" fontName="Noto Sans" fontHeight="8" bold="true"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Y0jIkvtfEemaHrd_bwjJiA"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_OrxPoAniEeqjxcMPS9eRZg" type="3010" element="_OrjNMAniEeqjxcMPS9eRZg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_OrxPoQniEeqjxcMPS9eRZg" fontColor="8224125" fontName="Noto Sans" fontHeight="8" italic="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_OrxPogniEeqjxcMPS9eRZg"/>
+            </children>
             <children xmi:type="notation:Node" xmi:id="_Y0kWsPtfEemaHrd_bwjJiA" type="3010" element="_Y0XiYPtfEemaHrd_bwjJiA">
               <styles xmi:type="notation:FontStyle" xmi:id="_Y0kWsftfEemaHrd_bwjJiA" fontName="Noto Sans" fontHeight="8" bold="true"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Y0kWsvtfEemaHrd_bwjJiA"/>
@@ -3173,6 +3177,10 @@
             <children xmi:type="notation:Node" xmi:id="_Y0kWs_tfEemaHrd_bwjJiA" type="3010" element="_Y0YJcPtfEemaHrd_bwjJiA">
               <styles xmi:type="notation:FontStyle" xmi:id="_Y0kWtPtfEemaHrd_bwjJiA" fontColor="8224125" fontName="Noto Sans" fontHeight="8" bold="true"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Y0kWtftfEemaHrd_bwjJiA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_OrzE0AniEeqjxcMPS9eRZg" type="3010" element="_OrmQgQniEeqjxcMPS9eRZg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_OrzE0QniEeqjxcMPS9eRZg" fontColor="8224125" fontName="Noto Sans" fontHeight="8" italic="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_OrzE0gniEeqjxcMPS9eRZg"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_wJbYgbw1EeihTP9UvM0Qrg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_wJbYgrw1EeihTP9UvM0Qrg"/>
@@ -3481,6 +3489,15 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_OrjNMAniEeqjxcMPS9eRZg" name=" networkdefinition : NetworkDefinition" tooltipText="">
+        <target xmi:type="ecore:EReference" href="vehicleconfig.ecore#//Sensor/networkdefinition"/>
+        <semanticElements xmi:type="ecore:EReference" href="vehicleconfig.ecore#//Sensor/networkdefinition"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_Orj0QAniEeqjxcMPS9eRZg" labelColor="125,125,125" labelAlignment="LEFT">
+          <labelFormat>italic</labelFormat>
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_Y0XiYPtfEemaHrd_bwjJiA" name=" geolocation : Geolocation" tooltipText="">
         <target xmi:type="ecore:EReference" href="vehicleconfig.ecore#//GNSS/geolocation"/>
         <semanticElements xmi:type="ecore:EReference" href="vehicleconfig.ecore#//GNSS/geolocation"/>
@@ -3505,6 +3522,15 @@
         <semanticElements xmi:type="ecore:EReference" href="vehicleconfig.ecore#//Sensor/displacement"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_Y0YwgPtfEemaHrd_bwjJiA" labelColor="125,125,125" labelAlignment="LEFT" description="_Y0WUQPtfEemaHrd_bwjJiA">
           <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_OrmQgQniEeqjxcMPS9eRZg" name=" networkdefinition : NetworkDefinition" tooltipText="">
+        <target xmi:type="ecore:EReference" href="vehicleconfig.ecore#//Sensor/networkdefinition"/>
+        <semanticElements xmi:type="ecore:EReference" href="vehicleconfig.ecore#//Sensor/networkdefinition"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_OrmQggniEeqjxcMPS9eRZg" labelColor="125,125,125" labelAlignment="LEFT">
+          <labelFormat>italic</labelFormat>
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@conditionnalStyles.0/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>

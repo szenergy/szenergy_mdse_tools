@@ -534,6 +534,15 @@ class GenerateUrdf {
 		inertiaElement.setAttribute("ixz", Double.toString(inertia.inertia.ixz));
 		inertiaElement.setAttribute("ixy", Double.toString(inertia.inertia.ixy));
 		inertiaElement.setAttribute("iyz", Double.toString(inertia.inertia.iyz));
+		// Generate inertia origin if exists
+		if (inertia.origin !== null)
+		{
+			System.out.println('''Link has origin, generating''')
+			val Element inertiaOriginElement = doc.createElement("origin");
+			inertiaOriginElement.setAttribute("xyz", '''«inertia.origin.xyz.x» «inertia.origin.xyz.y» «inertia.origin.xyz.z»''')
+			inertiaOriginElement.setAttribute("rpy", '''«inertia.origin.rpy.roll» «inertia.origin.rpy.pitch» «inertia.origin.rpy.yaw»''')
+			inertialElement.appendChild(inertiaOriginElement)
+		}
 		inertialElement.appendChild(inertiaElement);
 		inertialElement.appendChild(massElement);
 		return inertialElement;
@@ -591,11 +600,14 @@ class GenerateUrdf {
 			inertiaElement.setAttribute("ixz", Float.toString(0.0f));
 			inertiaElement.setAttribute("ixy", Float.toString(0.0f));
 			inertiaElement.setAttribute("iyz", Float.toString(0.0f));
+			// Set origin if it is explicitly defined
+			
 			
 			inertial_element.appendChild(massElement);
 			inertial_element.appendChild(inertiaElement);
 				link_elemnt.appendChild(inertial_element)
 		}
+		
 	}
 	
 	

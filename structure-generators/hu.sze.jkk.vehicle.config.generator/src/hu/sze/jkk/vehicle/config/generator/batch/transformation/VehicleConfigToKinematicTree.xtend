@@ -110,6 +110,10 @@ class VehicleConfigToKinematicTree {
 		    	InertiaCalculations.cylinderInertia(wheel_param.wheel_radius, 
 		    		wheel_param.wheel_width, wheel_param.wheel_mass
 		    	)
+	    	wheel_link.inertial.origin = robotdescriptionpackageFactory.createOrigin
+	    	wheel_link.inertial.origin.xyz = robotdescriptionpackageFactory.createVec3
+	    	wheel_link.inertial.origin.rpy = robotdescriptionpackageFactory.createEulerRotation
+	    	wheel_link.inertial.origin.rpy.roll = 90.0f*Math.PI/180.0;
 		    if (geom_settings.wheelgeometry.rotation!==null)
 		    {
 		    	System.out.println('''Setting explicit geometry settings for wheel link: «wheel_link.name»''');
@@ -149,7 +153,14 @@ class VehicleConfigToKinematicTree {
 	    	or.xyz = robotdescriptionpackageFactory.createVec3
 	    	or.rpy = robotdescriptionpackageFactory.createEulerRotation
 	    	or.rpy.roll = 90.0f
-	    	axle.visual.get(0).origin = or    		
+	    	axle.visual.get(0).origin = or
+	    	// Inertia setup rotation
+	    	if (axle.inertial!==null)
+	    	{
+	    		System.out.println("Rotating inertia");
+	    		axle.inertial.origin.rpy.roll = 90.0f;
+	    	}
+	    	
     	}
     	else
     	{
@@ -226,6 +237,20 @@ class VehicleConfigToKinematicTree {
     		kin_param.height,
     		dyn_param.inertialparameters.mass
     	)
+    	// Genereate origin of inertia according to reference point
+    	root.inertial.origin = robotdescriptionpackageFactory.createOrigin
+    	root.inertial.origin.xyz = robotdescriptionpackageFactory.createVec3
+    	root.inertial.origin.rpy = robotdescriptionpackageFactory.createEulerRotation    	
+    	switch(kin_param.reference_point){
+    		case REAR_AXLE:{
+    			root.inertial.origin.xyz.x = dyn_param.inertialparameters.cog_ratio * kin_param.wheelbase
+    			root.inertial.origin.xyz.z = kin_param.height/2.0
+    		}
+			case COG: {
+			}
+    	}
+    	root.inertial.origin
+    	root.mass = root.inertial.mass
     	/// Set mesh origin
     	if (shell_geom.displacement!==null)
     	{
@@ -246,7 +271,7 @@ class VehicleConfigToKinematicTree {
     		hull_coll.origin.xyz.z = shell_geom.displacement.z
     		
     	}
-    	
+    	System.out.println('''Vehicle inertial parameters: «root.inertial.mass», «root.inertial.inertia.ixx» «root.inertial.inertia.iyy» «root.inertial.inertia.izz»''')
     }
     
     def void setupRobot(Vehicle vehicle, KinematicParameters kinematic_param, GeometrySettings geom_settings, DynamicParameters dyn_param){
@@ -413,9 +438,7 @@ class VehicleConfigToKinematicTree {
     		jnt_front_right_steer, 1.0
     	)
     	planeRotation(link_front)
-    	    	
-    	
-    	    		
+    	// Wheel axis    	    		
     	setupWheelAxle(jnt_rear_left_wheel, jnt_rear_right_wheel, 
     		link_rear, 
     		link_rear_left_wheel, rear_left_wheel_pos,
@@ -499,6 +522,7 @@ class VehicleConfigToKinematicTree {
     	robot.joint.add(jnt_front_right_wheel_drive)
     	robot.joint.add(jnt_rear_left_wheel_drive)
     	robot.joint.add(jnt_rear_right_wheel_drive)    	
+    	System.out.println("Kinematic structure successfully setup")
     }
     
     def void writeDocumentToText(PrintStream pw){

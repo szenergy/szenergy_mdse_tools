@@ -19,9 +19,9 @@ class InertiaCalculations {
 	
 	def static boxInertia(double width, double depth, double height, double mass)
 	{
-		val double ih = (depth*depth+width*width)/12.0f;
-		val double iw = (height*height+depth*depth)/12.0f;
-		val double id = (height*height+width*width)/12.0f;
+		val double ih = (depth*depth+width*width)/12.0;
+		val double iw = (height*height+depth*depth)/12.0;
+		val double id = (height*height+width*width)/12.0;
 		val inertia = RobotdescriptionpackageFactory.eINSTANCE.createInertia		
 		inertia.ixx = mass * id
 		inertia.iyy = mass * iw
