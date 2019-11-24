@@ -36,17 +36,12 @@ public class GenerateConfigProgram {
 		}catch (ParserConfigurationException pe) {
 			LOGGER.setLevel(Level.SEVERE);
 			LOGGER.severe(pe.getMessage());
-			//	pe.printStackTrace();
 		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
 			LOGGER.setLevel(Level.SEVERE);
 			LOGGER.severe(e.getMessage());
-			//e.printStackTrace();
 		} catch (FileNotFoundException e) {
 			LOGGER.setLevel(Level.SEVERE);
 			LOGGER.severe(e.getMessage());
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
 		}
 	}
 

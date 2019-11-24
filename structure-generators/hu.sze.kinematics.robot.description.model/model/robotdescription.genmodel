@@ -136,6 +136,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Link/material"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Link/sensor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Link/mass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Link/friction_mu"/>
     </genClasses>
     <genClasses ecoreClass="robotdescription.ecore#//Joint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Joint/name"/>

@@ -52,6 +52,8 @@ class InvalidJointElement extends Exception{
 	}
 }
 
+// TODO: double inertia is generated
+
 class GenerateUrdf {
 	val Element kinematic_tree;
 	val Map<Joint, ArrayList<Joint>> jointsetup;
@@ -374,7 +376,24 @@ class GenerateUrdf {
 		return geom_element;
 	}
 	
-	
+	def static Element generateFrictionElement(Document doc, Link ref_link, double mu)
+	{
+		val Element friction_element = doc.createElement("gazebo")
+		friction_element.setAttribute("reference", ref_link.name)
+		val Element mu1_element = doc.createElement("mu1");
+		mu1_element.appendChild(doc.createTextNode(Double.toString(mu)))
+		val Element mu2_element = doc.createElement("mu2");
+		mu2_element.appendChild(doc.createTextNode(Double.toString(mu)))
+		val Element mindepth_element = doc.createElement("minDepth");
+		mindepth_element.appendChild(doc.createTextNode(Double.toString(0.005)))
+		val Element kp_element = doc.createElement("kp");
+		kp_element.appendChild(doc.createTextNode(Double.toString(1e8)))
+		friction_element.appendChild(mu1_element)
+		friction_element.appendChild(mu2_element)
+		friction_element.appendChild(mindepth_element)
+		friction_element.appendChild(kp_element)
+		return friction_element
+	}
 	
 	def static Element generateMaterialElement(Document doc, Material m) {
 		val Element material_element = doc.createElement("material");
@@ -560,9 +579,7 @@ class GenerateUrdf {
 		}
 	}
 	
-	def Element generateLink(Document doc, Link l){
-		return generateLink(doc, l, "")	
-	}
+	
 	
 	def generateCollisionElement(Document doc, Element link_elemnt, Link l, Collision c){
 		if (c!==null) {
@@ -581,10 +598,13 @@ class GenerateUrdf {
 				collision_elemnt.appendChild(generateOriginElement(doc, c.parent_visual.origin));
 				collision_elemnt.appendChild(generateGeometryElement(doc, c.getParent_visual().getGeometry()));
 			}
+			/*
 			if (l.getInertial!==null){
 				link_elemnt.appendChild(generateInertia(doc, l.inertial, l.mass))
 			}
-			else if (l.getInertial()===null && c.parent_visual!==null) {
+			* 
+			*/
+			if (l.getInertial()===null && c.parent_visual!==null) {
 				link_elemnt.appendChild(generateInertia(doc, c.parent_visual, l.mass))
 			}
 			link_elemnt.appendChild(collision_elemnt);
@@ -610,6 +630,9 @@ class GenerateUrdf {
 		
 	}
 	
+	def Element generateLink(Document doc, Link l){
+		return generateLink(doc, l, "")	
+	}
 	
 	def Element generateLink(Document doc, Link l, String prefix){
 		val Element link_elemnt = doc.createElement("link");
@@ -637,7 +660,12 @@ class GenerateUrdf {
 			generateCollisionElement(doc, link_elemnt, l, c)
 			
 		}
-		if (l.mass==0.0){
+		// If inertial element is explicitly set, generate it
+		if (l.getInertial!==null){
+			link_elemnt.appendChild(generateInertia(doc, l.inertial, l.mass))
+		}
+		// Else check if mass is null: link can be ignored
+		else if (l.mass==0.0){
 			link_elemnt.appendChild(generateNullInertia(doc));
 		}
 		return link_elemnt;
@@ -761,13 +789,14 @@ class GenerateUrdf {
 		val Attr name_attr = doc.createAttribute("name");
 		name_attr.setValue(r.getName());
 		kinematic_tree.setAttributeNode(name_attr);
-		
 		doc.appendChild(kinematic_tree);
+		// Step #1: Generate kinematic links
 		kinematic_tree.appendChild(doc.createComment("GEN START: Kinematic links"))
 		for (Link l: r.getLink()) {
 			kinematic_tree.appendChild(doc.createComment('''GEN LINK: «l.name»'''))
 			kinematic_tree.appendChild(generateLink(doc, l));
 		}
+		// Step #2: Generate kinematic joints
 		kinematic_tree.appendChild(doc.createComment("GEN START: Kinematic joints"))
 		for (Joint j: r.getJoint()) {
 			kinematic_tree.appendChild(generateJointElement(doc, j));
@@ -811,8 +840,11 @@ class GenerateUrdf {
 		r.plugin.forEach[
 			kinematic_tree.appendChild(generateRosCustomControl(doc, it))			
 		]
-		
-		
+		// Generate friction elements
+		for (Link l: r.link.filter[it.friction_mu != 0.0]){
+			kinematic_tree.appendChild(generateFrictionElement(doc, l, l.friction_mu))
+			
+		}
 	}
 	
 	def static Element generateRosCustomControl(Document doc, Plugin plugin){
@@ -835,7 +867,6 @@ class GenerateUrdf {
 	
 	def void generateURDF(Document doc, Resource res) {
 		var Robot r = res.getContents().filter[it instanceof Robot].get(0) as Robot;
-		
 		generateURDF(doc, r)		
 	}
 	

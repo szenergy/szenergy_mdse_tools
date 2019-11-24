@@ -23,7 +23,7 @@ class VehicleConfigLinkJointSetup {
     		steer_joint.axis.limit.limit_min = sgn*steer.outer_angle*Math.PI/180.0;
     	}
     	// TODO: some calculation of angle velocity
-    	steer_joint.axis.limit.velocity = 0.2f;
+    	steer_joint.axis.limit.velocity = 0.4f;
     	steer_joint.axis.limit.effort = 8000.0f;
     }
 

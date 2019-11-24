@@ -124,13 +124,15 @@ class VehicleConfigToKinematicTree {
 		    	orig_viz.rpy = robotdescriptionpackageFactory.createEulerRotation
 		    	orig_coll.rpy = robotdescriptionpackageFactory.createEulerRotation
 		    	// TODO: other rotations as well
-		    	// TODO: change that fucking float to double
-		    	orig_viz.rpy.yaw = (geom_settings.wheelgeometry.rotation.yaw * axis_dir) as float
-		    	orig_coll.rpy.yaw = (geom_settings.wheelgeometry.rotation.yaw * axis_dir) as float
+		    	orig_viz.rpy.yaw = (geom_settings.wheelgeometry.rotation.yaw * axis_dir)
+		    	orig_coll.rpy.yaw = (geom_settings.wheelgeometry.rotation.yaw * axis_dir)
 		    	wheel_link.visual.get(0).origin = orig_viz
 		    	wheel_link.collision.get(0).origin = orig_coll
 		    }
     	}
+    	// Setup friction
+    	// TODO: set from editor
+    	wheel_link.friction_mu = 0.7;
     }
     
     def void setupWheelMotorLinkGeometry(Link wheel_motor) {
@@ -249,7 +251,6 @@ class VehicleConfigToKinematicTree {
 			case COG: {
 			}
     	}
-    	root.inertial.origin
     	root.mass = root.inertial.mass
     	/// Set mesh origin
     	if (shell_geom.displacement!==null)
@@ -523,6 +524,7 @@ class VehicleConfigToKinematicTree {
     	robot.joint.add(jnt_rear_left_wheel_drive)
     	robot.joint.add(jnt_rear_right_wheel_drive)    	
     	System.out.println("Kinematic structure successfully setup")
+    	
     }
     
     def void writeDocumentToText(PrintStream pw){
@@ -559,11 +561,8 @@ class VehicleConfigToKinematicTree {
         this.resource = robot.eResource
         doc = doc_builder.newDocument
         prepare(engine)
-        
         // Create EMF scope and EMF IncQuery engine based on the resource
-
         createTransformation
-
     }
     
     def Document getDocument(){
@@ -573,7 +572,6 @@ class VehicleConfigToKinematicTree {
     def execute() {
     	System.out.println("Executing Config-Kineto transformation rules");
 		kinematicRule.fireOne
-		
 		ValidKinematicParameters
     }
 
