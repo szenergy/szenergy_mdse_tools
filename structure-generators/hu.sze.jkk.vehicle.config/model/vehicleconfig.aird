@@ -3846,6 +3846,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_nkz9ceqAEemtztJtB74uXQ" fontColor="2697711" fontName="Noto Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_nkz9cuqAEemtztJtB74uXQ"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_w5eO4BEQEequRsQecGWXuw" type="3010" element="_w4sLwBEQEequRsQecGWXuw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_w5eO4REQEequRsQecGWXuw" fontColor="2697711" fontName="Noto Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_w5eO4hEQEequRsQecGWXuw"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_L1OkkelaEem9hLQ18BNtMw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_L1OkkulaEem9hLQ18BNtMw"/>
           </children>
@@ -4086,7 +4090,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_S10eQfAEEemBTP5owVFa2Q" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_xe3a8REQEequRsQecGWXuw" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
@@ -4102,6 +4106,14 @@
         <target xmi:type="ecore:EAttribute" href="vehicleconfig.ecore#//LowLevelControl/can_model_path"/>
         <semanticElements xmi:type="ecore:EAttribute" href="vehicleconfig.ecore#//LowLevelControl/can_model_path"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_r3zcoeqAEemtztJtB74uXQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_w4sLwBEQEequRsQecGWXuw" name="name : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="vehicleconfig.ecore#//LowLevelControl/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="vehicleconfig.ecore#//LowLevelControl/name"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_xe5QIREQEequRsQecGWXuw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
@@ -4190,7 +4202,7 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RNcmcOlaEem9hLQ18BNtMw" name="[0..1] lowlevelcontrol" sourceNode="_Mxjp8OlaEem9hLQ18BNtMw" targetNode="_L04mUOlaEem9hLQ18BNtMw">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RNcmcOlaEem9hLQ18BNtMw" name="[0..*] lowlevelcontrol" sourceNode="_Mxjp8OlaEem9hLQ18BNtMw" targetNode="_L04mUOlaEem9hLQ18BNtMw">
       <target xmi:type="ecore:EReference" href="vehicleconfig.ecore#//Vehicle/lowlevelcontrol"/>
       <semanticElements xmi:type="ecore:EReference" href="vehicleconfig.ecore#//Vehicle/lowlevelcontrol"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RNd0k-laEem9hLQ18BNtMw" description="_RNd0kOlaEem9hLQ18BNtMw" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
@@ -4358,7 +4370,7 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_aJzpRvAEEemBTP5owVFa2Q" name="[0..*] canports" sourceNode="_L04mUOlaEem9hLQ18BNtMw" targetNode="_TKl0YPAEEemBTP5owVFa2Q">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_aJzpRvAEEemBTP5owVFa2Q" name="[0..1] canports" sourceNode="_L04mUOlaEem9hLQ18BNtMw" targetNode="_TKl0YPAEEemBTP5owVFa2Q">
       <target xmi:type="ecore:EReference" href="vehicleconfig.ecore#//LowLevelControl/canports"/>
       <semanticElements xmi:type="ecore:EReference" href="vehicleconfig.ecore#//LowLevelControl/canports"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_aJ0QUPAEEemBTP5owVFa2Q" description="_RNd0kOlaEem9hLQ18BNtMw" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">

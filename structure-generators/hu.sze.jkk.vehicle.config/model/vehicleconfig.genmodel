@@ -191,6 +191,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//LowLevelControl/message"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//LowLevelControl/can_model_path"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//LowLevelControl/canports"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//LowLevelControl/name"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//MessageMapping">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MessageMapping/low_level_msg_name"/>
