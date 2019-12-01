@@ -204,6 +204,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SignalMapping/low_level_signal_name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SignalMapping/middlewaremsgfield"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SignalMapping/messagemapping"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SignalMapping/transformationfunction"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//MiddlewareTopic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/middleware_msg_type"/>
@@ -224,6 +225,10 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//MiddleWareMsgField/signalmapping"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddleWareMsgField/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//MiddleWareMsgField/middlewaretopic"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//TransformationFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//TransformationFunction/tx_func"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//TransformationFunction/rx_func"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

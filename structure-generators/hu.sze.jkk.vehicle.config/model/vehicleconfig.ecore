@@ -248,6 +248,8 @@
         eOpposite="#//MiddleWareMsgField/signalmapping"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="messagemapping" eType="#//MessageMapping"
         eOpposite="#//MessageMapping/signalmapping"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformationfunction"
+        eType="#//TransformationFunction" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MiddlewareTopic">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware_msg_type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -272,5 +274,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="middlewaretopic" eType="#//MiddlewareTopic"
         eOpposite="#//MiddlewareTopic/middlewaremsgfield"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransformationFunction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tx_func" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rx_func" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
