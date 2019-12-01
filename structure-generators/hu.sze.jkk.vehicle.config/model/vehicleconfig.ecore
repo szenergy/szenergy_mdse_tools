@@ -230,6 +230,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="canports" eType="#//LowLevelPort"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="middlewaretopic" upperBound="-1"
+        eType="#//MiddlewareTopic" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageMapping">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="low_level_msg_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -237,17 +239,13 @@
         eType="#//SignalMapping" containment="true" eOpposite="#//SignalMapping/messagemapping"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="middlewaretopic" upperBound="-1"
-        eType="#//MiddlewareTopic" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lowlevelport" eType="#//LowLevelPort"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SignalMapping">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="low_level_signal_name"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware_message_field_name"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="middlewaretopic" eType="#//MiddlewareTopic"
-        eOpposite="#//MiddlewareTopic/signalmapping"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="middlewaremsgfield" eType="#//MiddleWareMsgField"
+        eOpposite="#//MiddleWareMsgField/signalmapping"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="messagemapping" eType="#//MessageMapping"
         eOpposite="#//MessageMapping/signalmapping"/>
   </eClassifiers>
@@ -256,8 +254,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware_msg_topic_name"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="signalmapping" upperBound="-1"
-        eType="#//SignalMapping" eOpposite="#//SignalMapping/middlewaretopic"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="middlewaremsgfield" upperBound="-1"
+        eType="#//MiddleWareMsgField" containment="true" eOpposite="#//MiddleWareMsgField/middlewaretopic"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stamped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sync" eType="#//SignalMapping"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LowLevelPort">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -265,5 +265,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="NetworkDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ip_address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MiddleWareMsgField">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signalmapping" eType="#//SignalMapping"
+        eOpposite="#//SignalMapping/middlewaremsgfield"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="middlewaretopic" eType="#//MiddlewareTopic"
+        eOpposite="#//MiddlewareTopic/middlewaremsgfield"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -7,6 +7,7 @@
     <project>hu.sze.kinematics.robot.description.model</project>
     <project>hu.sze.jkk.vehicle.config</project>
     <project>hu.sze.kinematics.description.generator</project>
+    <project>hu.sze.jkk.robot.launch.model</project>
   </projects>
   <buildSpec>
     <buildCommand>
