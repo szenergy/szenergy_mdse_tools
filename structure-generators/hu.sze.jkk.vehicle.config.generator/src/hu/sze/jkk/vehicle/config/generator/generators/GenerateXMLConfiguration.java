@@ -22,15 +22,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import hu.sze.jkk.vehicle.config.vehicleconfig.ComputationNode;
-import hu.sze.jkk.vehicle.config.vehicleconfig.ImuTopic;
 import hu.sze.jkk.vehicle.config.vehicleconfig.JointStateTopic;
 import hu.sze.jkk.vehicle.config.vehicleconfig.KinematicParameters;
-import hu.sze.jkk.vehicle.config.vehicleconfig.LaserTopic;
-import hu.sze.jkk.vehicle.config.vehicleconfig.OdomTopic;
 import hu.sze.jkk.vehicle.config.vehicleconfig.Odometry;
-import hu.sze.jkk.vehicle.config.vehicleconfig.RosTopicConfiguration;
-import hu.sze.jkk.vehicle.config.vehicleconfig.SteerTopic;
-import hu.sze.jkk.vehicle.config.vehicleconfig.ThrottleTopic;
 import hu.sze.jkk.vehicle.config.vehicleconfig.Vehicle;
 import hu.sze.jkk.vehicle.config.vehicleconfig.VehicleControl;
 import hu.sze.jkk.vehicle.config.vehicleconfig.WheelParameters;
@@ -39,6 +33,8 @@ public class GenerateXMLConfiguration {
 	private ResourceSet resset;
 	private Document doc ;
 	
+	/*	
+	 * SLATED
 	public static Element generateTopicConfiguration(Document doc, RosTopicConfiguration topic) {
 		String topic_type = "topic";
 		if (topic instanceof ThrottleTopic) {
@@ -76,6 +72,7 @@ public class GenerateXMLConfiguration {
 		}
 		return topic_element;
 	}
+	*/
 	
 	public static Element generateWheelParameters(Document doc, WheelParameters wheel_param) {
 		Element wheel_parameters = doc.createElement("wheelparameters");
@@ -162,12 +159,14 @@ public class GenerateXMLConfiguration {
 			
 			if (cn instanceof VehicleControl) {
 				Element vehicle_element = doc.createElement("vehicle");
+				/*
 				vehicle_element.appendChild(
 					GenerateXMLConfiguration.generateTopicConfiguration(
 						doc,
 						((VehicleControl) cn).getSteertopic()
 					)
 				);
+				*/
 				roselement.appendChild(vehicle_element);
 			}
 		}

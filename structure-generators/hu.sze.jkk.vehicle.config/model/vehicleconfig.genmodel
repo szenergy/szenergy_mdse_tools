@@ -44,15 +44,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//WheelParameters/wheel_width"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//WheelParameters/wheel_mass"/>
     </genClasses>
-    <genClasses ecoreClass="vehicleconfig.ecore#//RosTopicConfiguration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//RosTopicConfiguration/topicname"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//RosTopicConfiguration/frequency"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//RosTopicConfiguration/name"/>
+    <genClasses ecoreClass="vehicleconfig.ecore#//SensorMiddlewareTopic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SensorMiddlewareTopic/frequency"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//Odometry">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Odometry/throttletopic"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Odometry/steertopic"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Odometry/odomtopic"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Odometry/vehicle_status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Odometry/sensormiddlewaretopic"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//ComputationNode">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//ComputationNode/callbackqueue"/>
@@ -60,14 +57,8 @@
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//ControlNode"/>
     <genClasses ecoreClass="vehicleconfig.ecore#//VehicleControl">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//VehicleControl/steertopic"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//VehicleControl/throttletopic"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//VehicleControl/controlmiddlewaretopic"/>
     </genClasses>
-    <genClasses ecoreClass="vehicleconfig.ecore#//SteerTopic"/>
-    <genClasses ecoreClass="vehicleconfig.ecore#//ThrottleTopic"/>
-    <genClasses ecoreClass="vehicleconfig.ecore#//ImuTopic"/>
-    <genClasses ecoreClass="vehicleconfig.ecore#//OdomTopic"/>
-    <genClasses ecoreClass="vehicleconfig.ecore#//LaserTopic"/>
     <genClasses ecoreClass="vehicleconfig.ecore#//RosConfiguration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//RosConfiguration/rostopicconfiguration"/>
     </genClasses>
@@ -101,7 +92,6 @@
     <genClasses ecoreClass="vehicleconfig.ecore#//Laser">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Laser/distancesettings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Laser/angleparameters"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Laser/lasertopic"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//SensorConfiguration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SensorConfiguration/sensor"/>
@@ -173,6 +163,7 @@
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//GNSS">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//GNSS/geolocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//GNSS/sensormiddlewaretopic"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//Geolocation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Geolocation/longitude"/>
@@ -206,16 +197,13 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SignalMapping/messagemapping"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SignalMapping/transformationfunction"/>
     </genClasses>
-    <genClasses ecoreClass="vehicleconfig.ecore#//MiddlewareTopic">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/middleware_msg_type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/middleware_msg_topic_name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//MiddlewareTopic/middlewaremsgfield"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/stamped"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//MiddlewareTopic/sync"/>
+    <genClasses ecoreClass="vehicleconfig.ecore#//ControlMiddlewareTopic">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//ControlMiddlewareTopic/middlewaremsgfield"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//ControlMiddlewareTopic/sync"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//LowLevelPort">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//LowLevelPort/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//LowLevelPort/bitrate"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//NetworkDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//NetworkDefinition/ip_address"/>
@@ -229,6 +217,12 @@
     <genClasses ecoreClass="vehicleconfig.ecore#//TransformationFunction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//TransformationFunction/tx_func"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//TransformationFunction/rx_func"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//MiddlewareTopic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/middleware_msg_topic_name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/stamped"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/middleware_msg_type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

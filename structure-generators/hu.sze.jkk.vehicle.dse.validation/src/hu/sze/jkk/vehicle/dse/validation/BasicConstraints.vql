@@ -62,6 +62,18 @@ pattern sensorNodeElements(v: Vehicle, s: Sensor){
 	Vehicle.sensorconfiguration(v,sn);
 	SensorConfiguration.sensor(sn,s);
 }
+
+pattern canPorts(lw: LowLevelControl, c: LowLevelPort){
+	LowLevelControl.canports(lw, c);
+	
+}
+
+pattern velodyneLidars(v: Vehicle, l: LIDAR){
+	Vehicle.sensorconfiguration(v, sc);
+	SensorConfiguration.sensor(sc, l);
+	LIDAR(l);
+}
+
 /*
 pattern validLaserConfiguration(v: Vehicle, l: Laser, 
 	a: AngleParameters, d: DistanceSettings

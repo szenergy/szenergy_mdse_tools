@@ -38,18 +38,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wheel_width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wheel_mass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RosTopicConfiguration" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topicname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SensorMiddlewareTopic" eSuperTypes="#//MiddlewareTopic">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Odometry" eSuperTypes="#//Sensor">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="throttletopic" lowerBound="1"
-        eType="#//ThrottleTopic"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="steertopic" lowerBound="1"
-        eType="#//SteerTopic"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="odomtopic" lowerBound="1"
-        eType="#//OdomTopic"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vehicle_status" eType="#//ControlMiddlewareTopic"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensormiddlewaretopic"
+        eType="#//SensorMiddlewareTopic" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComputationNode" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="callbackqueue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -57,19 +52,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ControlNode" abstract="true" eSuperTypes="#//ComputationNode"/>
   <eClassifiers xsi:type="ecore:EClass" name="VehicleControl" eSuperTypes="#//ControlNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="steertopic" lowerBound="1"
-        eType="#//SteerTopic"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="throttletopic" lowerBound="1"
-        eType="#//ThrottleTopic"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controlmiddlewaretopic"
+        eType="#//ControlMiddlewareTopic"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SteerTopic" eSuperTypes="#//RosTopicConfiguration #//JointStateTopic"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ThrottleTopic" eSuperTypes="#//RosTopicConfiguration #//JointStateTopic"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ImuTopic" eSuperTypes="#//RosTopicConfiguration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OdomTopic" eSuperTypes="#//RosTopicConfiguration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LaserTopic" eSuperTypes="#//RosTopicConfiguration"/>
   <eClassifiers xsi:type="ecore:EClass" name="RosConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rostopicconfiguration"
-        upperBound="-1" eType="#//RosTopicConfiguration" containment="true"/>
+        upperBound="-1" eType="#//SensorMiddlewareTopic" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NodeConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="computationnode" upperBound="-1"
@@ -108,8 +96,6 @@
         eType="#//DistanceSettings" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="angleparameters" lowerBound="1"
         eType="#//AngleParameters" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lasertopic" lowerBound="1"
-        eType="#//LaserTopic"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SensorConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"
@@ -205,6 +191,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="GNSS" eSuperTypes="#//Sensor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="geolocation" lowerBound="1"
         eType="#//Geolocation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensormiddlewaretopic"
+        eType="#//SensorMiddlewareTopic" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Geolocation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="longitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -231,7 +219,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="middlewaretopic" upperBound="-1"
-        eType="#//MiddlewareTopic" containment="true"/>
+        eType="#//ControlMiddlewareTopic" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageMapping">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="low_level_msg_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -251,18 +239,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="transformationfunction"
         eType="#//TransformationFunction" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MiddlewareTopic">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware_msg_type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware_msg_topic_name"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlMiddlewareTopic" eSuperTypes="#//MiddlewareTopic">
     <eStructuralFeatures xsi:type="ecore:EReference" name="middlewaremsgfield" upperBound="-1"
         eType="#//MiddleWareMsgField" containment="true" eOpposite="#//MiddleWareMsgField/middlewaretopic"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stamped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sync" eType="#//SignalMapping"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LowLevelPort">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bitrate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NetworkDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ip_address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -272,11 +256,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="signalmapping" eType="#//SignalMapping"
         eOpposite="#//SignalMapping/middlewaremsgfield"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="middlewaretopic" eType="#//MiddlewareTopic"
-        eOpposite="#//MiddlewareTopic/middlewaremsgfield"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="middlewaretopic" eType="#//ControlMiddlewareTopic"
+        eOpposite="#//ControlMiddlewareTopic/middlewaremsgfield"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransformationFunction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tx_func" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rx_func" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MiddlewareTopic">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware_msg_topic_name"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stamped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware_msg_type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
