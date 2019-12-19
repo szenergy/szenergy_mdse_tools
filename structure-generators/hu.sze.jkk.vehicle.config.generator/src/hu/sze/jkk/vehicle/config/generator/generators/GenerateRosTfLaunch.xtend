@@ -53,8 +53,9 @@ class GenerateRosTfLaunch {
 			val Element node_element = document.createElement("node")
 			node_element.setAttribute("name", n.name)
 			node_element.setAttribute("type", n.type)
+			node_element.setAttribute("pkg", "tf")
 			if (n instanceof StaticTransform){
-				node_element.setAttribute("args", '''«n.vec3.x» «n.vec3.y» «n.vec3.z» «n.rpy.x» «n.rpy.y» «n.rpy.z» «n.link_from» «n.link_to»''')
+				node_element.setAttribute("args", '''«n.vec3.x» «n.vec3.y» «n.vec3.z» «n.rpy.x» «n.rpy.y» «n.rpy.z» «n.link_from» «n.link_to» 100''')
 			}
 			root.appendChild(node_element)
 		}

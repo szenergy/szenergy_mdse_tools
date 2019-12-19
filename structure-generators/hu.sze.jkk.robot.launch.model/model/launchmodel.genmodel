@@ -15,12 +15,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Launch/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/argument"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/launchparameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/include"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/namespace"/>
     </genClasses>
     <genClasses ecoreClass="launchmodel.ecore#//Node">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Node/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Node/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Node/parameter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Node/rospkg"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Node/args"/>
     </genClasses>
     <genClasses ecoreClass="launchmodel.ecore#//StaticTransform">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//StaticTransform/vec3"/>
@@ -41,5 +44,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Argument/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Argument/value"/>
     </genClasses>
+    <genClasses ecoreClass="launchmodel.ecore#//Include">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Include/argument"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Include/file"/>
+    </genClasses>
+    <genClasses ecoreClass="launchmodel.ecore#//Namespace">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Namespace/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Namespace/launchelement"/>
+    </genClasses>
+    <genClasses ecoreClass="launchmodel.ecore#//LaunchElement"/>
   </genPackages>
 </genmodel:GenModel>
