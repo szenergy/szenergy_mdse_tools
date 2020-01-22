@@ -9,6 +9,8 @@
       <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.validKinematicParameters"/>
       <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.selectAllValidSensors"/>
       <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.sensorNodeElements"/>
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.canPorts"/>
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.velodyneLidars"/>
     </group>
   </extension>
 </plugin>

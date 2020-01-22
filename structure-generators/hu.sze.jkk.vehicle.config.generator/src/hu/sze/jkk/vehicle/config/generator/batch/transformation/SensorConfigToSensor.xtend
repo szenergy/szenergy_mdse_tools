@@ -59,7 +59,9 @@ class SensorConfigToSensor {
     
     def sensorKinematics(Link root_link, Sensor abstract_sensor, robotdescriptionpackage.Sensor sensor){
     	val Link sensor_link = robotdescriptionpackageFactory.createLink
-		sensor_link.name = "link_"+abstract_sensor.name
+		//sensor_link.name = "link_"+abstract_sensor.name
+		// REGRESSION: link should not be appended
+		sensor_link.name = abstract_sensor.name
 		sensor_link.visual += robotdescriptionpackageFactory.createVisual
 		sensor_link.visual.get(0).name = "viz_"+sensor_link.name
 		val Sphere sphere = robotdescriptionpackageFactory.createSphere
