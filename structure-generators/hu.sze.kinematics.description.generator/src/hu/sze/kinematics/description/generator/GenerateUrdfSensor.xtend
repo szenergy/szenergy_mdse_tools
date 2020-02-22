@@ -319,7 +319,7 @@ class GenerateUrdfSensor {
 				sensor_element.setAttribute("type", "multicamera");
 				plugin_element.setAttribute("filename", "libgazebo_ros_multicamera.so");
                 val Element topicname_element = doc.createElement("imageTopicName");
-                topicname_element.appendChild(doc.createTextNode('''/«camera.name»/image_raw'''));
+                topicname_element.appendChild(doc.createTextNode('''image_raw'''));
                 plugin_element.appendChild(topicname_element)
                 // Add left and right cameras
                 sensor_element.appendChild(generateCameraSubElement(doc, camera, camera.name+"_right", -0.07))

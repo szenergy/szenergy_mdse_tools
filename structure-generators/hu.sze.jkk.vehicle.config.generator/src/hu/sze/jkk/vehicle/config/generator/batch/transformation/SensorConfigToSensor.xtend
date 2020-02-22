@@ -36,6 +36,8 @@ class InvalidSensorModel extends Exception{
 }
 
 class SensorConfigToSensor {
+	static private float SENSOR_DUMMY_RADIUS = 0.02f;
+	
 	extension BatchTransformation transformation
     extension BatchTransformationStatements statements
     extension BatchTransformationRuleFactory = new BatchTransformationRuleFactory
@@ -65,7 +67,7 @@ class SensorConfigToSensor {
 		sensor_link.visual += robotdescriptionpackageFactory.createVisual
 		sensor_link.visual.get(0).name = "viz_"+sensor_link.name
 		val Sphere sphere = robotdescriptionpackageFactory.createSphere
-		sphere.radius = 0.1f
+		sphere.radius = SENSOR_DUMMY_RADIUS;
 		sensor_link.visual.get(0).geometry = sphere
 		sensor_link.mass = abstract_sensor.mass
 		sensor_link.collision += robotdescriptionpackageFactory.createCollision

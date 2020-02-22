@@ -113,7 +113,8 @@ class VehicleConfigToKinematicTree {
 	    	wheel_link.inertial.origin = robotdescriptionpackageFactory.createOrigin
 	    	wheel_link.inertial.origin.xyz = robotdescriptionpackageFactory.createVec3
 	    	wheel_link.inertial.origin.rpy = robotdescriptionpackageFactory.createEulerRotation
-	    	wheel_link.inertial.origin.rpy.roll = 90.0f*Math.PI/180.0;
+	    	//wheel_link.inertial.origin.rpy.roll = 90.0f*Math.PI/180.0;
+	    	//wheel_link.inertial.origin.rpy.roll = 90.0f*Math.PI/180.0;
 		    if (geom_settings.wheelgeometry.rotation!==null)
 		    {
 		    	System.out.println('''Setting explicit geometry settings for wheel link: «wheel_link.name»''');

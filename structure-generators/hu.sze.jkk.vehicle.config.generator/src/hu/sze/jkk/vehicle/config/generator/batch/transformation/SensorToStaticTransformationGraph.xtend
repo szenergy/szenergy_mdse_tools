@@ -16,9 +16,10 @@ import hu.sze.jkk.robot.launch.model.launchmodel.StaticTransform
 import org.eclipse.xtend.lib.annotations.Accessors
 import hu.sze.jkk.vehicle.config.vehicleconfig.Vehicle
 
-class SensorToStaticTransformation {
 
-    /* Transformation-related extensions */
+
+class SensorToStaticTransformationGraph {
+	/* Transformation-related extensions */
     extension BatchTransformation transformation
     extension BatchTransformationStatements statements
     
@@ -88,15 +89,8 @@ class SensorToStaticTransformation {
     			// Set position
     			static_tf_node.vec3.x = it.s.displacement.x
     			static_tf_node.vec3.y = it.s.displacement.y
-    			static_tf_node.vec3.z = it.s.displacement.z    			
+    			static_tf_node.vec3.z = it.s.displacement.z
     			// TODO: Set orientation
-    			if (it.s.rotation!==null)
-    			{
-    				// CONVENTION WARNING: rotation is described in degrees in the description file, convert to radians!
-    				static_tf_node.rpy.x = it.s.rotation.roll*Math.PI/180.0
-    				static_tf_node.rpy.y = it.s.rotation.pitch*Math.PI/180.0
-    				static_tf_node.rpy.z = it.s.rotation.yaw*Math.PI/180.0
-    			}
     			// Set TF from and to links
     			static_tf_node.link_from = "/base_link"
     			static_tf_node.link_to = "/"+it.s.name
