@@ -15,12 +15,24 @@ import hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelFactory
 import hu.sze.jkk.robot.launch.model.launchmodel.StaticTransform
 import org.eclipse.xtend.lib.annotations.Accessors
 import hu.sze.jkk.vehicle.config.vehicleconfig.Vehicle
+import java.util.List
+import robotdescriptionpackage.Link
+import robotdescriptionpackage.RobotdescriptionpackageFactory
+import hu.sze.jkk.vehicle.control.transformation.vehicle.VehicleModelTransformation
+import java.io.PrintWriter
+import hu.sze.jkk.robot.launch.model.launchmodel.Node
+import hu.sze.jkk.vehicle.config.generator.generators.GenerateRosTfLaunch
+import java.io.File
+import java.io.FileNotFoundException
+import static org.junit.jupiter.api.Assertions.fail
 
 class SensorToStaticTransformation {
 
     /* Transformation-related extensions */
     extension BatchTransformation transformation
     extension BatchTransformationStatements statements
+    /* List nodes */
+    
     
     /* Transformation rule-related extensions */
     extension BatchTransformationRuleFactory = new BatchTransformationRuleFactory
@@ -28,7 +40,8 @@ class SensorToStaticTransformation {
 
     protected ViatraQueryEngine engine
     //protected Resource resource
-    protected BatchTransformationRule sensorStaticRule
+    protected BatchTransformationRule sensorStaticRuleLaunch
+    
     
     //protected BatchTransformationRule<?,?> exampleRule
     @Accessors(PUBLIC_GETTER) val Launch launch 
@@ -55,8 +68,10 @@ class SensorToStaticTransformation {
 
     public def execute() {
     	println('''Executing sensor to static transformation''')
-    	sensorRule.fireAllCurrent
+    	sensorRuleLaunch.fireAllCurrent
     }
+    
+    
 
     private def createTransformation() {
         //Create VIATRA model manipulations
@@ -77,9 +92,9 @@ class SensorToStaticTransformation {
 //      return exampleRule
 //  }
 
-    private def getSensorRule(){
-    	if (sensorStaticRule === null){
-    		sensorStaticRule = createRule(SelectAllValidSensors.instance).action[
+    private def getSensorRuleLaunch(){
+    	if (sensorStaticRuleLaunch === null){
+    		sensorStaticRuleLaunch = createRule(SelectAllValidSensors.instance).action[
     			val StaticTransform static_tf_node = LaunchmodelFactory.eINSTANCE.createStaticTransform
     			static_tf_node.name = it.s.name+"_tf_publisher"
     			static_tf_node.type = "static_transform_publisher"
@@ -104,8 +119,36 @@ class SensorToStaticTransformation {
     			launch.node.add(static_tf_node)
     		].build
     	}
-    	return sensorStaticRule
+    	return sensorStaticRuleLaunch
     } 
+    
+    
+    
+    public static def createTfTable(SensorToStaticTransformation sensor_static_transform, Vehicle vehicle, String path){
+    	
+		sensor_static_transform.execute();
+		
+		val File file = new File(path);		
+		try (val PrintWriter pw = new PrintWriter(file)){
+			pw.println("parent;child;x;y;z;roll;pitch;yaw");
+			for (Node n: sensor_static_transform.getLaunch().getNode())
+			{
+				if (n instanceof StaticTransform)
+				{
+					val StaticTransform sn = n as StaticTransform;
+					pw.println(
+						'''«sn.getLink_from()»;«sn.getLink_to()»;«sn.getVec3().getX()»;«
+								sn.getVec3().getY()»;«sn.getVec3().getZ()»;«
+								sn.getRpy().getX()»;«sn.getRpy().getY()»;«sn.getRpy().getZ()»'''
+						);					
+				}
+								
+			}
+			
+		}catch (FileNotFoundException fe) {
+			fail("File should be created: "+fe.getMessage());
+		}
+    }
     
     def dispose() {
         if (transformation !== null) {

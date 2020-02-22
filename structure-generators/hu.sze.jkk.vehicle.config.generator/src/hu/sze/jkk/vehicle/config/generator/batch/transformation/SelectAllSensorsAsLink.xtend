@@ -9,17 +9,18 @@ import org.eclipse.viatra.transformation.runtime.emf.rules.batch.BatchTransforma
 import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformation
 import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformationStatements
 import org.eclipse.emf.ecore.resource.Resource
-import hu.sze.jkk.vehicle.dse.validation.SelectAllValidSensors
-import hu.sze.jkk.robot.launch.model.launchmodel.Launch
-import hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelFactory
-import hu.sze.jkk.robot.launch.model.launchmodel.StaticTransform
+import robotdescriptionpackage.Link
 import org.eclipse.xtend.lib.annotations.Accessors
+import robotdescriptionpackage.RobotdescriptionpackageFactory
+import hu.sze.jkk.vehicle.dse.validation.SelectAllValidSensors
 import hu.sze.jkk.vehicle.config.vehicleconfig.Vehicle
+import hu.sze.jkk.vehicle.config.vehicleconfig.Sensor
+import java.util.Map
+import java.util.HashMap
 
+class SelectAllSensorsAsLink {
 
-
-class SensorToStaticTransformationGraph {
-	/* Transformation-related extensions */
+    /* Transformation-related extensions */
     extension BatchTransformation transformation
     extension BatchTransformationStatements statements
     
@@ -28,35 +29,27 @@ class SensorToStaticTransformationGraph {
     extension IModelManipulations manipulation
 
     protected ViatraQueryEngine engine
-    //protected Resource resource
-    protected BatchTransformationRule sensorStaticRule
-    
+    protected Vehicle vehicle
+    @Accessors(PUBLIC_GETTER) Map<Link, Sensor> sensormap;
     //protected BatchTransformationRule<?,?> exampleRule
-    @Accessors(PUBLIC_GETTER) val Launch launch 
+    @Accessors(PUBLIC_GETTER) Link base_link
+    protected BatchTransformationRule sensorStaticRuleSelect
 
-    new(Resource resource) {
-        //this.resource = resource
-        // Create EMF scope and EMF IncQuery engine based on the resource
-        val scope = new EMFScope(resource)
-        engine = ViatraQueryEngine.on(scope);
-        
-        createTransformation
-        launch = LaunchmodelFactory.eINSTANCE.createLaunch
-    }
-    
     new(Vehicle vehicle) {
-        //this.resource = resource
+        this.vehicle = vehicle
         // Create EMF scope and EMF IncQuery engine based on the resource
         val scope = new EMFScope(vehicle)
         engine = ViatraQueryEngine.on(scope);
         
         createTransformation
-        launch = LaunchmodelFactory.eINSTANCE.createLaunch
+        base_link = RobotdescriptionpackageFactory.eINSTANCE.createLink
     }
 
     public def execute() {
-    	println('''Executing sensor to static transformation''')
-    	sensorRule.fireAllCurrent
+    	sensorStaticSelect.fireAllCurrent
+//      Fire the defined rules here
+//      exampleRule.fireAllCurrent
+
     }
 
     private def createTransformation() {
@@ -78,29 +71,36 @@ class SensorToStaticTransformationGraph {
 //      return exampleRule
 //  }
 
-    private def getSensorRule(){
-    	if (sensorStaticRule === null){
-    		sensorStaticRule = createRule(SelectAllValidSensors.instance).action[
-    			val StaticTransform static_tf_node = LaunchmodelFactory.eINSTANCE.createStaticTransform
-    			static_tf_node.name = it.s.name+"_tf_publisher"
-    			static_tf_node.type = "static_transform_publisher"
-    			static_tf_node.vec3 = LaunchmodelFactory.eINSTANCE.createVec3
-    			static_tf_node.rpy = LaunchmodelFactory.eINSTANCE.createVec3
-    			// Set position
-    			static_tf_node.vec3.x = it.s.displacement.x
-    			static_tf_node.vec3.y = it.s.displacement.y
-    			static_tf_node.vec3.z = it.s.displacement.z
-    			// TODO: Set orientation
-    			// Set TF from and to links
-    			static_tf_node.link_from = "/base_link"
-    			static_tf_node.link_to = "/"+it.s.name
-    			// Wrap up
-    			launch.node.add(static_tf_node)
+	private def getSensorStaticSelect(){
+    	if (sensorStaticRuleSelect === null){    		
+    		sensormap = new HashMap
+    		base_link.joint.clear
+    		sensorStaticRuleSelect = createRule(SelectAllValidSensors.instance).action[    			
+    			val j = RobotdescriptionpackageFactory.eINSTANCE.createJoint
+    			val l = RobotdescriptionpackageFactory.eINSTANCE.createLink
+    			sensormap.put(l, it.s)
+    			l.name = it.s.name
+    			j.child  = l
+    			j.parent = base_link
+    			j.origin = RobotdescriptionpackageFactory.eINSTANCE.createOrigin
+    			j.origin.xyz = RobotdescriptionpackageFactory.eINSTANCE.createVec3
+    			j.origin.xyz.x = it.s.displacement.x 
+    			j.origin.xyz.y = it.s.displacement.y
+    			j.origin.xyz.z = it.s.displacement.z
+    			j.origin.rpy = RobotdescriptionpackageFactory.eINSTANCE.createEulerRotation 
+    			if (it.s.rotation!==null)
+    			{
+    				// CONVENTION WARNING: rotation is described in degrees in the description file, convert to radians!
+    				j.origin.rpy.roll  = it.s.rotation.roll*Math.PI/180.0
+    				j.origin.rpy.pitch = it.s.rotation.pitch*Math.PI/180.0
+    				j.origin.rpy.yaw   = it.s.rotation.yaw*Math.PI/180.0
+    			}
+    			base_link.joint.add(j)
     		].build
     	}
-    	return sensorStaticRule
-    } 
-    
+    	return sensorStaticRuleSelect
+    }
+
     def dispose() {
         if (transformation !== null) {
             transformation.ruleEngine.dispose
