@@ -43,6 +43,22 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
+        <edgeMappings name="Implements other interface" sourceMapping="//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']" targetMapping="//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']" targetFinderExpression="feature:implements">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Synchronize with" sourceMapping="//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@subNodeMappings[name='Continous%20state%20definition']" targetMapping="//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Input%20port%20definition']" targetFinderExpression="feature:synchronizeWith">
+          <style lineStyle="dot" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
         <containerMappings name="Node definition" domainClass="statepubsubmodel::Node">
           <borderedNodeMappings name="Input port definition" semanticCandidatesExpression="feature:inputport" domainClass="statepubsubmodel::InputPort">
             <style xsi:type="style:SquareDescription" labelSize="7" labelExpression="feature:id" resizeKind="NSEW">
@@ -169,6 +185,28 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="producesTo" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Implement interface" edgeMappings="//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@edgeMappings[name='Implements%20other%20interface']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="implements" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Synchronize with" edgeMappings="//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@edgeMappings[name='Synchronize%20with']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="synchronizeWith" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
