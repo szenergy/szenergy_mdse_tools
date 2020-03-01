@@ -5,18 +5,36 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:rosnetworkmodel="http://jkk.sze.hu/rosnetworkmodel"
     xsi:schemaLocation="http://jkk.sze.hu/rosnetworkmodel ../../hu.sze.aut.ros.network.model/model/rosnetworkmodel.ecore">
-  <topic name="base_waypoints"
-      type="autoware_msgs/Lane"/>
-  <topic name="current_velocity"
-      type="geometry_msgs/TwistStamped"/>
-  <topic name="current_pose"
-      type="geometry_msgs/PoseStamped"/>
-  <topic name="final_waypoints"
-      type="autoware_msgs/Lane"/>
-  <topic name="replan_request_sig"
-      type="rei_planner_signals/ReplanRequest"/>
-  <topic name="state_machine_signal"
-      type="rei_monitoring_msgs/ReiStateMachineTransitionSignal"/>
-  <topic name="filtered_obstacles"
-      type="visualization_msgs/MarkerArray"/>
+  <topic name="base_waypoints">
+    <rosmsg
+        href="rosmsgdefinitions.xmi#//@package.2/@rosmsg.0"/>
+  </topic>
+  <topic name="current_velocity">
+    <rosmsg
+        href="rosmsgdefinitions.xmi#//@package.0/@rosmsg.1"/>
+  </topic>
+  <topic name="current_pose">
+    <rosmsg
+        href="rosmsgdefinitions.xmi#//@package.0/@rosmsg.0"/>
+  </topic>
+  <topic name="final_waypoints">
+    <rosmsg
+        href="rosmsgdefinitions.xmi#//@package.2/@rosmsg.0"/>
+  </topic>
+  <topic name="replan_request_sig">
+    <rosmsg
+        href="rosmsgdefinitions.xmi#//@package.3/@rosmsg.0"/>
+  </topic>
+  <topic name="filtered_obstacles">
+    <rosmsg
+        href="rosmsgdefinitions.xmi#//@package.5/@rosmsg.0"/>
+  </topic>
+  <topic name="closest_waypoint">
+    <rosmsg
+        href="rosmsgdefinitions.xmi#//@package.1/@rosmsg.0"/>
+  </topic>
+  <topic name="traffic_lane_array">
+    <rosmsg
+        href="rosmsgdefinitions.xmi#//@package.2/@rosmsg.1"/>
+  </topic>
 </rosnetworkmodel:Network>

@@ -12,7 +12,7 @@
       disposableProviderFactory="true" ecorePackage="rosnetworkmodel.ecore#/">
     <genClasses ecoreClass="rosnetworkmodel.ecore#//Node"/>
     <genClasses ecoreClass="rosnetworkmodel.ecore#//Topic">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rosnetworkmodel.ecore#//Topic/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rosnetworkmodel.ecore#//Topic/rosmsg"/>
     </genClasses>
     <genClasses ecoreClass="rosnetworkmodel.ecore#//Network">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rosnetworkmodel.ecore#//Network/node"/>
@@ -20,6 +20,20 @@
     </genClasses>
     <genClasses ecoreClass="rosnetworkmodel.ecore#//NetworkElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rosnetworkmodel.ecore#//NetworkElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="rosnetworkmodel.ecore#//MsgDefinitions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rosnetworkmodel.ecore#//MsgDefinitions/package"/>
+    </genClasses>
+    <genClasses ecoreClass="rosnetworkmodel.ecore#//Package">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rosnetworkmodel.ecore#//Package/subpackage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rosnetworkmodel.ecore#//Package/rosmsg"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rosnetworkmodel.ecore#//Package/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rosnetworkmodel.ecore#//Package/package"/>
+    </genClasses>
+    <genClasses ecoreClass="rosnetworkmodel.ecore#//RosMsg">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rosnetworkmodel.ecore#//RosMsg/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rosnetworkmodel.ecore#//RosMsg/stamped"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rosnetworkmodel.ecore#//RosMsg/package"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

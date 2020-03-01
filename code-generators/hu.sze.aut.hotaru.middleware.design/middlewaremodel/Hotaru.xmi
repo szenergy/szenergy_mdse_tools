@@ -1,67 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<statepubsubmodel:MiddlewareNetwork
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:statepubsubmodel="http://jkk.sze.hu/statepubsubmodel"
-    xsi:schemaLocation="http://jkk.sze.hu/statepubsubmodel ../../hu.sze.jkk.middleware.statepubsub.model/model/statepubsubmodel.ecore">
-  <node description=""
-      name="hotaru_local_planner"
-      implements="//@node.1"
-      namespace="hotaru">
-    <outputport
-        id="final_waypoints"
-        estimated_freq="20"
-        topic="//@topic.4"/>
-    <inputport
-        id="sub_base_waypoints"
-        estimated_freq="10"
-        topic="//@topic.0"
-        sync_function_name="reconstructWaypoints"
-        synchronizesState="//@node.0/@continousstate.0"/>
-    <inputport
-        id="sub_replan_request_sig"
-        topic="//@topic.5"/>
-    <inputport
-        id="sub_current_pose"
-        estimated_freq="10"
-        topic="//@topic.3"
-        sync_function_name="synchWithPose"
-        synchronizesState="//@node.0/@continousstate.0"/>
-    <inputport
-        id="sub_current_velocity"
-        estimated_freq="10"
-        topic="//@topic.2"
-        synchronizesState="//@node.0/@continousstate.0"/>
-    <inputport
-        id="sub_filtered_obstacles"
-        topic="//@topic.6"
-        sync_function_name="UpdateObstacles"/>
-    <continousstate
-        name="sync_state"
-        synchronizeWith="//@node.0/@inputport.0 //@node.0/@inputport.2 //@node.0/@inputport.3">
-      <workerthread
-          freq="20"
-          doFunc="execContinousStateUpdate"/>
+<statepubsubmodel:MiddlewareNetwork xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:statepubsubmodel="http://jkk.sze.hu/statepubsubmodel" xsi:schemaLocation="http://jkk.sze.hu/statepubsubmodel ../../hu.sze.jkk.middleware.statepubsub.model/model/statepubsubmodel.ecore">
+  <node description="" name="hotaru_local_planner" namespace="hotaru">
+    <outputport id="pub_final_waypoints" estimated_freq="20" topic="//@topic.3"/>
+    <inputport id="sub_base_waypoints" topic="//@topic.0" sync_function_name="reconstructWaypoints" synchronizesState="//@node.0/@continousstate.0"/>
+    <inputport id="sub_replan_request_sig" topic="//@topic.4"/>
+    <inputport id="sub_current_pose" estimated_freq="10" topic="//@topic.2" sync_function_name="synchWithPose" synchronizesState="//@node.0/@continousstate.0"/>
+    <inputport id="sub_current_velocity" estimated_freq="10" topic="//@topic.1" synchronizesState="//@node.0/@continousstate.0"/>
+    <inputport id="sub_filtered_obstacles" topic="//@topic.5" sync_function_name="UpdateObstacles"/>
+    <inputport id="sub_closest_waypoint" estimated_freq="10" topic="//@topic.6" synchronizesState="//@node.0/@continousstate.0"/>
+    <continousstate name="sync_state" synchronizeWith="//@node.0/@inputport.0 //@node.0/@inputport.2 //@node.0/@inputport.3 //@node.0/@inputport.5">
+      <workerthread freq="20" doFunc="execContinousStateUpdate"/>
     </continousstate>
   </node>
-  <node name="statemachine_sig_interface">
-    <outputport
-        id="pub_state_machine_output_signal"
-        topic="//@topic.1"/>
+  <node name="rei_perception_monitor" namespace="rei">
+    <outputport id="pub_replan_request_sig" topic="//@topic.4"/>
+    <outputport id="pub_filtered_obstacles" topic="//@topic.5"/>
+    <inputport id="sub_base_waypoints" topic="//@topic.0" synchronizesState="//@node.1/@continousstate.0"/>
+    <inputport id="sub_current_pose" topic="//@topic.2" synchronizesState="//@node.1/@continousstate.0"/>
+    <inputport id="sub_current_velocity" topic="//@topic.1" synchronizesState="//@node.1/@continousstate.0"/>
+    <continousstate name="perception_sync_state" synchronizeWith="//@node.1/@inputport.0 //@node.1/@inputport.1 //@node.1/@inputport.2"/>
   </node>
-  <topic portTo="//@node.0/@inputport.0"
-      topic_name="base_waypoints"/>
-  <topic portFrom="//@node.1/@outputport.0"
-      topic_name="state_machine_signal"/>
-  <topic portTo="//@node.0/@inputport.3"
-      topic_name="current_velocity"/>
-  <topic portTo="//@node.0/@inputport.2"
-      topic_name="current_pose"/>
-  <topic portFrom="//@node.0/@outputport.0"
-      topic_name="final_waypoints"/>
-  <topic portTo="//@node.0/@inputport.1"
-      topic_name="replan_request_sig"/>
-  <topic portTo="//@node.0/@inputport.4"
-      topic_name="filtered_obstacles"/>
+  <node name="kalman_filter" namespace="hotaru">
+    <outputport id="pub_current_pose" topic="//@topic.2"/>
+    <outputport id="Output name" topic="//@topic.1"/>
+  </node>
+  <node name="hotaru_global_planner" namespace="hotaru">
+    <outputport id="pub_traffic_lane_array" topic="//@topic.7"/>
+    <inputport id="sub_current_pose" topic="//@topic.2" synchronizesState="//@node.3/@continousstate.0"/>
+    <inputport id="sub_current_velocity" topic="//@topic.1" synchronizesState="//@node.3/@continousstate.0"/>
+    <continousstate name="sync_state" synchronizeWith="//@node.3/@inputport.1 //@node.3/@inputport.0"/>
+  </node>
+  <topic portTo="//@node.0/@inputport.0 //@node.1/@inputport.0" topic_name="base_waypoints"/>
+  <topic portTo="//@node.0/@inputport.3 //@node.3/@inputport.1 //@node.1/@inputport.2" portFrom="//@node.2/@outputport.1" topic_name="current_velocity"/>
+  <topic portTo="//@node.0/@inputport.2 //@node.3/@inputport.0 //@node.1/@inputport.1" portFrom="//@node.2/@outputport.0" topic_name="current_pose"/>
+  <topic portFrom="//@node.0/@outputport.0" topic_name="final_waypoints"/>
+  <topic portTo="//@node.0/@inputport.1" portFrom="//@node.1/@outputport.0" topic_name="replan_request_sig"/>
+  <topic portTo="//@node.0/@inputport.4" portFrom="//@node.1/@outputport.1" topic_name="filtered_obstacles"/>
+  <topic portTo="//@node.0/@inputport.5" topic_name="closest_waypoint"/>
+  <topic portFrom="//@node.3/@outputport.0" topic_name="traffic_lane_array"/>
 </statepubsubmodel:MiddlewareNetwork>

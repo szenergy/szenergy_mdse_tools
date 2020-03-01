@@ -83,7 +83,7 @@ class RosCodeGenerator {
 		// TODO: I don't know, if it would be better to decompose to components or treate as a whole. Now we treat it as a whole
 		val implementinginterfaces = rosInterfaces
 				 
-		for (n: middlewareNetwork.node.filter[implementinginterfaces.contains(it)])	{
+		for (n: middlewareNetwork.node)	{
 			val List<InputPort> inputPorts = new ArrayList
 			val List<OutputPort> outputPorts = new ArrayList
 			collectTopics(n, inputPorts, outputPorts)

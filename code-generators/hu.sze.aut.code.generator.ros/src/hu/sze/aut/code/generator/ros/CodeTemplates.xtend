@@ -8,6 +8,7 @@ import hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.OutputPort
 import hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.InputPort
 import java.util.HashSet
 import java.util.Set
+import hu.sze.aut.ros.network.model.rosnetworkmodel.RosMsg
 
 class RosCodeTemplates {
 	def static classNameInterfaceRos(Node node)'''InterfaceRos_«node.name.toFirstUpper.replace('_','')»'''
@@ -16,15 +17,18 @@ class RosCodeTemplates {
 		return type.replace('/', "::")
 	}
 	
+	def static getMsgInclude(RosMsg msg)'''#inlcude <«msg.package.name»/«msg.name».h>'''
+	def static getMsgNamespace(RosMsg msg)'''«msg.package.name»::«msg.name»'''
+	
 	def static getMsgTypes(List<InputPort> inputPorts, List<OutputPort> outputPorts,
 		Map<Topic, hu.sze.aut.ros.network.model.rosnetworkmodel.Topic> topicMappings
 	){
-		val Set<String> msg_types = new HashSet;
+		val Set<RosMsg> msg_types = new HashSet;
 		for (port: inputPorts){
-			msg_types.add(topicMappings.get(port.topic).type)
+			msg_types.add(topicMappings.get(port.topic).rosmsg)
 		}
 		for (port: outputPorts){
-			msg_types.add(topicMappings.get(port.topic).type)
+			msg_types.add(topicMappings.get(port.topic).rosmsg)
 		}
 		return msg_types
 	}
@@ -38,7 +42,7 @@ class RosCodeTemplates {
 		#include <ros/ros.h>
 		/// ROS msgs
 		«FOR m: getMsgTypes(inputPorts, outputPorts, topicMappings)»
-		#include <«m».h>		
+		«getMsgInclude(m)»		
 		«ENDFOR»
 		#include <rei_statemachine_library/ros/ros_sync_state_machine.hpp>
 		
@@ -51,11 +55,11 @@ class RosCodeTemplates {
 		struct State«node.name.toFirstUpper.replace('_', '')»
 		{
 			«FOR port: inputPorts»
-			«convertMsgDefToCppNamespace(topicMappings.get(port.topic).type)» msg_«port.id.toFirstLower»; ///< «port.id» store to «topicMappings.get(port.topic).type»
+			«getMsgNamespace(topicMappings.get(port.topic).rosmsg)» msg_«port.id.toFirstLower»; ///< «port.id» store to «getMsgNamespace(topicMappings.get(port.topic).rosmsg)»
 			«ENDFOR»
 			/// ROS Publishers
 			«FOR port: outputPorts»
-			«convertMsgDefToCppNamespace(topicMappings.get(port.topic).type)» msg_«port.id.toFirstLower»; ///< «port.id» store to «topicMappings.get(port.topic).type»
+			«getMsgNamespace(topicMappings.get(port.topic).rosmsg)» msg_«port.id.toFirstLower»; ///< «port.id» store to «getMsgNamespace(topicMappings.get(port.topic).rosmsg)»
 			«ENDFOR»
 		};
 		
@@ -76,11 +80,11 @@ class RosCodeTemplates {
 			std::shared_ptr<ros::NodeHandle> nh;
 			/// ROS Subscribers
 			«FOR port: inputPorts»
-			ros::Subscriber «port.id.toFirstLower»; ///< «port.id» subscriber to «topicMappings.get(port.topic).type»
+			ros::Subscriber «port.id.toFirstLower»; ///< «port.id» subscriber to «getMsgNamespace(topicMappings.get(port.topic).rosmsg)»
 			«ENDFOR»
 			/// ROS Publishers
 			«FOR port: outputPorts»
-			ros::Publisher «port.id.toFirstLower»; ///< «port.id» publisher to «topicMappings.get(port.topic).type»
+			ros::Publisher «port.id.toFirstLower»; ///< «port.id» publisher to «getMsgNamespace(topicMappings.get(port.topic).rosmsg)»
 			«ENDFOR»
 			std::unique_ptr<State«node.name.toFirstUpper.replace('_', '')»> pubsubstate;
 			// State machines
@@ -105,7 +109,7 @@ class RosCodeTemplates {
 			/**
 			 * Callback method for «port.topic.topic_name»
 			 */
-			void cb«port.id.toFirstUpper»(const «convertMsgDefToCppNamespace(topicMappings.get(port.topic).type)»::ConstPtr& msg); ///< «port.id» subscriber to «topicMappings.get(port.topic).type»
+			void cb«port.id.toFirstUpper»(const «getMsgNamespace(topicMappings.get(port.topic).rosmsg)»::ConstPtr& msg); ///< «port.id» subscriber to «getMsgNamespace(topicMappings.get(port.topic).rosmsg)»
 			«IF port.sync_function_name!==null»
 			virtual void execute«port.sync_function_name.toFirstUpper»() = 0;
 			«ENDIF»
@@ -160,7 +164,7 @@ class RosCodeTemplates {
 			pubsubstate = std::unique_ptr<State«node.name.toFirstUpper.replace('_', '')»>(new State«node.name.toFirstUpper.replace('_', '')»());
 			/// Initialize ROS publishers
 			«FOR port: outputPorts»
-			«port.id.toFirstLower» = nh->advertise<«convertMsgDefToCppNamespace(topicMappings.get(port.topic).type)»>("«port.topic.topic_name»", 10);
+			«port.id.toFirstLower» = nh->advertise<«getMsgNamespace(topicMappings.get(port.topic).rosmsg)»>("«port.topic.topic_name»", 10);
 			«ENDFOR»
 			/// Initialize ROS subscribers
 			«FOR port: inputPorts»
@@ -174,7 +178,7 @@ class RosCodeTemplates {
 		}
 		
 		«FOR port: inputPorts»
-		void «classNameInterfaceRos(node)»::cb«port.id.toFirstUpper»(const «convertMsgDefToCppNamespace(topicMappings.get(port.topic).type)»::ConstPtr& msg)
+		void «classNameInterfaceRos(node)»::cb«port.id.toFirstUpper»(const «getMsgNamespace(topicMappings.get(port.topic).rosmsg)»::ConstPtr& msg)
 		{
 			pubsubstate->msg_«port.id.toFirstLower» = *msg;
 			«IF port.synchronizesState!==null»
