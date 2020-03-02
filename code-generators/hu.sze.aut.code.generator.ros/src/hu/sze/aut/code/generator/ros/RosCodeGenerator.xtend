@@ -91,13 +91,13 @@ class RosCodeGenerator {
 			{
 				collectTopics(i, inputPorts, outputPorts)
 			}			
-			try (val PrintWriter pw_header = new PrintWriter(new File("src-gen/"+RosCodeTemplates.headerFileName(n).toString))){
+			try (val PrintWriter pw_header = new PrintWriter(new File("src-gen/gen_"+RosCodeTemplates.headerFileName(n).toString))){
 				pw_header.println(RosCodeTemplates.generateRosInterfaceHeader(n, inputPorts, outputPorts, topicmappings))				
 			}
 			catch(IOException ioex){
 				ioex.printStackTrace
 			}
-			try (val PrintWriter pw_source = new PrintWriter(new File('''src-gen/«n.name.toLowerCase»_impl.cpp'''))){
+			try (val PrintWriter pw_source = new PrintWriter(new File('''src-gen/gen_«n.name.toLowerCase»_impl.cpp'''))){
 				pw_source.println(RosCodeTemplates.generateInterfaceRosSource(n, inputPorts, outputPorts, topicmappings));
 			}
 			catch(IOException ioex){

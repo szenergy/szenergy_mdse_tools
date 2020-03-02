@@ -110,8 +110,19 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_2vZQ61wMEeqL-eN8gZJ0vg" fontName="Segoe UI" fontHeight="7"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2vZQ7FwMEeqL-eN8gZJ0vg" x="-22" y="252" width="30" height="30"/>
           </children>
+          <children xmi:type="notation:Node" xmi:id="_Tacz0Fy5EeqfbowHuGFGjg" type="3012" element="_TaP_gFy5EeqfbowHuGFGjg">
+            <children xmi:type="notation:Node" xmi:id="_Tada4Fy5EeqfbowHuGFGjg" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Tada4Vy5EeqfbowHuGFGjg" x="-49" y="12"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_TaepAFy5EeqfbowHuGFGjg" type="3003" element="_TaQmkFy5EeqfbowHuGFGjg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_TaepAVy5EeqfbowHuGFGjg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TaepAly5EeqfbowHuGFGjg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Tacz0Vy5EeqfbowHuGFGjg" fontName="Segoe UI" fontHeight="7"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Tacz0ly5EeqfbowHuGFGjg" x="-22" y="324" width="30" height="30"/>
+          </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_Xf4_wVXVEeqVVdqhUYqqnQ" fontName="Segoe UI" fontHeight="12"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xf4_wlXVEeqVVdqhUYqqnQ" x="384" y="228" width="315" height="303"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xf4_wlXVEeqVVdqhUYqqnQ" x="384" y="228" width="315" height="423"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_Ttc-AFXXEeqhtetoQovVFg" type="2001" element="_TtYFgFXXEeqhtetoQovVFg">
           <children xmi:type="notation:Node" xmi:id="_TteMIFXXEeqhtetoQovVFg" type="5002">
@@ -359,6 +370,70 @@
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_ftCoEVwPEeqL-eN8gZJ0vg" fontName="Segoe UI" fontHeight="12"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ftCoElwPEeqL-eN8gZJ0vg" x="-384" y="108" width="169" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HX-gcFy5EeqfbowHuGFGjg" type="2002" element="_HXqXYFy5EeqfbowHuGFGjg">
+          <children xmi:type="notation:Node" xmi:id="_HYEAAFy5EeqfbowHuGFGjg" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_HYEAAVy5EeqfbowHuGFGjg" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_HYEAAly5EeqfbowHuGFGjg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_HYEAA1y5EeqfbowHuGFGjg"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_OPHXYFy5EeqfbowHuGFGjg" type="3012" element="_OO4G0Fy5EeqfbowHuGFGjg">
+            <children xmi:type="notation:Node" xmi:id="_OPH-cFy5EeqfbowHuGFGjg" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_OPH-cVy5EeqfbowHuGFGjg" x="31" y="12"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_OPLo0Fy5EeqfbowHuGFGjg" type="3017" element="_OO4t4Fy5EeqfbowHuGFGjg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_OPLo0Vy5EeqfbowHuGFGjg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OPLo0ly5EeqfbowHuGFGjg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_OPHXYVy5EeqfbowHuGFGjg" fontName="Segoe UI" fontHeight="7"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OPHXYly5EeqfbowHuGFGjg" x="545" y="36" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_bS8aEFy5EeqfbowHuGFGjg" type="3012" element="_bSyCAFy5EeqfbowHuGFGjg">
+            <children xmi:type="notation:Node" xmi:id="_bS8aE1y5EeqfbowHuGFGjg" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_bS8aFFy5EeqfbowHuGFGjg" x="-29" y="-17"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_bS9BIFy5EeqfbowHuGFGjg" type="3003" element="_bSyCAVy5EeqfbowHuGFGjg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_bS9BIVy5EeqfbowHuGFGjg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bS9BIly5EeqfbowHuGFGjg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_bS8aEVy5EeqfbowHuGFGjg" fontName="Segoe UI" fontHeight="7"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bS8aEly5EeqfbowHuGFGjg" x="192" y="-22" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_mYqxUFy5EeqfbowHuGFGjg" type="3012" element="_mYgZQFy5EeqfbowHuGFGjg">
+            <children xmi:type="notation:Node" xmi:id="_mYrYYFy5EeqfbowHuGFGjg" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_mYrYYVy5EeqfbowHuGFGjg" x="-9" y="-17"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_mYrYYly5EeqfbowHuGFGjg" type="3003" element="_mYhAUFy5EeqfbowHuGFGjg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_mYrYY1y5EeqfbowHuGFGjg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mYrYZFy5EeqfbowHuGFGjg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_mYqxUVy5EeqfbowHuGFGjg" fontName="Segoe UI" fontHeight="7"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mYqxUly5EeqfbowHuGFGjg" x="84" y="-22" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HX-gcVy5EeqfbowHuGFGjg" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HX-gcly5EeqfbowHuGFGjg" x="-672" y="660" width="555" height="135"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_WDpDoFy5EeqfbowHuGFGjg" type="2001" element="_WDcPUFy5EeqfbowHuGFGjg">
+          <children xmi:type="notation:Node" xmi:id="_WDpqsFy5EeqfbowHuGFGjg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_WDpqsVy5EeqfbowHuGFGjg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_WDq40Fy5EeqfbowHuGFGjg" type="3016" element="_WDcPUVy5EeqfbowHuGFGjg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_WDq40Vy5EeqfbowHuGFGjg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WDq40ly5EeqfbowHuGFGjg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_WDpDoVy5EeqfbowHuGFGjg" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WDpDoly5EeqfbowHuGFGjg" x="6" y="648" width="181" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_r_J4sFy5EeqfbowHuGFGjg" type="2001" element="_r_AHsFy5EeqfbowHuGFGjg">
+          <children xmi:type="notation:Node" xmi:id="_r_KfwFy5EeqfbowHuGFGjg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_r_KfwVy5EeqfbowHuGFGjg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_r_LG0Fy5EeqfbowHuGFGjg" type="3016" element="_r_AHsVy5EeqfbowHuGFGjg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_r_LG0Vy5EeqfbowHuGFGjg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r_LG0ly5EeqfbowHuGFGjg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_r_J4sVy5EeqfbowHuGFGjg" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r_J4sly5EeqfbowHuGFGjg" x="-708" y="372" width="181" height="30"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_QK0PolXVEeqVVdqhUYqqnQ"/>
         <edges xmi:type="notation:Edge" xmi:id="_XBN00FXXEeqhtetoQovVFg" type="4001" element="_XBFR8FXXEeqhtetoQovVFg" source="_Ttc-AFXXEeqhtetoQovVFg" target="_VU5c8FXXEeqhtetoQovVFg">
@@ -776,6 +851,70 @@
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ayThg1wREeqL-eN8gZJ0vg" points="[-2, -15, 0, 148]$[-2, -163, 0, 0]"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ayUvo1wREeqL-eN8gZJ0vg" id="(0.4,1.0)"/>
         </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_Z8EtwFy5EeqfbowHuGFGjg" type="4001" element="_Z7wkvFy5EeqfbowHuGFGjg" source="_WDpDoFy5EeqfbowHuGFGjg" target="_Tacz0Fy5EeqfbowHuGFGjg">
+          <children xmi:type="notation:Node" xmi:id="_Z8F74Fy5EeqfbowHuGFGjg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z8F74Vy5EeqfbowHuGFGjg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Z8F74ly5EeqfbowHuGFGjg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z8F741y5EeqfbowHuGFGjg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Z8Gi8Fy5EeqfbowHuGFGjg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z8Gi8Vy5EeqfbowHuGFGjg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_Z8EtwVy5EeqfbowHuGFGjg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Z8Etwly5EeqfbowHuGFGjg" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Z8Etw1y5EeqfbowHuGFGjg" points="[43, -15, -238, 81]$[266, -91, -15, 5]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Z8HKAFy5EeqfbowHuGFGjg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Z8HxEFy5EeqfbowHuGFGjg" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_asTQ0Fy5EeqfbowHuGFGjg" type="4001" element="_ar9SpFy5EeqfbowHuGFGjg" source="_OPHXYFy5EeqfbowHuGFGjg" target="_WDpDoFy5EeqfbowHuGFGjg">
+          <children xmi:type="notation:Node" xmi:id="_asT34Fy5EeqfbowHuGFGjg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_asT34Vy5EeqfbowHuGFGjg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_asT34ly5EeqfbowHuGFGjg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_asT341y5EeqfbowHuGFGjg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_asUe8Fy5EeqfbowHuGFGjg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_asUe8Vy5EeqfbowHuGFGjg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_asTQ0Vy5EeqfbowHuGFGjg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_asTQ0ly5EeqfbowHuGFGjg" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_asTQ01y5EeqfbowHuGFGjg" points="[15, -4, -193, 44]$[143, -33, -65, 15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_asUe8ly5EeqfbowHuGFGjg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_asUe81y5EeqfbowHuGFGjg" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ieqZ4Fy5EeqfbowHuGFGjg" type="4001" element="_iegB2ly5EeqfbowHuGFGjg" source="_YB71gFXYEeqhtetoQovVFg" target="_bS8aEFy5EeqfbowHuGFGjg">
+          <children xmi:type="notation:Node" xmi:id="_ierA8Fy5EeqfbowHuGFGjg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ierA8Vy5EeqfbowHuGFGjg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ierA8ly5EeqfbowHuGFGjg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ierA81y5EeqfbowHuGFGjg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ierA9Fy5EeqfbowHuGFGjg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ierA9Vy5EeqfbowHuGFGjg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ieqZ4Vy5EeqfbowHuGFGjg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ieqZ4ly5EeqfbowHuGFGjg" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ieqZ41y5EeqfbowHuGFGjg" points="[-1, 15, 32, -640]$[-33, 640, 0, -15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ierA9ly5EeqfbowHuGFGjg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ierA91y5EeqfbowHuGFGjg" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_wm0AUFy5EeqfbowHuGFGjg" type="4001" element="_wmhFaFy5EeqfbowHuGFGjg" source="_r_J4sFy5EeqfbowHuGFGjg" target="_mYqxUFy5EeqfbowHuGFGjg">
+          <children xmi:type="notation:Node" xmi:id="_wm0nYFy5EeqfbowHuGFGjg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wm0nYVy5EeqfbowHuGFGjg" x="-1" y="-7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_wm0nYly5EeqfbowHuGFGjg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wm0nY1y5EeqfbowHuGFGjg" x="-2" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_wm0nZFy5EeqfbowHuGFGjg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wm0nZVy5EeqfbowHuGFGjg" y="11"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_wm0AUVy5EeqfbowHuGFGjg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_wm0AUly5EeqfbowHuGFGjg" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wm0AU1y5EeqfbowHuGFGjg" points="[2, 15, -43, -251]$[42, 251, -3, -15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wm0nZly5EeqfbowHuGFGjg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wm1OcFy5EeqfbowHuGFGjg" id="(0.5,0.5)"/>
+        </edges>
       </data>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_Xf18cFXVEeqVVdqhUYqqnQ" name="hotaru_local_planner">
@@ -855,6 +994,14 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Input%20port%20definition']"/>
       </ownedBorderedNodes>
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_TaP_gFy5EeqfbowHuGFGjg" name="sub_perimeter_obstacles" incomingEdges="_Z7wkvFy5EeqfbowHuGFGjg" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="statepubsubmodel:InputPort" href="middlewaremodel/Hotaru.xmi#//@node.0/@inputport.6"/>
+        <semanticElements xmi:type="statepubsubmodel:InputPort" href="middlewaremodel/Hotaru.xmi#//@node.0/@inputport.6"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_TaQmkFy5EeqfbowHuGFGjg" labelSize="7">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Input%20port%20definition']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Input%20port%20definition']"/>
+      </ownedBorderedNodes>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -896,7 +1043,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@nodeMappings[name='Topic%20definition']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_YB29AFXYEeqhtetoQovVFg" name="current_pose" outgoingEdges="_P0T8SFZmEeqtr-YIOR7GdQ _tXxIOFwOEeqL-eN8gZJ0vg _Ln5M9FwREeqL-eN8gZJ0vg" incomingEdges="_1tQB3FwNEeqL-eN8gZJ0vg" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_YB29AFXYEeqhtetoQovVFg" name="current_pose" outgoingEdges="_P0T8SFZmEeqtr-YIOR7GdQ _tXxIOFwOEeqL-eN8gZJ0vg _Ln5M9FwREeqL-eN8gZJ0vg _iegB2ly5EeqfbowHuGFGjg" incomingEdges="_1tQB3FwNEeqL-eN8gZJ0vg" width="3" height="3" resizeKind="NSEW">
       <target xmi:type="statepubsubmodel:Topic" href="middlewaremodel/Hotaru.xmi#//@topic.2"/>
       <semanticElements xmi:type="statepubsubmodel:Topic" href="middlewaremodel/Hotaru.xmi#//@topic.2"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -958,6 +1105,28 @@
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:Ellipse" uid="_fs7TUFwPEeqL-eN8gZJ0vg" labelSize="12" labelPosition="node" color="138,226,52">
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@nodeMappings[name='Topic%20definition']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@nodeMappings[name='Topic%20definition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_WDcPUFy5EeqfbowHuGFGjg" name="obstacles_perimeter" outgoingEdges="_Z7wkvFy5EeqfbowHuGFGjg" incomingEdges="_ar9SpFy5EeqfbowHuGFGjg" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="statepubsubmodel:Topic" href="middlewaremodel/Hotaru.xmi#//@topic.8"/>
+      <semanticElements xmi:type="statepubsubmodel:Topic" href="middlewaremodel/Hotaru.xmi#//@topic.8"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Ellipse" uid="_WDcPUVy5EeqfbowHuGFGjg" labelSize="12" labelPosition="node" color="138,226,52">
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@nodeMappings[name='Topic%20definition']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@nodeMappings[name='Topic%20definition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_r_AHsFy5EeqfbowHuGFGjg" name="fused_grid_map" outgoingEdges="_wmhFaFy5EeqfbowHuGFGjg" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="statepubsubmodel:Topic" href="middlewaremodel/Hotaru.xmi#//@topic.9"/>
+      <semanticElements xmi:type="statepubsubmodel:Topic" href="middlewaremodel/Hotaru.xmi#//@topic.9"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Ellipse" uid="_r_AHsVy5EeqfbowHuGFGjg" labelSize="12" labelPosition="node" color="138,226,52">
         <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@nodeMappings[name='Topic%20definition']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@nodeMappings[name='Topic%20definition']"/>
@@ -1328,6 +1497,76 @@
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_ayGtOlwREeqL-eN8gZJ0vg" labelSize="12"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@edgeMappings[name='Synchronize%20with']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_HXqXYFy5EeqfbowHuGFGjg" name="perimeter_detection">
+      <target xmi:type="statepubsubmodel:Node" href="middlewaremodel/Hotaru.xmi#//@node.4"/>
+      <semanticElements xmi:type="statepubsubmodel:Node" href="middlewaremodel/Hotaru.xmi#//@node.4"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_OO4G0Fy5EeqfbowHuGFGjg" name="pub_perimeter_obstacles" outgoingEdges="_ar9SpFy5EeqfbowHuGFGjg" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="statepubsubmodel:OutputPort" href="middlewaremodel/Hotaru.xmi#//@node.4/@outputport.0"/>
+        <semanticElements xmi:type="statepubsubmodel:OutputPort" href="middlewaremodel/Hotaru.xmi#//@node.4/@outputport.0"/>
+        <ownedStyle xmi:type="diagram:Lozenge" uid="_OO4t4Fy5EeqfbowHuGFGjg" labelSize="7" color="252,233,79">
+          <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Ouptut%20port%20definition']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Ouptut%20port%20definition']"/>
+      </ownedBorderedNodes>
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_bSyCAFy5EeqfbowHuGFGjg" name="sub_current_pose" incomingEdges="_iegB2ly5EeqfbowHuGFGjg" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="statepubsubmodel:InputPort" href="middlewaremodel/Hotaru.xmi#//@node.4/@inputport.0"/>
+        <semanticElements xmi:type="statepubsubmodel:InputPort" href="middlewaremodel/Hotaru.xmi#//@node.4/@inputport.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" uid="_bSyCAVy5EeqfbowHuGFGjg" labelSize="7">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Input%20port%20definition']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Input%20port%20definition']"/>
+      </ownedBorderedNodes>
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_mYgZQFy5EeqfbowHuGFGjg" name="sub_fused_grid_map" incomingEdges="_wmhFaFy5EeqfbowHuGFGjg" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="statepubsubmodel:InputPort" href="middlewaremodel/Hotaru.xmi#//@node.4/@inputport.1"/>
+        <semanticElements xmi:type="statepubsubmodel:InputPort" href="middlewaremodel/Hotaru.xmi#//@node.4/@inputport.1"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_mYhAUFy5EeqfbowHuGFGjg" labelSize="7">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Input%20port%20definition']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@borderedNodeMappings[name='Input%20port%20definition']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_HXq-cFy5EeqfbowHuGFGjg" labelSize="12" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@containerMappings[name='Node%20definition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Z7wkvFy5EeqfbowHuGFGjg" sourceNode="_WDcPUFy5EeqfbowHuGFGjg" targetNode="_TaP_gFy5EeqfbowHuGFGjg">
+      <target xmi:type="statepubsubmodel:Topic" href="middlewaremodel/Hotaru.xmi#//@topic.8"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Z7xLwFy5EeqfbowHuGFGjg" centered="Both">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@edgeMappings[name='Topic%20to%20port']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Z7xLwVy5EeqfbowHuGFGjg" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@edgeMappings[name='Topic%20to%20port']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ar9SpFy5EeqfbowHuGFGjg" sourceNode="_OO4G0Fy5EeqfbowHuGFGjg" targetNode="_WDcPUFy5EeqfbowHuGFGjg">
+      <target xmi:type="statepubsubmodel:OutputPort" href="middlewaremodel/Hotaru.xmi#//@node.4/@outputport.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ar95oFy5EeqfbowHuGFGjg" size="2" centered="Both">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@edgeMappings[name='Port%20to%20topic']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_ar95oVy5EeqfbowHuGFGjg" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@edgeMappings[name='Port%20to%20topic']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_iegB2ly5EeqfbowHuGFGjg" sourceNode="_YB29AFXYEeqhtetoQovVFg" targetNode="_bSyCAFy5EeqfbowHuGFGjg">
+      <target xmi:type="statepubsubmodel:Topic" href="middlewaremodel/Hotaru.xmi#//@topic.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_iegB21y5EeqfbowHuGFGjg" centered="Both">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@edgeMappings[name='Topic%20to%20port']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_iegB3Fy5EeqfbowHuGFGjg" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@edgeMappings[name='Topic%20to%20port']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_wmhFaFy5EeqfbowHuGFGjg" sourceNode="_r_AHsFy5EeqfbowHuGFGjg" targetNode="_mYgZQFy5EeqfbowHuGFGjg">
+      <target xmi:type="statepubsubmodel:Topic" href="middlewaremodel/Hotaru.xmi#//@topic.9"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_wmhFaVy5EeqfbowHuGFGjg" centered="Both">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@edgeMappings[name='Topic%20to%20port']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_wmhFaly5EeqfbowHuGFGjg" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']/@defaultLayer/@edgeMappings[name='Topic%20to%20port']"/>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/hu.sze.jkk.middleware.statepubsub.model.design/description/statepubsub.odesign#//@ownedViewpoints[name='StatePubSub']/@ownedRepresentations[name='StatePubSubDiagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_QKqeoVXVEeqVVdqhUYqqnQ"/>

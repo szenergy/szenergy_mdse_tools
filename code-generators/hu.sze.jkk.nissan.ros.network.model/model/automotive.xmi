@@ -37,4 +37,12 @@
     <rosmsg
         href="rosmsgdefinitions.xmi#//@package.2/@rosmsg.1"/>
   </topic>
+  <topic name="obstacles_perimeter">
+    <rosmsg
+        href="rosmsgdefinitions.xmi#//@package.5/@rosmsg.0"/>
+  </topic>
+  <topic name="fused_grid_map">
+    <rosmsg
+        href="rosmsgdefinitions.xmi#//@package.6/@rosmsg.0"/>
+  </topic>
 </rosnetworkmodel:Network>

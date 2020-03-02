@@ -8,6 +8,7 @@
     <inputport id="sub_current_velocity" estimated_freq="10" topic="//@topic.1" synchronizesState="//@node.0/@continousstate.0"/>
     <inputport id="sub_filtered_obstacles" topic="//@topic.5" sync_function_name="UpdateObstacles"/>
     <inputport id="sub_closest_waypoint" estimated_freq="10" topic="//@topic.6" synchronizesState="//@node.0/@continousstate.0"/>
+    <inputport id="sub_perimeter_obstacles" topic="//@topic.8"/>
     <continousstate name="sync_state" synchronizeWith="//@node.0/@inputport.0 //@node.0/@inputport.2 //@node.0/@inputport.3 //@node.0/@inputport.5">
       <workerthread freq="20" doFunc="execContinousStateUpdate"/>
     </continousstate>
@@ -30,12 +31,19 @@
     <inputport id="sub_current_velocity" topic="//@topic.1" synchronizesState="//@node.3/@continousstate.0"/>
     <continousstate name="sync_state" synchronizeWith="//@node.3/@inputport.1 //@node.3/@inputport.0"/>
   </node>
+  <node description="perimeter_detection" name="perimeter_detection">
+    <outputport id="pub_perimeter_obstacles" topic="//@topic.8"/>
+    <inputport id="sub_current_pose" topic="//@topic.2"/>
+    <inputport id="sub_fused_grid_map" topic="//@topic.9" sync_function_name="updateFuseGridMap"/>
+  </node>
   <topic portTo="//@node.0/@inputport.0 //@node.1/@inputport.0" topic_name="base_waypoints"/>
   <topic portTo="//@node.0/@inputport.3 //@node.3/@inputport.1 //@node.1/@inputport.2" portFrom="//@node.2/@outputport.1" topic_name="current_velocity"/>
-  <topic portTo="//@node.0/@inputport.2 //@node.3/@inputport.0 //@node.1/@inputport.1" portFrom="//@node.2/@outputport.0" topic_name="current_pose"/>
+  <topic portTo="//@node.0/@inputport.2 //@node.3/@inputport.0 //@node.1/@inputport.1 //@node.4/@inputport.0" portFrom="//@node.2/@outputport.0" topic_name="current_pose"/>
   <topic portFrom="//@node.0/@outputport.0" topic_name="final_waypoints"/>
   <topic portTo="//@node.0/@inputport.1" portFrom="//@node.1/@outputport.0" topic_name="replan_request_sig"/>
   <topic portTo="//@node.0/@inputport.4" portFrom="//@node.1/@outputport.1" topic_name="filtered_obstacles"/>
   <topic portTo="//@node.0/@inputport.5" topic_name="closest_waypoint"/>
   <topic portFrom="//@node.3/@outputport.0" topic_name="traffic_lane_array"/>
+  <topic portTo="//@node.0/@inputport.6" portFrom="//@node.4/@outputport.0" topic_name="obstacles_perimeter"/>
+  <topic portTo="//@node.4/@inputport.1" topic_name="fused_grid_map"/>
 </statepubsubmodel:MiddlewareNetwork>

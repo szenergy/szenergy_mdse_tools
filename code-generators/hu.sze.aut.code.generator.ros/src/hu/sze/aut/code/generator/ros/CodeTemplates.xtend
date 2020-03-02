@@ -17,7 +17,7 @@ class RosCodeTemplates {
 		return type.replace('/', "::")
 	}
 	
-	def static getMsgInclude(RosMsg msg)'''#inlcude <«msg.package.name»/«msg.name».h>'''
+	def static getMsgInclude(RosMsg msg)'''#include <«msg.package.name»/«msg.name».h>'''
 	def static getMsgNamespace(RosMsg msg)'''«msg.package.name»::«msg.name»'''
 	
 	def static getMsgTypes(List<InputPort> inputPorts, List<OutputPort> outputPorts,
@@ -44,7 +44,9 @@ class RosCodeTemplates {
 		«FOR m: getMsgTypes(inputPorts, outputPorts, topicMappings)»
 		«getMsgInclude(m)»		
 		«ENDFOR»
+		«IF node.continousstate.size > 0»
 		#include <rei_statemachine_library/ros/ros_sync_state_machine.hpp>
+		«ENDIF»
 		
 		#include <memory>
 		
@@ -133,7 +135,7 @@ class RosCodeTemplates {
 	def static generateInterfaceRosSource(Node node,
 		List<InputPort> inputPorts, List<OutputPort> outputPorts,
 		Map<Topic, hu.sze.aut.ros.network.model.rosnetworkmodel.Topic> topicMappings)'''
-		#include "«headerFileName(node)»"
+		#include "gen_«headerFileName(node)»"
 		
 		«IF node.namespace!==null»
 		namespace «node.namespace» {
