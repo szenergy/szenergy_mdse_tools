@@ -19,16 +19,15 @@
       <genEnumLiterals ecoreEnumLiteral="vehicleconfig.ecore#//VehicleReferencePoint/COG"/>
     </genEnums>
     <genClasses ecoreClass="vehicleconfig.ecore#//Vehicle">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Vehicle/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/kinematicparameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/rosconfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/nodeconfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/geometrysettings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/sensorconfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/transmissionsetup"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/EngineParameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/dynamicparameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/lowlevelcontrol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Vehicle/simulationconfiguration"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//KinematicParameters">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//KinematicParameters/wheelbase"/>
@@ -36,13 +35,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//KinematicParameters/front_track"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//KinematicParameters/wheelparameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//KinematicParameters/steeringparameters"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//KinematicParameters/height"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//KinematicParameters/reference_point"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//KinematicParameters/boundingbox"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//WheelParameters">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//WheelParameters/wheel_radius"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//WheelParameters/wheel_width"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//WheelParameters/wheel_mass"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//SensorMiddlewareTopic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SensorMiddlewareTopic/frequency"/>
@@ -80,23 +78,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//DistanceSettings/min_distance"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//DistanceSettings/max_distance"/>
     </genClasses>
-    <genClasses ecoreClass="vehicleconfig.ecore#//Sensor">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Sensor/displacement"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Sensor/mass"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Sensor/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Sensor/update_rate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Sensor/localizer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Sensor/networkdefinition"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Sensor/model"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Sensor/sensormiddlewaretopic"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Sensor/rotation"/>
+    <genClasses ecoreClass="vehicleconfig.ecore#//SensorModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SensorModel/mass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SensorModel/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SensorModel/update_rate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SensorModel/model"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SensorModel/sensormiddlewaretopic"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//Laser">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Laser/distancesettings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Laser/angleparameters"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//SensorConfiguration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SensorConfiguration/sensor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SensorConfiguration/sensormodel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SensorConfiguration/sensorplacement"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//Displacement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//Displacement/x"/>
@@ -112,6 +107,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//TransmissionSetup/motor_front_right"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//TransmissionSetup/motor_rear_right"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//TransmissionSetup/motor_rear_left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//TransmissionSetup/EngineParameters"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//Motor">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//Motor/engineparameters"/>
@@ -130,7 +126,7 @@
     <genClasses ecoreClass="vehicleconfig.ecore#//DynamicParameters">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//DynamicParameters/inertialparameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//DynamicParameters/aerodynamicparameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//DynamicParameters/enginedynamics"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//DynamicParameters/wheeldynamics"/>
     </genClasses>
     <genClasses ecoreClass="vehicleconfig.ecore#//InertialParameters">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//InertialParameters/cog_ratio"/>
@@ -139,7 +135,6 @@
     <genClasses ecoreClass="vehicleconfig.ecore#//AeroDynamicParameters">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//AeroDynamicParameters/air_resistance"/>
     </genClasses>
-    <genClasses ecoreClass="vehicleconfig.ecore#//EngineDynamics"/>
     <genClasses ecoreClass="vehicleconfig.ecore#//GeometricDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//GeometricDefinition/meshpath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//GeometricDefinition/collisionmesh"/>
@@ -225,6 +220,41 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/stamped"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//MiddlewareTopic/middleware_msg_type"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//WheelDynamics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//WheelDynamics/wheel_mass"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//BoundingBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//BoundingBox/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//BoundingBox/depth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//BoundingBox/height"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//SensorPlacement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SensorPlacement/rotation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SensorPlacement/displacement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SensorPlacement/sensormodel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SensorPlacement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SensorPlacement/networkdefinition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SensorPlacement/localizer"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//RootElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//RootElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//SimulationControlPlugin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SimulationControlPlugin/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//SimulationControlPlugin/type"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//VehicleControlPlugin">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//VehicleControlPlugin/velocitypid"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//VehicleControlPlugin/steerpid"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//PIDControlParameters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//PIDControlParameters/p"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//PIDControlParameters/i"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vehicleconfig.ecore#//PIDControlParameters/d"/>
+    </genClasses>
+    <genClasses ecoreClass="vehicleconfig.ecore#//SimulationConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vehicleconfig.ecore#//SimulationConfiguration/simulationcontrolplugin"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -4,13 +4,12 @@
       <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.LaserSensorEquipped"/>
       <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.notLaserSensorEquipped"/>
       <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.ImuSensorEquipped"/>
-      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.nodeConfiguration"/>
       <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.notImuSensorEquipped"/>
       <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.validKinematicParameters"/>
-      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.selectAllValidSensors"/>
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.selectAllValidSensorPlacements"/>
       <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.sensorNodeElements"/>
       <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.canPorts"/>
-      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.velodyneLidars"/>
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.selectLidarPlacements"/>
     </group>
   </extension>
 </plugin>

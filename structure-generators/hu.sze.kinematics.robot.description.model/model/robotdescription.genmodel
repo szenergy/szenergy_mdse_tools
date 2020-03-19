@@ -330,6 +330,7 @@
     <genClasses ecoreClass="robotdescription.ecore#//Plugin">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Plugin/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Plugin/library"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Plugin/pluginparam"/>
     </genClasses>
     <genClasses ecoreClass="robotdescription.ecore#//Lidar">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Lidar/vertical_angle_limit"/>
@@ -356,6 +357,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//CameraParameters/clip_near"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//CameraParameters/clip_far"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//CameraParameters/horizontal_fov"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//PluginParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//PluginParam/varname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//PluginParam/text"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

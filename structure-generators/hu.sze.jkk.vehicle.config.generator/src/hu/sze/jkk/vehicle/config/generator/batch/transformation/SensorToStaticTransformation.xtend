@@ -9,7 +9,6 @@ import org.eclipse.viatra.transformation.runtime.emf.rules.batch.BatchTransforma
 import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformation
 import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformationStatements
 import org.eclipse.emf.ecore.resource.Resource
-import hu.sze.jkk.vehicle.dse.validation.SelectAllValidSensors
 import hu.sze.jkk.robot.launch.model.launchmodel.Launch
 import hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelFactory
 import hu.sze.jkk.robot.launch.model.launchmodel.StaticTransform
@@ -18,13 +17,12 @@ import hu.sze.jkk.vehicle.config.vehicleconfig.Vehicle
 import java.util.List
 import robotdescriptionpackage.Link
 import robotdescriptionpackage.RobotdescriptionpackageFactory
-import hu.sze.jkk.vehicle.control.transformation.vehicle.VehicleModelTransformation
 import java.io.PrintWriter
 import hu.sze.jkk.robot.launch.model.launchmodel.Node
 import hu.sze.jkk.vehicle.config.generator.generators.GenerateRosTfLaunch
 import java.io.File
 import java.io.FileNotFoundException
-import static org.junit.jupiter.api.Assertions.fail
+import hu.sze.jkk.vehicle.dse.validation.SelectAllValidSensorPlacements
 
 class SensorToStaticTransformation {
 
@@ -94,7 +92,8 @@ class SensorToStaticTransformation {
 
     private def getSensorRuleLaunch(){
     	if (sensorStaticRuleLaunch === null){
-    		sensorStaticRuleLaunch = createRule(SelectAllValidSensors.instance).action[
+    		
+    		sensorStaticRuleLaunch = createRule(SelectAllValidSensorPlacements.instance).action[
     			val StaticTransform static_tf_node = LaunchmodelFactory.eINSTANCE.createStaticTransform
     			static_tf_node.name = it.s.name+"_tf_publisher"
     			static_tf_node.type = "static_transform_publisher"
@@ -146,7 +145,7 @@ class SensorToStaticTransformation {
 			}
 			
 		}catch (FileNotFoundException fe) {
-			fail("File should be created: "+fe.getMessage());
+			throw fe;
 		}
     }
     

@@ -854,6 +854,12 @@ class GenerateUrdf {
 		element_ros_plugin.setAttribute("filename", plugin.library+".so")
 		element_ros_plugin.setAttribute("name", plugin.name)
 		element_ros_control.appendChild(element_ros_plugin)
+		plugin?.pluginparam?.forEach[
+			val p = doc.createElement(it.varname)
+			p.appendChild(doc.createTextNode(it.text))
+			element_ros_plugin.appendChild(p)
+		]
+		System.out.println('''«plugin.name» «plugin.library»''')
 		return element_ros_control
 	}
 	

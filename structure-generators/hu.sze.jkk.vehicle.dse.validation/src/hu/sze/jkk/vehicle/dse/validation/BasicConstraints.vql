@@ -4,8 +4,9 @@ import epackage "http://jkk.sze.hu/vehicleconfig"
 
 pattern LaserSensorEquipped(v: Vehicle, l: Laser)
 {
-	Vehicle.sensorconfiguration(v,n);
-	SensorConfiguration.sensor(n,l);
+	Vehicle.sensorconfiguration(v,sc);
+	SensorConfiguration.sensorplacement(sc,s);
+	SensorPlacement.sensormodel(s, l);	
 	Laser(l);
 }
 
@@ -16,20 +17,24 @@ pattern notLaserSensorEquipped(v: Vehicle){
 
 pattern ImuSensorEquipped(v: Vehicle, i: ImuSensor)
 {
-	Vehicle.sensorconfiguration(v, sn);
-	SensorConfiguration.sensor(sn, i);
+	Vehicle.sensorconfiguration(v, sc);
+	SensorConfiguration.sensorplacement(sc, s);
+	SensorPlacement.sensormodel(s, i);
 	ImuSensor(i);
 }
 
+/*
 pattern nodeConfiguration(v:Vehicle){
 	Vehicle.nodeconfiguration(v,c);
 	NodeConfiguration.computationnode(c,vc);
 	VehicleControl(vc);
 	Vehicle.sensorconfiguration(v, sn);
-	SensorConfiguration.sensor(sn,l);
+	SensorConfiguration.sensormodel(sn,l);
 	Laser(l);
 	
 }
+* 
+*/
 
 //@Constraint(key={v}, message="No IMU defined", severity="error")
 pattern notImuSensorEquipped(v: Vehicle){
@@ -51,16 +56,18 @@ pattern validKinematicParameters(v: Vehicle,
 	WheelParameters.wheel_radius(wp,wheel_radius);
 }
 
-pattern selectAllValidSensors(v: Vehicle, s: Sensor, d: Displacement){
+pattern selectAllValidSensorPlacements(v: Vehicle, s: SensorPlacement, d: Displacement){
 	Vehicle.sensorconfiguration(v, sn);
-	SensorConfiguration.sensor(sn, s);
-	Sensor.name(s, n);
-	Sensor.displacement(s, d);
+	SensorConfiguration.sensorplacement(sn, s);
+	SensorPlacement.sensormodel(s, _);
+	SensorPlacement.name(s, n);
+	SensorPlacement.displacement(s, d);
 }
 
-pattern sensorNodeElements(v: Vehicle, s: Sensor){
+
+pattern sensorNodeElements(v: Vehicle, s: SensorPlacement){
 	Vehicle.sensorconfiguration(v,sn);
-	SensorConfiguration.sensor(sn,s);
+	SensorConfiguration.sensorplacement(sn,s);
 }
 
 pattern canPorts(lw: LowLevelControl, c: LowLevelPort){
@@ -68,9 +75,10 @@ pattern canPorts(lw: LowLevelControl, c: LowLevelPort){
 	
 }
 
-pattern velodyneLidars(v: Vehicle, l: LIDAR){
-	Vehicle.sensorconfiguration(v, sc);
-	SensorConfiguration.sensor(sc, l);
+pattern selectLidarPlacements(v: Vehicle, sp: SensorPlacement){
+	Vehicle.sensorconfiguration(v, sc);	
+	SensorConfiguration.sensorplacement(sc, sp);
+	SensorPlacement.sensormodel(sp, l);
 	LIDAR(l);
 }
 

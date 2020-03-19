@@ -41,6 +41,8 @@ import hu.sze.kinematics.description.generator.common.InertiaCalculations
 import hu.sze.jkk.vehicle.config.vehicleconfig.DynamicParameters
 import hu.sze.jkk.vehicle.config.vehicleconfig.Vehicle
 import hu.sze.jkk.vehicle.config.vehicleconfig.VehicleControl
+import hu.sze.jkk.vehicle.config.vehicleconfig.WheelDynamics
+import hu.sze.jkk.vehicle.config.vehicleconfig.VehicleControlPlugin
 
 class VehicleConfigToKinematicTree {
 	
@@ -69,55 +71,68 @@ class VehicleConfigToKinematicTree {
     
     var Robot robot
     
-    def void setupWheel(Link wheel_motor, 
-    	Link wheel_link, Joint wheel_joint,
-    	WheelParameters wheel_param, GeometrySettings geom_settings,
-    	double axis_dir
+    /**
+     * @brief Creates kinematic description (e.g. URDF) based on the vehicle description
+     * @param wheelmotor	the wheel link, the wheel attached to
+     * @param wheellink		the axle link, the wheel attached to
+     * @param wheeljoint	the connecting joint
+     * @param wheelparam	wheel parameters
+     * @param wheeldyn		wheel dynamical parameters
+     * @param geomsettings	the geoemtry settings of the wheel
+     * @param axisdir		the direction of the axis as a scalar value
+     */
+    def void setupWheel(Link wheelmotor, 
+    	Link wheellink, Joint wheeljoint,    	
+    	WheelParameters wheelparam, WheelDynamics wheeldyn, GeometrySettings geomsettings,
+    	double axisdir
     ){
-    	wheel_joint.parent = wheel_motor
-    	wheel_joint.child = wheel_link
-    	wheel_joint.axis = robotdescriptionpackageFactory.createAxis
-    	wheel_joint.axis.x = 0.0f
-    	wheel_joint.axis.y = 1.0f
-    	wheel_joint.axis.z = 0.0f
-    	wheel_joint.type = JOINT_TYPE::CONTINUOUS
-    	
-    	wheel_link.visual += robotdescriptionpackageFactory.createVisual
-    	wheel_link.collision += robotdescriptionpackageFactory.createCollision
-    	wheel_link.collision.get(0).name = "coll_"+wheel_link.name
-    	wheel_link.visual.get(0).name = "viz_"+wheel_link.name
-    	wheel_link.mass = wheel_param.wheel_mass
-    	if (geom_settings.wheelgeometry===null)
+    	/// Setup joint, motor link is the child, axle link is the parent
+    	wheeljoint.parent = wheelmotor
+    	wheeljoint.child = wheellink
+    	wheeljoint.axis = robotdescriptionpackageFactory.createAxis
+    	wheeljoint.axis.x = 0.0f
+    	wheeljoint.axis.y = 1.0f
+    	wheeljoint.axis.z = 0.0f
+    	wheeljoint.type = JOINT_TYPE::CONTINUOUS /// Joint is continuous of type
+    	/// Visual setup
+    	wheellink.visual += robotdescriptionpackageFactory.createVisual
+    	wheellink.collision += robotdescriptionpackageFactory.createCollision
+    	wheellink.collision.get(0).name = "coll_"+wheellink.name
+    	wheellink.visual.get(0).name = "viz_"+wheellink.name
+    	wheellink.mass = wheeldyn.wheel_mass
+    	/// Decide whether generate mockup geometry or set geometry file
+    	if (geomsettings.wheelgeometry===null)
     	{
+    		// There is no description for mesh, so create a cylinder model for it
+    		// based on wheel parameters
 	    	val c = robotdescriptionpackageFactory.createCylinder
-	    	c.length = wheel_param.wheel_width
-	    	c.radius = wheel_param.wheel_radius
-	    	wheel_link.visual.get(0).geometry = c
-	    	wheel_link.collision.get(0).parent_visual = wheel_link.visual.get(0)
+	    	c.length = wheelparam.wheel_width
+	    	c.radius = wheelparam.wheel_radius
+	    	wheellink.visual.get(0).geometry = c
+	    	wheellink.collision.get(0).parent_visual = wheellink.visual.get(0)
     	}
     	else
     	{
+    		// Set mesh from file
     		val visual_mesh = robotdescriptionpackageFactory.createMesh
-    		visual_mesh.filename = geom_settings.wheelgeometry.package + geom_settings.wheelgeometry.meshpath
-    		wheel_link.visual.get(0).geometry = visual_mesh
+    		visual_mesh.filename = geomsettings.wheelgeometry.package + geomsettings.wheelgeometry.meshpath
+    		wheellink.visual.get(0).geometry = visual_mesh
     		val collision_mesh = robotdescriptionpackageFactory.createMesh
-    		collision_mesh.filename = geom_settings.wheelgeometry.package + geom_settings.wheelgeometry.collisionmesh
-    		wheel_link.collision.get(0).geometry = collision_mesh
+    		collision_mesh.filename = geomsettings.wheelgeometry.package + geomsettings.wheelgeometry.collisionmesh
+    		wheellink.collision.get(0).geometry = collision_mesh
     		/// Explicitly setup inertia
-    		wheel_link.inertial = robotdescriptionpackageFactory.createInertial
-		    wheel_link.inertial.mass = wheel_param.wheel_mass 
-		    wheel_link.inertial.inertia = 
-		    	InertiaCalculations.cylinderInertia(wheel_param.wheel_radius, 
-		    		wheel_param.wheel_width, wheel_param.wheel_mass
+    		wheellink.inertial = robotdescriptionpackageFactory.createInertial
+		    wheellink.inertial.mass = wheeldyn.wheel_mass  /// Setup mass from wheel dynamic parameters
+		    wheellink.inertial.inertia = 
+		    	InertiaCalculations.cylinderInertia(wheelparam.wheel_radius, 
+		    		wheelparam.wheel_width, wheeldyn.wheel_mass /// Model inertia with a solid cylinder
 		    	)
-	    	wheel_link.inertial.origin = robotdescriptionpackageFactory.createOrigin
-	    	wheel_link.inertial.origin.xyz = robotdescriptionpackageFactory.createVec3
-	    	wheel_link.inertial.origin.rpy = robotdescriptionpackageFactory.createEulerRotation
-	    	//wheel_link.inertial.origin.rpy.roll = 90.0f*Math.PI/180.0;
-	    	//wheel_link.inertial.origin.rpy.roll = 90.0f*Math.PI/180.0;
-		    if (geom_settings.wheelgeometry.rotation!==null)
+	    	wheellink.inertial.origin = robotdescriptionpackageFactory.createOrigin
+	    	wheellink.inertial.origin.xyz = robotdescriptionpackageFactory.createVec3
+	    	wheellink.inertial.origin.rpy = robotdescriptionpackageFactory.createEulerRotation
+	    	if (geomsettings.wheelgeometry.rotation!==null)
 		    {
-		    	System.out.println('''Setting explicit geometry settings for wheel link: «wheel_link.name»''');
+		    	System.out.println('''Setting explicit geometry settings for wheel link: «wheellink.name»''');
 		    	val orig_viz = robotdescriptionpackageFactory.createOrigin
 		    	val orig_coll = robotdescriptionpackageFactory.createOrigin
 		    	orig_viz.xyz = robotdescriptionpackageFactory.createVec3
@@ -125,15 +140,15 @@ class VehicleConfigToKinematicTree {
 		    	orig_viz.rpy = robotdescriptionpackageFactory.createEulerRotation
 		    	orig_coll.rpy = robotdescriptionpackageFactory.createEulerRotation
 		    	// TODO: other rotations as well
-		    	orig_viz.rpy.yaw = (geom_settings.wheelgeometry.rotation.yaw * axis_dir)
-		    	orig_coll.rpy.yaw = (geom_settings.wheelgeometry.rotation.yaw * axis_dir)
-		    	wheel_link.visual.get(0).origin = orig_viz
-		    	wheel_link.collision.get(0).origin = orig_coll
+		    	orig_viz.rpy.yaw = (geomsettings.wheelgeometry.rotation.yaw * axisdir)
+		    	orig_coll.rpy.yaw = (geomsettings.wheelgeometry.rotation.yaw * axisdir)
+		    	wheellink.visual.get(0).origin = orig_viz
+		    	wheellink.collision.get(0).origin = orig_coll
 		    }
     	}
     	// Setup friction
     	// TODO: set from editor
-    	wheel_link.friction_mu = 0.7;
+    	wheellink.friction_mu = 0.7;
     }
     
     def void setupWheelMotorLinkGeometry(Link wheel_motor) {
@@ -235,9 +250,9 @@ class VehicleConfigToKinematicTree {
     	root.inertial = robotdescriptionpackageFactory.createInertial
     	root.inertial.mass = dyn_param.inertialparameters.mass
     	root.inertial.inertia = InertiaCalculations.boxInertia(
-    		Math.max(kin_param.front_track, kin_param.rear_track),
-    		kin_param.wheelbase,
-    		kin_param.height,
+    		kin_param.boundingbox.width,
+    		kin_param.boundingbox.depth,
+    		kin_param.boundingbox.height, /// Setup box inertia based on bounding box
     		dyn_param.inertialparameters.mass
     	)
     	// Genereate origin of inertia according to reference point
@@ -247,7 +262,7 @@ class VehicleConfigToKinematicTree {
     	switch(kin_param.reference_point){
     		case REAR_AXLE:{
     			root.inertial.origin.xyz.x = dyn_param.inertialparameters.cog_ratio * kin_param.wheelbase
-    			root.inertial.origin.xyz.z = kin_param.height/2.0
+    			root.inertial.origin.xyz.z = kin_param.boundingbox.height/2.0
     		}
 			case COG: {
 			}
@@ -285,6 +300,7 @@ class VehicleConfigToKinematicTree {
     			setupVehicleKinematicStructure(kinematic_param, geom_settings, dyn_param, kinematic_param.wheelbase, 0.0)
     		}
     	}
+    	/*
     	vehicle.nodeconfiguration?.computationnode?.forEach[
     		if (it instanceof VehicleControl)
     		{
@@ -294,52 +310,98 @@ class VehicleConfigToKinematicTree {
 	    		robot.plugin.add(control_plugin)
     		}    		
     	]
+    	* */
+    	vehicle.simulationconfiguration?.simulationcontrolplugin?.forEach[
+    		val control_plugin = robotdescriptionpackageFactory.createPlugin
+    		control_plugin.name = it.name
+    		control_plugin.library = "lib"+it.type
+    		if (it instanceof VehicleControlPlugin)
+    		{
+    			val VehicleControlPlugin plugin = it as VehicleControlPlugin
+    			val param_steer_p_gain = robotdescriptionpackageFactory.createPluginParam
+    			param_steer_p_gain.varname = "start_steer_p_gain"
+    			param_steer_p_gain.text = plugin.steerpid.p.toString
+    			control_plugin.pluginparam.add(param_steer_p_gain)
+    			val param_steer_i_gain = robotdescriptionpackageFactory.createPluginParam
+    			param_steer_i_gain.varname = "start_steer_i_gain"
+    			param_steer_i_gain.text = plugin.steerpid.i.toString
+    			control_plugin.pluginparam.add(param_steer_i_gain)
+    			val param_steer_d_gain = robotdescriptionpackageFactory.createPluginParam
+    			param_steer_d_gain.varname = "start_steer_d_gain"
+    			param_steer_d_gain.text = plugin.steerpid.d.toString
+    			control_plugin.pluginparam.add(param_steer_d_gain)
+    			val param_velocity_p_gain = robotdescriptionpackageFactory.createPluginParam
+    			param_velocity_p_gain.varname = "start_velocity_p_gain"
+    			param_velocity_p_gain.text = plugin.velocitypid.p.toString
+    			control_plugin.pluginparam.add(param_velocity_p_gain)
+    			val param_velocity_i_gain = robotdescriptionpackageFactory.createPluginParam
+    			param_velocity_i_gain.varname = "start_velocity_i_gain"
+    			param_velocity_i_gain.text = plugin.velocitypid.i.toString
+    			control_plugin.pluginparam.add(param_velocity_i_gain)
+    			val param_velocity_d_gain = robotdescriptionpackageFactory.createPluginParam
+    			param_velocity_d_gain.varname = "start_velocity_d_gain"
+    			param_velocity_d_gain.text = plugin.velocitypid.d.toString
+				control_plugin.pluginparam.add(param_velocity_d_gain)
+	    		
+	    		robot.plugin.add(control_plugin)
+    		}
+    		System.out.println('''Adding control plugin: «it.name» «it.type»''')
+    	]    	
 	}
 	
-	def void setupVehicleKinematicStructure(KinematicParameters kinematic_param, GeometrySettings geom_settings, DynamicParameters dyn_param, double front_wheelbase, double rear_wheelbase){
+	/**
+	 * @brief Generate vehicle kinematic structure from vehicle description (e.g. execute transformation)
+	 * 
+	 * @param kinematicparam	kinematic parameters of the vehicle
+	 * @param geomsettings		geometry settings of the vehicle
+	 * @param dynparam			dynamic parameters of the vehicle
+	 * @param frontwheelbase	Front section of the wheelbase
+	 * @param rearwheelbase		Rear section of the wheelbase
+	 */
+	def void setupVehicleKinematicStructure(KinematicParameters kinematicparam, GeometrySettings geomsettings, DynamicParameters dynparam, double frontwheelbase, double rearwheelbase){
     	// Front axle position
 		val Vec3 front_pos = robotdescriptionpackageFactory.createVec3
-		front_pos.x = front_wheelbase as float
+		front_pos.x = frontwheelbase as float
 		front_pos.y = 0.0f
 		front_pos.z = 0.0f
 		// Front left wheel position
 		val Vec3 front_left_wheel_pos = robotdescriptionpackageFactory.createVec3
 		front_left_wheel_pos.x = 0.0f
-		front_left_wheel_pos.y = -(kinematic_param.front_track/2.0f) as float
+		front_left_wheel_pos.y = -(kinematicparam.front_track/2.0f) as float
 		front_left_wheel_pos.z = 0.0f
 		// Front left wheel position
 		val Vec3 front_right_wheel_pos = robotdescriptionpackageFactory.createVec3
 		front_right_wheel_pos.x = 0.0f
-		front_right_wheel_pos.y = (kinematic_param.front_track/2.0f) as float
+		front_right_wheel_pos.y = (kinematicparam.front_track/2.0f) as float
 		front_right_wheel_pos.z = 0.0f
 		// Rear axle position
 		val Vec3 rear_pos = robotdescriptionpackageFactory.createVec3
-		rear_pos.x = (-rear_wheelbase) as float
+		rear_pos.x = (-rearwheelbase) as float
 		rear_pos.y = 0.0f
 		rear_pos.z = 0.0f
 		// Rear left wheel position
 		val Vec3 rear_left_wheel_pos = robotdescriptionpackageFactory.createVec3
 		rear_left_wheel_pos.x = 0.0f
-		rear_left_wheel_pos.y = -(kinematic_param.rear_track/2.0f) as float
+		rear_left_wheel_pos.y = -(kinematicparam.rear_track/2.0f) as float
 		rear_left_wheel_pos.z = 0.0f
 		// Rear left wheel position
 		val Vec3 rear_right_wheel_pos = robotdescriptionpackageFactory.createVec3
 		front_right_wheel_pos.x = 0.0f
-		rear_right_wheel_pos.y = (kinematic_param.rear_track/2.0f) as float
+		rear_right_wheel_pos.y = (kinematicparam.rear_track/2.0f) as float
 		rear_right_wheel_pos.z = 0.0f 
 		
     	robot.link.clear
     	robot.joint.clear
     	val root = robotdescriptionpackageFactory.createLink
     	root.name = "base_link"
-    	setupAxleGeometry(root, kinematic_param.wheelbase)
+    	setupAxleGeometry(root, kinematicparam.wheelbase)
     	root.visual.get(0).origin = robotdescriptionpackageFactory.createOrigin
     	root.visual.get(0).origin.xyz = robotdescriptionpackageFactory.createVec3
-    	root.visual.get(0).origin.xyz.x = (((front_wheelbase - rear_wheelbase)/2.0) as float)  
+    	root.visual.get(0).origin.xyz.x = (((frontwheelbase - rearwheelbase)/2.0) as float)  
     	root.visual.get(0).origin.rpy = robotdescriptionpackageFactory.createEulerRotation
     	root.visual.get(0).origin.rpy.yaw = 90.0f
     	/// Create shell    	
-    	setupShell(root, geom_settings, kinematic_param, dyn_param)
+    	setupShell(root, geomsettings, kinematicparam, dynparam)
     	
     	val link_rear = robotdescriptionpackageFactory.createLink
     	link_rear.name = "rear_axle_link"
@@ -410,7 +472,7 @@ class VehicleConfigToKinematicTree {
     		link_front_steer_left_wheel, front_left_wheel_pos,
     		link_front_steer_right_wheel, front_right_wheel_pos,
     		wheel_axis,
-    		kinematic_param.front_track
+    		kinematicparam.front_track
     	)
     	// Steer setup
     	val Joint jnt_front_left_steer = robotdescriptionpackageFactory.createJoint
@@ -433,10 +495,10 @@ class VehicleConfigToKinematicTree {
     	jnt_front_right_steer.parent = link_front_steer_right_wheel
     	jnt_front_right_steer.child = link_front_right_wheel
     	
-    	VehicleConfigLinkJointSetup::setupSteerJointPlanarDeg(kinematic_param.steeringparameters,
+    	VehicleConfigLinkJointSetup::setupSteerJointPlanarDeg(kinematicparam.steeringparameters,
     		jnt_front_left_steer, 1.0
     	)
-    	VehicleConfigLinkJointSetup::setupSteerJointPlanarDeg(kinematic_param.steeringparameters,
+    	VehicleConfigLinkJointSetup::setupSteerJointPlanarDeg(kinematicparam.steeringparameters,
     		jnt_front_right_steer, 1.0
     	)
     	planeRotation(link_front)
@@ -446,7 +508,7 @@ class VehicleConfigToKinematicTree {
     		link_rear_left_wheel, rear_left_wheel_pos,
     		link_rear_right_wheel, rear_right_wheel_pos,
     		wheel_axis,
-    		kinematic_param.rear_track
+    		kinematicparam.rear_track
     	)
     	planeRotation(link_rear)
     	// Generate driven joints
@@ -467,23 +529,23 @@ class VehicleConfigToKinematicTree {
     	jnt_rear_left_wheel_drive.name = "joint_wheel_rear_left"
     	val jnt_rear_right_wheel_drive = robotdescriptionpackageFactory.createJoint
     	jnt_rear_right_wheel_drive.name = "joint_wheel_rear_right"
-    	val wheel_param = kinematic_param.wheelparameters
-    	/// Setup wheels
+    	val wheel_param = kinematicparam.wheelparameters    	
+    	/// Setup wheels based on wheel kinematics and dynamics
     	setupWheel(link_front_left_wheel,  link_front_left_wheel_drive,  
     		jnt_front_left_wheel_drive,
-    		wheel_param, geom_settings, -1.0 
+    		wheel_param, dynparam.wheeldynamics, geomsettings, -1.0 
     	)
     	setupWheel(link_front_right_wheel, link_front_right_wheel_drive, 
     		jnt_front_right_wheel_drive,
-    		wheel_param, geom_settings, 1.0
+    		wheel_param, dynparam.wheeldynamics, geomsettings, 1.0
     	)
     	setupWheel(link_rear_left_wheel,  link_rear_left_wheel_drive,  
     		jnt_rear_left_wheel_drive,
-    		wheel_param, geom_settings, -1.0
+    		wheel_param, dynparam.wheeldynamics, geomsettings, -1.0
     	)
     	setupWheel(link_rear_right_wheel, link_rear_right_wheel_drive, 
     		jnt_rear_right_wheel_drive,
-    		wheel_param, geom_settings, 1.0
+    		wheel_param, dynparam.wheeldynamics, geomsettings, 1.0
     	)
     	planeRotation(link_front_left_wheel)
     	planeRotation(link_front_right_wheel)

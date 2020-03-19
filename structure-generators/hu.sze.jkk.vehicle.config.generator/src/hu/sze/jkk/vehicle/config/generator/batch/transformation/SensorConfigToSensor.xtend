@@ -15,21 +15,21 @@ import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.transformation.runtime.emf.modelmanipulation.SimpleModelManipulations
 import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
-import hu.sze.jkk.vehicle.dse.validation.SensorNodeElements.Match
-import hu.sze.jkk.vehicle.dse.validation.SensorNodeElements.Matcher
-import hu.sze.jkk.vehicle.dse.validation.SensorNodeElements
+
 import robotdescriptionpackage.Joint
 import robotdescriptionpackage.Link
 import robotdescriptionpackage.Sphere
 
 import hu.sze.jkk.vehicle.config.vehicleconfig.LIDAR
-import hu.sze.jkk.vehicle.config.vehicleconfig.Sensor
 import robotdescriptionpackage.Lidar
 import hu.sze.jkk.vehicle.config.vehicleconfig.Laser
 import hu.sze.jkk.vehicle.config.vehicleconfig.ImuSensor
 import hu.sze.jkk.vehicle.config.vehicleconfig.GNSS
 import hu.sze.jkk.vehicle.config.vehicleconfig.Camera
 import robotdescriptionpackage.CameraType
+import hu.sze.jkk.vehicle.config.vehicleconfig.SensorPlacement
+import hu.sze.jkk.vehicle.dse.validation.SensorNodeElements
+import robotdescriptionpackage.Sensor
 
 class InvalidSensorModel extends Exception{
 	
@@ -59,32 +59,32 @@ class SensorConfigToSensor {
     
     var Robot robot
     
-    def sensorKinematics(Link root_link, Sensor abstract_sensor, robotdescriptionpackage.Sensor sensor){
+    def sensorKinematics(Link root_link, SensorPlacement abstractsensor, robotdescriptionpackage.Sensor sensor){
     	val Link sensor_link = robotdescriptionpackageFactory.createLink
 		//sensor_link.name = "link_"+abstract_sensor.name
 		// REGRESSION: link should not be appended
-		sensor_link.name = abstract_sensor.name
+		sensor_link.name = abstractsensor.name /// Link name is assigned to sensor placement id
 		sensor_link.visual += robotdescriptionpackageFactory.createVisual
 		sensor_link.visual.get(0).name = "viz_"+sensor_link.name
 		val Sphere sphere = robotdescriptionpackageFactory.createSphere
 		sphere.radius = SENSOR_DUMMY_RADIUS;
 		sensor_link.visual.get(0).geometry = sphere
-		sensor_link.mass = abstract_sensor.mass
+		sensor_link.mass = abstractsensor.sensormodel.mass
 		sensor_link.collision += robotdescriptionpackageFactory.createCollision
 		sensor_link.collision.get(0).name = "coll_"+sensor_link.name
 		sensor_link.collision.get(0).parent_visual = sensor_link.visual.get(0)
 		val Joint sensor_jnt = robotdescriptionpackageFactory.createJoint
-		sensor_jnt.name = "jnt_" + abstract_sensor.name
+		sensor_jnt.name = "jnt_" + abstractsensor.name /// Joint name is assigned to sensor placement id
 		sensor_jnt.parent = root_link
 		sensor_jnt.child = sensor_link
 		sensor_jnt.axis = robotdescriptionpackageFactory.createAxis
 		sensor_jnt.axis.z = 1.0
 		sensor_jnt.origin = robotdescriptionpackageFactory.createOrigin
 		sensor_jnt.origin.xyz = robotdescriptionpackageFactory.createVec3
-		if (abstract_sensor.displacement!==null){
-			sensor_jnt.origin.xyz.x = abstract_sensor.displacement.x
-			sensor_jnt.origin.xyz.y = abstract_sensor.displacement.y
-			sensor_jnt.origin.xyz.z = abstract_sensor.displacement.z			
+		if (abstractsensor.displacement!==null){
+			sensor_jnt.origin.xyz.x = abstractsensor.displacement.x
+			sensor_jnt.origin.xyz.y = abstractsensor.displacement.y
+			sensor_jnt.origin.xyz.z = abstractsensor.displacement.z			
 		}else{
 			sensor_jnt.origin.xyz.x = 0.0
 			sensor_jnt.origin.xyz.y = 0.0
@@ -96,17 +96,20 @@ class SensorConfigToSensor {
 		sensor.link = sensor_link
 		robot.sensor.add(sensor)
     }
+    
+    
     /// Select the proper sensor class
-    val BatchTransformationRule<Match,Matcher> sensorElementsRule = createRule
+    val BatchTransformationRule<SensorNodeElements.Match,SensorNodeElements.Matcher> sensorElementsRule = createRule
     	.precondition(SensorNodeElements.Matcher.querySpecification)
     	.action[
     		val Link root_link = robot.link.get(0)
-    		/// Select laser
-    		if (it.s instanceof Laser){
+    		var Sensor s = null    		
+    		if (it.s.sensormodel instanceof Laser){
+    			/// Select laser
     			System.out.println('''Adding LaserScan: «it.s»''');
     			val robotdescriptionpackage.Laser las = 
     				robotdescriptionpackageFactory.createLaser()
-    			val Laser abstractl = it.s as Laser
+    			val Laser abstractl = it.s.sensormodel as Laser
     			/// Setup laser defintiion in URDF	
     			las.angle_max = abstractl.angleparameters.max_angle
     			las.angle_min = abstractl.angleparameters.min_angle
@@ -115,31 +118,25 @@ class SensorConfigToSensor {
     			las.samples = abstractl.angleparameters.samples
     			las.resolution_distance = abstractl.distancesettings.resolution
     			las.resolution = abstractl.angleparameters.resolution as int    	
-    			las.name = "laser"		
-    			
+    			las.name = "laser"
     			las.update_rate = abstractl.update_rate as int
     			/// Setup static kinematic structure
-    			sensorKinematics(root_link, abstractl, las)
-    			
+    			s = las
     		}
-    		/// Select IMU defintion
-    		else if (it.s instanceof ImuSensor){
+    		else if (it.s.sensormodel instanceof ImuSensor){
+    			/// Select IMU defintion
     			System.out.println('''Adding IMU: «it.s»''');
     			val robotdescriptionpackage.IMU imu = robotdescriptionpackageFactory.createIMU
-    			val ImuSensor abstractimu = it.s as ImuSensor
-    			
+    			val ImuSensor abstractimu = it.s.sensormodel as ImuSensor
     			imu.name = abstractimu.name
     			imu.update_rate = abstractimu.update_rate as int
-    			/// Setup static kinematic structure
-    			sensorKinematics(root_link, abstractimu, imu)
-    		}
-    		/// LIDAR definition
-    		else if (it.s instanceof LIDAR){
+    			s = imu		
+    		}    		
+    		else if (it.s.sensormodel instanceof LIDAR){
+    			/// LIDAR definition
     			System.out.println('''Adding LIDAR: «it.s»''');
-    			val abstractlidar = it.s as LIDAR
+    			val abstractlidar = it.s.sensormodel as LIDAR
     			val Lidar lidar = robotdescriptionpackageFactory.createLidar
-    			
-    			lidar.name = abstractlidar.name    			
     			if (abstractlidar.horizontal_angle_param !== null) {
     				lidar.horizontal_angle_limit = robotdescriptionpackageFactory.createAngleLimit
     				lidar.horizontal_angle_limit.resolution = abstractlidar.horizontal_angle_param.resolution
@@ -167,12 +164,11 @@ class SensorConfigToSensor {
     			lidar.rangeprop.measMin = abstractlidar.min_range
     			lidar.rangeprop.resolution = abstractlidar.resolution
     			lidar.update_rate = abstractlidar.update_rate as int
-    			/// Setup static kinematic structure
-    			sensorKinematics(root_link, abstractlidar, lidar)
-    		}
-    		/// GNSS configuration
-    		else if (it.s instanceof GNSS){
-    			val abstractgnss = it.s as GNSS;
+    			s = lidar
+    		}    		
+    		else if (it.s.sensormodel instanceof GNSS){
+    			/// GNSS configuration
+    			val abstractgnss = it.s.sensormodel as GNSS;
     			val robotdescriptionpackage.GNSS gnss = robotdescriptionpackageFactory.createGNSS
     			/// Setup basic parameters
     			gnss.name = abstractgnss.name
@@ -182,12 +178,11 @@ class SensorConfigToSensor {
     			gnss.geolocation.longitude = abstractgnss.geolocation.longitude
     			gnss.geolocation.latitude = abstractgnss.geolocation.latitude
     			gnss.geolocation.height = abstractgnss.geolocation.height
-    			/// Setup kinematic link
-    			sensorKinematics(root_link, abstractgnss, gnss)
+    			s = gnss	
     		}
-    		/// Camera configuration
-    		else if (it.s instanceof Camera){
-    			val abstractcamera = it.s as Camera
+    		else if (it.s.sensormodel instanceof Camera){
+    			/// Camera configuration
+    			val abstractcamera = it.s.sensormodel as Camera
     			val robotdescriptionpackage.Camera camera = robotdescriptionpackageFactory.createCamera
     			/// Setup basic stuff
     			camera.name = abstractcamera.name
@@ -213,9 +208,11 @@ class SensorConfigToSensor {
     			camera.cameraparameters.height           = abstractcamera.cameraparameters.height
     			camera.cameraparameters.width            = abstractcamera.cameraparameters.width
     			camera.cameraparameters.horizontal_fov   = abstractcamera.cameraparameters.horizontal_fov*Math.PI/180.0
-    			/// Setup kinematics
-    			sensorKinematics(root_link, abstractcamera, camera)
+    			s = camera
     		}
+    		// Setup kinematics for sensor (placement, rotation)
+    		s.name = it.s.name
+    		sensorKinematics(root_link, it.s, s)    		
     	].build
     	
     new(Robot robot, ViatraQueryEngine engine){

@@ -12,11 +12,11 @@ import org.eclipse.emf.ecore.resource.Resource
 import robotdescriptionpackage.Link
 import org.eclipse.xtend.lib.annotations.Accessors
 import robotdescriptionpackage.RobotdescriptionpackageFactory
-import hu.sze.jkk.vehicle.dse.validation.SelectAllValidSensors
 import hu.sze.jkk.vehicle.config.vehicleconfig.Vehicle
-import hu.sze.jkk.vehicle.config.vehicleconfig.Sensor
 import java.util.Map
 import java.util.HashMap
+import hu.sze.jkk.vehicle.dse.validation.SelectAllValidSensorPlacements
+import hu.sze.jkk.vehicle.config.vehicleconfig.SensorPlacement
 
 class SelectAllSensorsAsLink {
 
@@ -30,7 +30,7 @@ class SelectAllSensorsAsLink {
 
     protected ViatraQueryEngine engine
     protected Vehicle vehicle
-    @Accessors(PUBLIC_GETTER) Map<Link, Sensor> sensormap;
+    @Accessors(PUBLIC_GETTER) Map<Link, SensorPlacement> sensormap;
     //protected BatchTransformationRule<?,?> exampleRule
     @Accessors(PUBLIC_GETTER) Link base_link
     protected BatchTransformationRule sensorStaticRuleSelect
@@ -75,7 +75,7 @@ class SelectAllSensorsAsLink {
     	if (sensorStaticRuleSelect === null){    		
     		sensormap = new HashMap
     		base_link.joint.clear
-    		sensorStaticRuleSelect = createRule(SelectAllValidSensors.instance).action[    			
+    		sensorStaticRuleSelect = createRule(SelectAllValidSensorPlacements.instance).action[    			
     			val j = RobotdescriptionpackageFactory.eINSTANCE.createJoint
     			val l = RobotdescriptionpackageFactory.eINSTANCE.createLink
     			sensormap.put(l, it.s)

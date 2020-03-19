@@ -9,14 +9,12 @@ import org.eclipse.viatra.transformation.runtime.emf.rules.batch.BatchTransforma
 import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformation
 import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformationStatements
 import org.eclipse.emf.ecore.resource.Resource
-import hu.sze.jkk.vehicle.dse.validation.SelectAllValidSensors
 import hu.sze.jkk.robot.launch.model.launchmodel.Launch
 import hu.sze.jkk.robot.launch.model.launchmodel.LaunchmodelFactory
 import hu.sze.jkk.robot.launch.model.launchmodel.StaticTransform
 import org.eclipse.xtend.lib.annotations.Accessors
 import hu.sze.jkk.vehicle.config.vehicleconfig.Vehicle
-
-
+import hu.sze.jkk.vehicle.dse.validation.SelectAllValidSensorPlacements
 
 class SensorToStaticTransformationGraph {
 	/* Transformation-related extensions */
@@ -80,7 +78,7 @@ class SensorToStaticTransformationGraph {
 
     private def getSensorRule(){
     	if (sensorStaticRule === null){
-    		sensorStaticRule = createRule(SelectAllValidSensors.instance).action[
+    		sensorStaticRule = createRule(SelectAllValidSensorPlacements.instance).action[
     			val StaticTransform static_tf_node = LaunchmodelFactory.eINSTANCE.createStaticTransform
     			static_tf_node.name = it.s.name+"_tf_publisher"
     			static_tf_node.type = "static_transform_publisher"
