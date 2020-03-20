@@ -4,10 +4,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Vehicle" eSuperTypes="#//RootElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="kinematicparameters" lowerBound="1"
         eType="#//KinematicParameters" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rosconfiguration" eType="#//RosConfiguration"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodeconfiguration" eType="#//NodeConfiguration"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="geometrysettings" lowerBound="1"
         eType="#//GeometrySettings" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensorconfiguration" eType="#//SensorConfiguration"
@@ -20,6 +16,8 @@
         eType="#//LowLevelControl" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="simulationconfiguration"
         eType="#//SimulationConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensorcatalogue" upperBound="-1"
+        eType="#//SensorCatalogue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KinematicParameters">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wheelbase" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -37,28 +35,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wheel_radius" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wheel_width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SensorMiddlewareTopic" eSuperTypes="#//MiddlewareTopic">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Odometry" eSuperTypes="#//SensorModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="vehicle_status" eType="#//ControlMiddlewareTopic"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComputationNode" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="callbackqueue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ControlNode" abstract="true" eSuperTypes="#//ComputationNode"/>
-  <eClassifiers xsi:type="ecore:EClass" name="VehicleControl" eSuperTypes="#//ControlNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="controlmiddlewaretopic"
-        eType="#//ControlMiddlewareTopic"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RosConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rostopicconfiguration"
-        upperBound="-1" eType="#//SensorMiddlewareTopic" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NodeConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="computationnode" upperBound="-1"
-        eType="#//ComputationNode" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeometrySettings">
     <eStructuralFeatures xsi:type="ecore:EReference" name="shell" lowerBound="1" eType="#//GeometricDefinition"
@@ -85,6 +63,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="model" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensormiddlewaretopic"
         eType="#//SensorMiddlewareTopic"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensorcatalogue" eType="#//SensorCatalogue"
+        eOpposite="#//SensorCatalogue/sensormodel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Laser" eSuperTypes="#//SensorModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="distancesettings" lowerBound="1"
@@ -93,8 +73,6 @@
         eType="#//AngleParameters" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SensorConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sensormodel" upperBound="-1"
-        eType="#//SensorModel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensorplacement" upperBound="-1"
         eType="#//SensorPlacement" containment="true"/>
   </eClassifiers>
@@ -131,9 +109,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="JointStateTopic" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="joint_id" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SimulationControl" eSuperTypes="#//ControlNode">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pluginname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DynamicParameters">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inertialparameters" lowerBound="1"
@@ -308,4 +283,26 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="simulationcontrolplugin"
         upperBound="-1" eType="#//SimulationControlPlugin" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SensorCatalogue" eSuperTypes="#//RootElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensormodel" upperBound="-1"
+        eType="#//SensorModel" containment="true" eOpposite="#//SensorModel/sensorcatalogue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rosconfiguration" lowerBound="1"
+        eType="#//RosConfiguration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SensorMiddlewareTopic" eSuperTypes="#//MiddlewareTopic">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RosConfiguration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rostopicconfiguration"
+        upperBound="-1" eType="#//SensorMiddlewareTopic" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SignalView" eSuperTypes="#//RootElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lowlevelmessage" upperBound="-1"
+        eType="#//LowLevelMessage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LowLevelMessage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lowlevelsignal" upperBound="-1"
+        eType="#//LowLevelSignal" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LowLevelSignal"/>
 </ecore:EPackage>

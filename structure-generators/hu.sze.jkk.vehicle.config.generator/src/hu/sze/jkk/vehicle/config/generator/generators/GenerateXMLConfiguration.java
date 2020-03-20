@@ -21,59 +21,16 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import hu.sze.jkk.vehicle.config.vehicleconfig.ComputationNode;
 import hu.sze.jkk.vehicle.config.vehicleconfig.JointStateTopic;
 import hu.sze.jkk.vehicle.config.vehicleconfig.KinematicParameters;
 import hu.sze.jkk.vehicle.config.vehicleconfig.Odometry;
 import hu.sze.jkk.vehicle.config.vehicleconfig.Vehicle;
-import hu.sze.jkk.vehicle.config.vehicleconfig.VehicleControl;
 import hu.sze.jkk.vehicle.config.vehicleconfig.WheelParameters;
 
 public class GenerateXMLConfiguration {
 	private ResourceSet resset;
 	private Document doc ;
-	
-	/*	
-	 * SLATED
-	public static Element generateTopicConfiguration(Document doc, RosTopicConfiguration topic) {
-		String topic_type = "topic";
-		if (topic instanceof ThrottleTopic) {
-			topic_type = "throttle_topic";
-		}
-		else if (topic instanceof SteerTopic) {
-			topic_type = "steer_topic";
-		}
-		else if (topic instanceof OdomTopic)
-		{
-			topic_type = "odom_topic";
-		}
-		else if (topic instanceof ImuTopic) {
-			topic_type = "imu_topic";
-		}
-		else if (topic instanceof LaserTopic) {
-			topic_type = "laser_topic";
-		}
-		Element topic_element = doc.createElement(topic_type);
 		
-		Element topicname_element = doc.createElement("topicname");
-		topicname_element.appendChild(doc.createTextNode(topic.getTopicname()));
-		topic_element.appendChild(topicname_element);
-		Element frequency_element = doc.createElement("frequency");
-		frequency_element.appendChild(doc.createTextNode(Double.toString(topic.getFrequency())));
-		topic_element.appendChild(frequency_element);
-		if (topic instanceof JointStateTopic) {
-			JointStateTopic jt = (JointStateTopic)topic;
-			for (Integer ji: jt.getJoint_id()) {
-				Element joint_id = doc.createElement("jointdefinition");
-				joint_id.setTextContent(Integer.toString(ji));
-				topic_element.appendChild(joint_id);
-			}
-			
-		}
-		return topic_element;
-	}
-	*/
-	
 	public static Element generateWheelParameters(Document doc, WheelParameters wheel_param) {
 		Element wheel_parameters = doc.createElement("wheelparameters");
 		Element radius_element = doc.createElement("radius");
@@ -136,8 +93,6 @@ public class GenerateXMLConfiguration {
 		vehicleelement.appendChild(
 				GenerateXMLConfiguration.generateKinematicConfigurationElement(doc, kin_param)
 		);
-		GenerateXMLConfiguration.generateComputationNodeConfiguration(
-				doc, vehicle, vehicleelement);
 	}
 	
 	public void generateFromFile(String path) {
@@ -151,25 +106,5 @@ public class GenerateXMLConfiguration {
 		
 	}
 	
-	public static void generateComputationNodeConfiguration(Document doc, 
-			Vehicle vehicle, Element vehicleelement) {
-		Element roselement = doc.createElement("ros");
-		
-		for (ComputationNode cn: vehicle.getNodeconfiguration().getComputationnode()) {
-			
-			if (cn instanceof VehicleControl) {
-				Element vehicle_element = doc.createElement("vehicle");
-				/*
-				vehicle_element.appendChild(
-					GenerateXMLConfiguration.generateTopicConfiguration(
-						doc,
-						((VehicleControl) cn).getSteertopic()
-					)
-				);
-				*/
-				roselement.appendChild(vehicle_element);
-			}
-		}
-		vehicleelement.appendChild(roselement);
-	}
+	
 }

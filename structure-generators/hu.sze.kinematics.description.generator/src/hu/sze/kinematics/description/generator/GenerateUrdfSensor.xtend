@@ -179,7 +179,7 @@ class GenerateUrdfSensor {
 		plugin_element.setAttribute("filename", "libgazebo_ros_velodyne_gpu_laser.so");
 		val Element topicname_element = doc.createElement("topicName");
 		// TODO: recreate topic names
-		topicname_element.appendChild(doc.createTextNode('''/velodyne_points_«lidar.name.toLowerCase»'''));
+		topicname_element.appendChild(doc.createTextNode('''/«lidar.name.toLowerCase»/points_raw'''));
 		plugin_element.appendChild(topicname_element);
 		val Element framename_element = doc.createElement("frameName");
 		framename_element.appendChild(doc.createTextNode(lidar.getLink().getName()));

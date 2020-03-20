@@ -158,7 +158,6 @@ class SensorConfigToSensor {
     			{
     				throw new InvalidSensorModel
     			}
-    			
     			lidar.rangeprop = robotdescriptionpackageFactory.createRangeProp
     			lidar.rangeprop.measMax = abstractlidar.max_range
     			lidar.rangeprop.measMin = abstractlidar.min_range
@@ -222,7 +221,6 @@ class SensorConfigToSensor {
     	transformation = BatchTransformation.forEngine(engine).build
     	statements = transformation.transformationStatements
         manipulation = new SimpleModelManipulations(engine)
-        
         this.resource = robot.eResource
         doc = doc_builder.newDocument
         prepare(engine)

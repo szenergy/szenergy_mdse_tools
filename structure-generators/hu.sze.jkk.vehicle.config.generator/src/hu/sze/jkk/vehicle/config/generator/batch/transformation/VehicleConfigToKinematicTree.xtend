@@ -40,7 +40,6 @@ import hu.sze.jkk.vehicle.config.vehicleconfig.GeometrySettings
 import hu.sze.kinematics.description.generator.common.InertiaCalculations
 import hu.sze.jkk.vehicle.config.vehicleconfig.DynamicParameters
 import hu.sze.jkk.vehicle.config.vehicleconfig.Vehicle
-import hu.sze.jkk.vehicle.config.vehicleconfig.VehicleControl
 import hu.sze.jkk.vehicle.config.vehicleconfig.WheelDynamics
 import hu.sze.jkk.vehicle.config.vehicleconfig.VehicleControlPlugin
 
