@@ -1,0 +1,124 @@
+package hu.sze.jkk.vehicle.dse.validation
+
+import epackage "http://jkk.sze.hu/vehicleconfig"
+
+pattern LaserSensorEquipped(v: Vehicle, l: Laser)
+{
+	Vehicle.sensorconfiguration(v,sc);
+	SensorConfiguration.sensorplacement(sc,s);
+	SensorPlacement.sensormodel(s, l);	
+	Laser(l);
+}
+
+//@Constraint(key={v}, message="No laser defined", severity="error")
+pattern notLaserSensorEquipped(v: Vehicle){
+	neg find LaserSensorEquipped(v, _);
+}
+
+pattern ImuSensorEquipped(v: Vehicle, i: ImuSensor)
+{
+	Vehicle.sensorconfiguration(v, sc);
+	SensorConfiguration.sensorplacement(sc, s);
+	SensorPlacement.sensormodel(s, i);
+	ImuSensor(i);
+}
+
+/*
+pattern nodeConfiguration(v:Vehicle){
+	Vehicle.nodeconfiguration(v,c);
+	NodeConfiguration.computationnode(c,vc);
+	VehicleControl(vc);
+	Vehicle.sensorconfiguration(v, sn);
+	SensorConfiguration.sensormodel(sn,l);
+	Laser(l);
+	
+}
+* 
+*/
+
+//@Constraint(key={v}, message="No IMU defined", severity="error")
+pattern notImuSensorEquipped(v: Vehicle){
+	neg find ImuSensorEquipped(v, _);
+}
+
+
+pattern validKinematicParameters(v: Vehicle, 
+	kinparam: KinematicParameters, 
+	wheelbase,
+	front_track,
+	rear_track
+){
+	Vehicle.kinematicparameters(v,kinparam);
+	KinematicParameters.wheelbase(kinparam, wheelbase);
+	KinematicParameters.front_track(kinparam, front_track);
+	KinematicParameters.rear_track(kinparam, rear_track);
+	KinematicParameters.wheelparameters(kinparam,wp);
+	WheelParameters.wheel_radius(wp,wheel_radius);
+}
+
+pattern selectAllValidSensorPlacements(v: Vehicle, s: SensorPlacement, d: Displacement){
+	Vehicle.sensorconfiguration(v, sn);
+	SensorConfiguration.sensorplacement(sn, s);
+	SensorPlacement.sensormodel(s, _);
+	SensorPlacement.name(s, n);
+	SensorPlacement.displacement(s, d);
+}
+
+
+pattern sensorNodeElements(v: Vehicle, s: SensorPlacement){
+	Vehicle.sensorconfiguration(v,sn);
+	SensorConfiguration.sensorplacement(sn,s);
+}
+
+pattern canPorts(lw: LowLevelControl, c: LowLevelPort){
+	LowLevelControl.canports(lw, c);
+	
+}
+
+pattern selectLidarPlacements(v: Vehicle, sp: SensorPlacement){
+	Vehicle.sensorconfiguration(v, sc);	
+	SensorConfiguration.sensorplacement(sc, sp);
+	SensorPlacement.sensormodel(sp, l);
+	LIDAR(l);
+}
+
+/*
+pattern validLaserConfiguration(v: Vehicle, l: Laser, 
+	a: AngleParameters, d: DistanceSettings
+		){
+	Vehicle.sensorconfiguration(v,n);
+	SensorConfiguration.sensor(n,l);
+	Laser(l);
+	Laser.update_rate(l, upd_rate);
+	check(upd_rate > 0.0);
+	Laser.angleparameters(l,a);
+	AngleParameters.max_angle(a,max_ang);
+	AngleParameters.min_angle(a,min_ang);
+	AngleParameters.resolution(a,res_ang);
+	AngleParameters.samples(a,max_samples);
+	check(max_ang!=0);
+	check(min_ang!=0);
+	check(max_ang>min_ang);	
+	check(res_ang!=0);
+	check(max_samples!=0);
+	Laser.distancesettings(l,d);
+	DistanceSettings.max_distance(d,max_dist);
+	DistanceSettings.min_distance(d,min_dist);
+	DistanceSettings.resolution(d,res_dist);
+	
+	check(max_dist!=0);
+	check(min_dist!=0);
+	check(max_dist > min_dist);
+	check(res_dist!=0);
+}
+
+@Constraint(key={v}, severity="error", message="Invalid kinematic parameters")
+pattern invalidKinematicParameters(v: Vehicle){
+	neg find validKinematicParameters(v,_,_,_,_);
+}
+
+@Constraint(key={v}, severity="error", message="Invalid laser configuration")
+pattern invalidLaserConfiguration(v: Vehicle){
+	neg find validLaserConfiguration(v,_,_,_);
+}
+*/

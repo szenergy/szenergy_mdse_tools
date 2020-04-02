@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><plugin>
+  <extension id="hu.sze.jkk.vehicle.dse.validation.BasicConstraints" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.sze.jkk.vehicle.dse.validation.BasicConstraints" id="hu.sze.jkk.vehicle.dse.validation.BasicConstraints">
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.LaserSensorEquipped"/>
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.notLaserSensorEquipped"/>
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.ImuSensorEquipped"/>
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.notImuSensorEquipped"/>
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.validKinematicParameters"/>
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.selectAllValidSensorPlacements"/>
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.sensorNodeElements"/>
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.canPorts"/>
+      <query-specification fqn="hu.sze.jkk.vehicle.dse.validation.selectLidarPlacements"/>
+    </group>
+  </extension>
+</plugin>

@@ -1,0 +1,3 @@
+package hu.sze.jkk.diffrobot.dse.queries
+
+import epackage "http://jkk.sze.hu/diffrobot"

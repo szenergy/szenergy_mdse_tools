@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: hu.sze.jkk.diffrobot.model;singleton:=true
+Automatic-Module-Name: hu.sze.jkk.diffrobot.model
+Bundle-Version: 0.0.1.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: hu.sze.jkk.diffrobot.model.diffrobot,
+ hu.sze.jkk.diffrobot.model.diffrobot.impl,
+ hu.sze.jkk.diffrobot.model.diffrobot.util
+Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy

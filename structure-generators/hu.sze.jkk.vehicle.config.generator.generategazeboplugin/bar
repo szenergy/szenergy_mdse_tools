@@ -1,0 +1,123 @@
+/**
+  * This plugin is generated from kino-dynamic description 
+  */
+#include <szelectricity_gazebo_plugins/gazebo_wheel_plugin.hpp>
+#include <szelectricity_gazebo_plugins/gazebo_szenergy_common.hpp>
+
+using namespace szenergy::vehicle_dynamics_parameter;
+using namespace szenergy;
+
+namespace gazebo
+{	
+    class NissanleafSimulationPlugin: public SzenergyGazeboControlLogic, public ModelPlugin
+    {
+    protected:
+      const std::string NODE_NAME;
+      // ROS related stuff
+      std::shared_ptr<ros::NodeHandle> nh;
+      ros::Subscriber sub_angle;
+      ros::Subscriber sub_velocity;
+      ros::Subscriber sub_twist_cmd;
+      /// Publish state
+      ros::Publisher  pub_current_velocity;
+      ros::Timer      state_timer;
+      // COnnection handler
+      event::ConnectionPtr updateConnection;
+    public:
+        NissanleafSimulationPlugin()
+        {
+        	param = std::unique_ptr<szenergy::VehicleParameters>(new 
+                szenergy::VehicleParameters(
+                    "nissanleaf",
+                    0.31623,
+                    2.7,
+                    1.54,
+                    1.535,
+                    0.43
+                )
+            );
+            dyn_param = std::unique_ptr<szenergy::VehicleDynamicParameters>(
+                new szenergy::VehicleDynamicParameters(
+                    0.31,
+                    0.09228,
+                    2.76
+                )
+            );
+            kin_limits = std::unique_ptr<szenergy::VehicleKinematicLimits>(
+                new szenergy::VehicleKinematicLimits(
+                    0.4886921905584123,
+                    6.12
+                )
+            );
+        }
+        virtual ~NissanleafSimulationPlugin()
+        {
+            updateConnection.reset();
+            pluginstate.reset();
+        }
+        
+        void callbackUpdateState(const ros::TimerEvent&)
+        {
+        	updateFirstOrderState();
+        	pluginstate->vehicle_firstorder_state.header.stamp = ros::Time::now();
+        	pub_current_velocity.publish(pluginstate->vehicle_firstorder_state);
+        }
+
+        void initRosNode()
+        {
+            int argc = 0;
+            char **argv = NULL;
+            ros::init(argc, argv, NODE_NAME + pluginstate->model->GetName(),
+                ros::init_options::NoSigintHandler);
+            nh = std::shared_ptr<ros::NodeHandle>(new ros::NodeHandle());
+            sub_angle = nh->subscribe("/nissanleaf/steerangle", 10, &NissanleafSimulationPlugin::onSteerAngle, this);
+            sub_velocity = nh->subscribe("/nissanleaf/refvelocity", 10, &NissanleafSimulationPlugin::onVelocity, this);
+            sub_twist_cmd = nh->subscribe("/twist_cmd", 10, &NissanleafSimulationPlugin::onTwistCmd, this);
+            /// State publisher
+            pub_current_velocity = nh->advertise<geometry_msgs::TwistStamped>("/current_velocity", 10);
+            state_timer = nh->createTimer(ros::Duration(1.0/40.0), &NissanleafSimulationPlugin::callbackUpdateState, this);
+            ROS_INFO("Starting ROS node");
+        }
+        
+        
+
+        /**
+         * 
+         * */
+        void onTwistCmd(const geometry_msgs::TwistStamped::ConstPtr& msg)
+        {
+            updateTwistCommand(msg);
+        }
+
+        void onSteerAngle(const std_msgs::Float64::ConstPtr &msg)
+        {
+            updateSteerAngleCommand(msg);
+        }
+
+        void onVelocity(const std_msgs::Float64::ConstPtr &msg)
+        {
+            updateVelocityCommand(msg);
+        }
+
+        void setup(physics::ModelPtr _model, sdf::ElementPtr _sdf)
+        {
+        	setupPlugin(_model, _sdf);
+        }
+
+        void Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
+        {
+            setup(_model, _sdf);
+            updateConnection = event::Events::ConnectWorldUpdateBegin(std::bind(&NissanleafSimulationPlugin::Update, this));
+            initRosNode();
+        }
+
+        void Update()
+        {
+            updateVehicle();
+        }
+
+    };
+    GZ_REGISTER_MODEL_PLUGIN(NissanleafSimulationPlugin)
+}
+
+

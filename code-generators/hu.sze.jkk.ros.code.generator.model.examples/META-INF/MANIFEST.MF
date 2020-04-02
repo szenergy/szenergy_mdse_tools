@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Examples
+Bundle-SymbolicName: hu.sze.jkk.ros.code.generator.model.examples
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: hu.sze.jkk.ros.code.generator.pim.design;bundle-version="1.0.0"

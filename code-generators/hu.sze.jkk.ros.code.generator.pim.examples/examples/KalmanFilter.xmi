@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statepubsubmodel:MiddlewareNetwork
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:statepubsubmodel="http://jkk.sze.hu/statepubsubmodel"
+    xsi:schemaLocation="http://jkk.sze.hu/statepubsubmodel ../../hu.sze.jkk.middleware.statepubsub.model/model/statepubsubmodel.ecore"
+    name="KalmanFilter">
+  <node name="KalmanFilter">
+    <outputport
+        id="estimated_pose"
+        continousState="//@node.0/@continousstate.0"
+        topic="//@topic.3"/>
+    <inputport
+        id="current_velocity"
+        continousState="//@node.0/@continousstate.0"
+        topic="//@topic.0"/>
+    <inputport
+        id="gnss_pose"
+        continousState="//@node.0/@continousstate.0"
+        topic="//@topic.1"/>
+    <inputport
+        id="imu"
+        continousState="//@node.0/@continousstate.0"
+        topic="//@topic.2"/>
+    <continousstate
+        producesTo="//@node.0/@outputport.0"
+        receivesFrom="//@node.0/@inputport.0 //@node.0/@inputport.1 //@node.0/@inputport.2"
+        name="estimate_state"/>
+  </node>
+  <topic portTo="//@node.0/@inputport.0"
+      topic_name="current_velocity"/>
+  <topic portTo="//@node.0/@inputport.1"
+      topic_name="gnss_pose"/>
+  <topic portTo="//@node.0/@inputport.2"
+      topic_name="imu"/>
+  <topic portFrom="//@node.0/@outputport.0"
+      topic_name="estimated_pose"/>
+</statepubsubmodel:MiddlewareNetwork>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/hu.sze.jkk.robot.launch.model/src-gen" creationIcons="false"
+    editDirectory="/hu.sze.jkk.robot.launch.model.edit/src-gen" editorDirectory="/hu.sze.jkk.robot.launch.model.editor/src-gen"
+    modelPluginID="hu.sze.jkk.robot.launch.model" modelName="Launchmodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>launchmodel.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Launchmodel" basePackage="hu.sze.jkk.robot.launch.model" disposableProviderFactory="true"
+      ecorePackage="launchmodel.ecore#/">
+    <genClasses ecoreClass="launchmodel.ecore#//Launch">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/node"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Launch/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/argument"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/launchparameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/include"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Launch/namespace"/>
+    </genClasses>
+    <genClasses ecoreClass="launchmodel.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Node/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Node/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Node/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Node/rospkg"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Node/args"/>
+    </genClasses>
+    <genClasses ecoreClass="launchmodel.ecore#//StaticTransform">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//StaticTransform/vec3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//StaticTransform/rpy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//StaticTransform/link_from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//StaticTransform/link_to"/>
+    </genClasses>
+    <genClasses ecoreClass="launchmodel.ecore#//Vec3">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Vec3/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Vec3/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Vec3/z"/>
+    </genClasses>
+    <genClasses ecoreClass="launchmodel.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Parameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Parameter/value"/>
+    </genClasses>
+    <genClasses ecoreClass="launchmodel.ecore#//Argument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Argument/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Argument/value"/>
+    </genClasses>
+    <genClasses ecoreClass="launchmodel.ecore#//Include">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Include/argument"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Include/file"/>
+    </genClasses>
+    <genClasses ecoreClass="launchmodel.ecore#//Namespace">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute launchmodel.ecore#//Namespace/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference launchmodel.ecore#//Namespace/launchelement"/>
+    </genClasses>
+    <genClasses ecoreClass="launchmodel.ecore#//LaunchElement"/>
+  </genPackages>
+</genmodel:GenModel>

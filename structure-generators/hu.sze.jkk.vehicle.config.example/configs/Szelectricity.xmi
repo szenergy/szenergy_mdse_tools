@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vehicleconfig:Vehicle
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:vehicleconfig="http://jkk.sze.hu/vehicleconfig"
+    xsi:schemaLocation="http://jkk.sze.hu/vehicleconfig ../../hu.sze.jkk.vehicle.config/model/vehicleconfig.ecore"
+    name="szelectricity">
+  <kinematicparameters
+      wheelbase="1.6"
+      rear_track="0.8"
+      front_track="1.02">
+    <wheelparameters
+        wheel_radius="0.278"
+        wheel_width="0.05"
+        wheel_mass="10.0"/>
+  </kinematicparameters>
+  <rosconfiguration>
+    <rostopicconfiguration
+        xsi:type="vehicleconfig:SteerTopic"
+        topicname="steer"
+        frequency="100.0">
+      <joint_id>1</joint_id>
+      <joint_id>2</joint_id>
+    </rostopicconfiguration>
+    <rostopicconfiguration
+        xsi:type="vehicleconfig:ThrottleTopic"
+        topicname="throttle"
+        frequency="100.0">
+      <joint_id>0</joint_id>
+    </rostopicconfiguration>
+    <rostopicconfiguration
+        xsi:type="vehicleconfig:OdomTopic"
+        topicname="odom"
+        frequency="50.0"/>
+  </rosconfiguration>
+  <nodeconfiguration>
+    <computationnode
+        xsi:type="vehicleconfig:VehicleControl"
+        nodename="szelectricity_control_node"
+        steertopic="//@rosconfiguration/@rostopicconfiguration.0"
+        throttletopic="//@rosconfiguration/@rostopicconfiguration.1"/>
+    <computationnode
+        xsi:type="vehicleconfig:Odometry"
+        nodename="szelectricity_odometry"
+        throttletopic="//@rosconfiguration/@rostopicconfiguration.1"
+        steertopic="//@rosconfiguration/@rostopicconfiguration.0"
+        odomtopic="//@rosconfiguration/@rostopicconfiguration.2"/>
+  </nodeconfiguration>
+  <transmissionsetup/>
+</vehicleconfig:Vehicle>

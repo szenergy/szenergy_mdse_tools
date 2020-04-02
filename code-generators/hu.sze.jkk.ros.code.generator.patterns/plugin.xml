@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><plugin>
+  <extension id="hu.sze.jkk.ros.code.generator.patterns.TopicConstraints" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.sze.jkk.ros.code.generator.patterns.TopicConstraints" id="hu.sze.jkk.ros.code.generator.patterns.TopicConstraints">
+      <query-specification fqn="hu.sze.jkk.ros.code.generator.patterns.incomingTopic"/>
+      <query-specification fqn="hu.sze.jkk.ros.code.generator.patterns.outgoingTopic"/>
+      <query-specification fqn="hu.sze.jkk.ros.code.generator.patterns.syncTopicIncoming"/>
+      <query-specification fqn="hu.sze.jkk.ros.code.generator.patterns.synTopicNotIncoming"/>
+      <query-specification fqn="hu.sze.jkk.ros.code.generator.patterns.selfLoop"/>
+      <query-specification fqn="hu.sze.jkk.ros.code.generator.patterns.messagesFromTopics"/>
+      <query-specification fqn="hu.sze.jkk.ros.code.generator.patterns.duplicateReceive"/>
+      <query-specification fqn="hu.sze.jkk.ros.code.generator.patterns.noDuplciateReceive"/>
+      <query-specification fqn="hu.sze.jkk.ros.code.generator.patterns.duplicatePublish"/>
+      <query-specification fqn="hu.sze.jkk.ros.code.generator.patterns.noDuplciatePublish"/>
+    </group>
+  </extension>
+</plugin>

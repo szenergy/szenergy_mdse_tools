@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hu.sze.kinematics.robot.description.model/src"
+    modelPluginID="hu.sze.kinematics.robot.description.model" modelName="Robotdescription"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>robotdescription.ecore</foreignModel>
+  <genPackages prefix="Robotdescriptionpackage" disposableProviderFactory="true" ecorePackage="robotdescription.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="robotdescription.ecore#//JOINT_TYPE">
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//JOINT_TYPE/REVOLUTE"/>
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//JOINT_TYPE/CONTINUOUS"/>
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//JOINT_TYPE/PRISMATIC"/>
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//JOINT_TYPE/FIXED"/>
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//JOINT_TYPE/FLOATING"/>
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//JOINT_TYPE/PLANAR"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="robotdescription.ecore#//EnumHardwareInterfaces">
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//EnumHardwareInterfaces/VELOCITY_CONTROLLER"/>
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//EnumHardwareInterfaces/POSITION_CONTROLLER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="robotdescription.ecore#//SimulatorType">
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//SimulatorType/GAZEBO"/>
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//SimulatorType/BULLET"/>
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//SimulatorType/NONE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="robotdescription.ecore#//CameraType">
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//CameraType/RGB"/>
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//CameraType/DEPTH"/>
+      <genEnumLiterals ecoreEnumLiteral="robotdescription.ecore#//CameraType/STEREO"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="robotdescription.ecore#//Sensor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Sensor/link"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Sensor/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Sensor/update_rate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Sensor/namespace"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Laser">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Laser/range_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Laser/range_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Laser/angle_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Laser/angle_max"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Laser/rangemeas"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Laser/rangeprop"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Laser/resolution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Laser/samples"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Laser/resolution_distance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Laser/topic"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Odometry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Odometry/pose"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Odometry/twist"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Camera">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Camera/name_ref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Camera/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Camera/cameraparameters"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Robot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Robot/sensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Robot/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Robot/component"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Robot/link"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Robot/joint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Robot/material"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Robot/transmission"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Robot/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Robot/globals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Robot/template"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Robot/parametergroup"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Robot/simulator_type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Robot/plugin"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//RangeMeas">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//RangeMeas/range"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Component"/>
+    <genClasses ecoreClass="robotdescription.ecore#//Navigation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Navigation/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Navigation/goal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Navigation/feedback"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Status">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Status/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Status/status"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Goal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Goal/target"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Feedback">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Feedback/text"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Feedback/current_pose"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Feedback/status"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Planner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Planner/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Planner/planner_type"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//GlobalPlanner"/>
+    <genClasses ecoreClass="robotdescription.ecore#//LocalPlanner"/>
+    <genClasses ecoreClass="robotdescription.ecore#//ROS_Pose">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//ROS_Pose/position"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//ROS_Pose/orientation"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//ROS_Position">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Position/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Position/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Position/z"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//ROS_Orientation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Orientation/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Orientation/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Orientation/z"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Orientation/w"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//ROS_Twist">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//ROS_Twist/linear"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//ROS_Twist/angular"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//ROS_Angular">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Angular/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Angular/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Angular/z"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//ROS_Linear">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Linear/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Linear/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//ROS_Linear/z"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Link">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Link/joint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Link/axis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Link/origin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Link/inertial"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Link/collision"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Link/visual"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Link/material"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Link/sensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Link/mass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Link/friction_mu"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Joint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Joint/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Joint/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Joint/axis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Joint/origin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Joint/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Joint/child"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Joint/roottransformation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Joint/templateinstantiation"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Vec3">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Vec3/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Vec3/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Vec3/z"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Vec3/parameter_x"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Vec3/parameter_y"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Vec3/parameter_z"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Origin">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Origin/xyz"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Origin/rpy"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//EulerRotation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//EulerRotation/roll"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//EulerRotation/pitch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//EulerRotation/yaw"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//EulerRotation/parameter_roll"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//EulerRotation/parameter_pitch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//EulerRotation/parameter_yaw"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Inertial">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Inertial/mass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Inertial/origin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Inertial/inertia"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//PhysicalDescription">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//PhysicalDescription/origin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//PhysicalDescription/geometry"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//PhysicalDescription/name"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Visual">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference robotdescription.ecore#//Visual/link"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Collision">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Collision/parent_visual"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference robotdescription.ecore#//Collision/link"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="robotdescription.ecore#//Geometry"/>
+    <genClasses ecoreClass="robotdescription.ecore#//Box">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Box/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Box/depth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Box/height"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Box/parameter_width"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Box/parameter_depth"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Box/parameter_height"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Cylinder">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Cylinder/parameter_radius"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Cylinder/parameter_length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Cylinder/radius"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Cylinder/length"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Sphere">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Sphere/radius"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Mesh">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Mesh/filename"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Mesh/sclae"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Inertia">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Inertia/ixx"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Inertia/ixy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Inertia/iyy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Inertia/iyz"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Inertia/ixz"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Inertia/izz"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//RangeProp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//RangeProp/measMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//RangeProp/measMax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//RangeProp/resolution"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//DepthCamera"/>
+    <genClasses ecoreClass="robotdescription.ecore#//Material">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Material/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Material/color"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Color">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Color/red"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Color/green"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Color/blue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Color/alpha"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Transmission">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Transmission/actuator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Transmission/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Transmission/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Transmission/hardwareinterface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Transmission/pidparameters"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Actuator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Actuator/mechanicalreduction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Actuator/name"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//HardwareInterface">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robotdescription.ecore#//HardwareInterface/joint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//HardwareInterface/hardwareInterface"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Topic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Topic/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="robotdescription.ecore#//Parameter"/>
+    <genClasses ecoreClass="robotdescription.ecore#//FloatParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//FloatParameter/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//FloatParameter/negative"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="robotdescription.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="robotdescription.ecore#//ParameterField"/>
+    <genClasses ecoreClass="robotdescription.ecore#//FloatParameterField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//FloatParameterField/divider"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robotdescription.ecore#//FloatParameterField/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//FloatParameterField/gain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//FloatParameterField/offset"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Limit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Limit/limit_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Limit/limit_max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Limit/effort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Limit/velocity"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Globals">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Globals/scale"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Template">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Template/joint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Template/link"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Template/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Template/transmission"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="robotdescription.ecore#//KinematicNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//KinematicNode/name"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//ParameterGroup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//ParameterGroup/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Transformation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Transformation/scale"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Transformation/rotate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Transformation/translation"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Translation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Translation/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Translation/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Translation/z"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Rotate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Rotate/roll"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Rotate/pitch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Rotate/yaw"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Scale">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Scale/sx"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Scale/sy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Scale/sz"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//TemplateInstantiation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference robotdescription.ecore#//TemplateInstantiation/template"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//TemplateInstantiation/scale"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//SphericalJoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//SphericalJoint/axis2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//SphericalJoint/axis3"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Axis">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Axis/limit"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//IMU">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//IMU/rate_drift"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//IMU/acceldrift"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//IMU/headinggaussiannoise"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//IMU/topic"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//PIDParameters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//PIDParameters/p"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//PIDParameters/i"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//PIDParameters/d"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Plugin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Plugin/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//Plugin/library"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Plugin/pluginparam"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//Lidar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Lidar/vertical_angle_limit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Lidar/horizontal_angle_limit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//Lidar/rangeprop"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//AngleLimit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//AngleLimit/min_angle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//AngleLimit/max_angle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//AngleLimit/resolution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//AngleLimit/sample"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//GNSS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference robotdescription.ecore#//GNSS/geolocation"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//GeoLocation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//GeoLocation/latitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//GeoLocation/longitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//GeoLocation/height"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//CameraParameters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//CameraParameters/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//CameraParameters/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//CameraParameters/clip_near"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//CameraParameters/clip_far"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//CameraParameters/horizontal_fov"/>
+    </genClasses>
+    <genClasses ecoreClass="robotdescription.ecore#//PluginParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//PluginParam/varname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute robotdescription.ecore#//PluginParam/text"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

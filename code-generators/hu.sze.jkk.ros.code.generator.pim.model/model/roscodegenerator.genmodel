@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hu.sze.jkk.ros.code.generator.pim.model/src-gen"
+    creationIcons="false" editDirectory="/hu.sze.jkk.ros.code.generator.edit/src-gen"
+    editorDirectory="/hu.sze.jkk.ros.code.generator.editor/src-gen" modelPluginID="hu.sze.jkk.ros.code.generator.pim.model"
+    modelName="Roscodegenerator" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" testsDirectory="/hu.sze.jkk.ros.code.generator.tests/test-gen"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>roscodegenerator.ecore</foreignModel>
+  <genPackages prefix="Roscodegenerator" basePackage="hu.sze.jkk.ros.code.generator.pim.model"
+      disposableProviderFactory="true" ecorePackage="roscodegenerator.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="roscodegenerator.ecore#//TriggerType">
+      <genEnumLiterals ecoreEnumLiteral="roscodegenerator.ecore#//TriggerType/TRANSFORM"/>
+      <genEnumLiterals ecoreEnumLiteral="roscodegenerator.ecore#//TriggerType/ERROR"/>
+      <genEnumLiterals ecoreEnumLiteral="roscodegenerator.ecore#//TriggerType/DANGER"/>
+      <genEnumLiterals ecoreEnumLiteral="roscodegenerator.ecore#//TriggerType/EVENT"/>
+    </genEnums>
+    <genClasses ecoreClass="roscodegenerator.ecore#//ROSNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSNode/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSNode/topicupdate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSNode/threads"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSNode/receiveFrom"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSNode/state"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSNode/rosparam"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSNode/instance_name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSNode/pkg"/>
+    </genClasses>
+    <genClasses ecoreClass="roscodegenerator.ecore#//ROSTopic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSTopic/topic_name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSTopic/rosmsg"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSTopic/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSTopic/product"/>
+    </genClasses>
+    <genClasses ecoreClass="roscodegenerator.ecore#//ROSMsg">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSMsg/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSMsg/prefix"/>
+    </genClasses>
+    <genClasses ecoreClass="roscodegenerator.ecore#//ROSPackage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSPackage/rosnode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSPackage/rosmsg"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSPackage/rostopic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//ROSPackage/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//ROSPackage/globalparam"/>
+    </genClasses>
+    <genClasses ecoreClass="roscodegenerator.ecore#//TopicUpdate">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//TopicUpdate/producesTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//TopicUpdate/rosnode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//TopicUpdate/frequency"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//TopicUpdate/sync"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//TopicUpdate/latch"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//TopicUpdate/mimostate"/>
+    </genClasses>
+    <genClasses ecoreClass="roscodegenerator.ecore#//TopicReceive">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//TopicReceive/rostopic"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//TopicReceive/rosnode"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//TopicReceive/mimostate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//TopicReceive/triggerstates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//TopicReceive/triggertype"/>
+    </genClasses>
+    <genClasses ecoreClass="roscodegenerator.ecore#//MIMOState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//MIMOState/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//MIMOState/output"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference roscodegenerator.ecore#//MIMOState/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//MIMOState/order_past"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//MIMOState/order_future"/>
+    </genClasses>
+    <genClasses ecoreClass="roscodegenerator.ecore#//TopicWorker">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//TopicWorker/id"/>
+    </genClasses>
+    <genClasses ecoreClass="roscodegenerator.ecore#//RosParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//RosParam/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute roscodegenerator.ecore#//RosParam/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
