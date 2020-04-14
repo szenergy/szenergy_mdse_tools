@@ -1,72 +1,539 @@
 package hu.sze.aut.diffrobot.transformation;
 
-import hu.sze.jkk.diffrobot.model.diffrobot.Robot;
-import hu.sze.jkk.diffrobot.model.diffrobot.WheelAxis;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtend2.lib.StringConcatenation;
-import robotdescriptionpackage.Joint;
-import robotdescriptionpackage.Link;
-import robotdescriptionpackage.Origin;
-import robotdescriptionpackage.RobotdescriptionpackageFactory;
-import robotdescriptionpackage.Vec3;
+import org.w3c.dom.Document;
 
 @SuppressWarnings("all")
 public class GenerateDiffRobotKinematic {
-  public static void translateLink(final Joint joint, final double x, final double y, final double z) {
-    joint.setOrigin(RobotdescriptionpackageFactory.eINSTANCE.createOrigin());
-    Origin _origin = joint.getOrigin();
-    _origin.setXyz(RobotdescriptionpackageFactory.eINSTANCE.createVec3());
-    Vec3 _xyz = joint.getOrigin().getXyz();
-    _xyz.setX(x);
-    Vec3 _xyz_1 = joint.getOrigin().getXyz();
-    _xyz_1.setY(y);
-    Vec3 _xyz_2 = joint.getOrigin().getXyz();
-    _xyz_2.setZ(z);
+  private final /* ResourceSet */Object resourceset /* Skipped initializer because of errors */;
+  
+  private /* Resource */Object _resource_robot_output;
+  
+  private static double WHEEL_AXIS_RADIUS = 0.05;
+  
+  public GenerateDiffRobotKinematic() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field Resource is undefined"
+      + "\nXMIResourceFactoryImpl cannot be resolved."
+      + "\nThe method or field RobotdescriptionpackagePackage is undefined"
+      + "\nThe method or field RobotdescriptionpackagePackage is undefined"
+      + "\nThe method or field URI is undefined"
+      + "\nThe field GenerateDiffRobotKinematic.resourceset refers to the missing type ResourceSet"
+      + "\nThe field GenerateDiffRobotKinematic.resourceset refers to the missing type ResourceSet"
+      + "\nThe field GenerateDiffRobotKinematic._resource_robot_output refers to the missing type Resource"
+      + "\nThe field GenerateDiffRobotKinematic.resourceset refers to the missing type ResourceSet"
+      + "\ngetResourceFactoryRegistry cannot be resolved"
+      + "\ngetExtensionToFactoryMap cannot be resolved"
+      + "\nput cannot be resolved"
+      + "\nFactory cannot be resolved"
+      + "\nRegistry cannot be resolved"
+      + "\nDEFAULT_EXTENSION cannot be resolved"
+      + "\ngetPackageRegistry cannot be resolved"
+      + "\nput cannot be resolved"
+      + "\neNS_URI cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateResource cannot be resolved"
+      + "\ncreateURI cannot be resolved");
   }
   
-  public static void constructRobotKinematicTree(final Robot robot) {
-    final robotdescriptionpackage.Robot robot_kinematics = RobotdescriptionpackageFactory.eINSTANCE.createRobot();
-    final Link base_link = RobotdescriptionpackageFactory.eINSTANCE.createLink();
-    base_link.setName("base_link");
-    base_link.setMass(10.0);
-    robot_kinematics.getLink().add(base_link);
-    EList<WheelAxis> _wheelaxis = robot.getWheelaxis();
-    for (final WheelAxis axis : _wheelaxis) {
-      {
-        final Joint joint = RobotdescriptionpackageFactory.eINSTANCE.createJoint();
-        StringConcatenation _builder = new StringConcatenation();
-        _builder.append("jnt");
-        joint.setName(_builder.toString());
-        final Link axis_root = RobotdescriptionpackageFactory.eINSTANCE.createLink();
-        joint.setParent(base_link);
-        joint.setChild(axis_root);
-        int _wheels = axis.getWheels();
-        switch (_wheels) {
-          case 1:
-            final Joint joint_wheel = RobotdescriptionpackageFactory.eINSTANCE.createJoint();
-            final Link wheel_link = RobotdescriptionpackageFactory.eINSTANCE.createLink();
-            joint_wheel.setParent(axis_root);
-            joint.setChild(wheel_link);
-            robot_kinematics.getJoint().add(joint_wheel);
-            break;
-          case 2:
-            final Joint joint_wheel_right = RobotdescriptionpackageFactory.eINSTANCE.createJoint();
-            final Link wheel_link_right = RobotdescriptionpackageFactory.eINSTANCE.createLink();
-            joint_wheel_right.setParent(axis_root);
-            joint_wheel_right.setChild(wheel_link_right);
-            robot_kinematics.getJoint().add(joint_wheel_right);
-            robot_kinematics.getLink().add(wheel_link_right);
-            final Joint joint_wheel_left = RobotdescriptionpackageFactory.eINSTANCE.createJoint();
-            final Link wheel_link_left = RobotdescriptionpackageFactory.eINSTANCE.createLink();
-            joint_wheel_left.setParent(axis_root);
-            joint_wheel_left.setChild(wheel_link_left);
-            robot_kinematics.getJoint().add(joint_wheel_left);
-            robot_kinematics.getLink().add(wheel_link_left);
-            break;
-        }
-        robot_kinematics.getJoint().add(joint);
-        robot_kinematics.getLink().add(axis_root);
-      }
-    }
+  public static Object constructSensors() {
+    return null;
+  }
+  
+  public static Object translateJoint(final /* Joint */Object joint, final double x, final double y, final double z) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\norigin cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateOrigin cannot be resolved"
+      + "\norigin cannot be resolved"
+      + "\nxyz cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateVec3 cannot be resolved"
+      + "\norigin cannot be resolved"
+      + "\nxyz cannot be resolved"
+      + "\nx cannot be resolved"
+      + "\norigin cannot be resolved"
+      + "\nxyz cannot be resolved"
+      + "\ny cannot be resolved"
+      + "\norigin cannot be resolved"
+      + "\nxyz cannot be resolved"
+      + "\nz cannot be resolved");
+  }
+  
+  public static Object constructUniWheelAxis(final /* robotdescriptionpackage.Robot */Object robot_kinematics, final /* WheelAxis */Object axis, final /* Link */Object axis_root, final /* WheelParameters */Object wheelparameters) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nJOINT_TYPE cannot be resolved to a type."
+      + "\nThe method translateJoint(Joint, double, double, double) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\nThe method constructWheelGeometry(Link, WheelParameters) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateJoint cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateAxis cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\nx cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\ny cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\nz cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateLink cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nlength cannot be resolved"
+      + "\n- cannot be resolved"
+      + "\n/ cannot be resolved"
+      + "\nmass cannot be resolved"
+      + "\nmass cannot be resolved"
+      + "\norigin cannot be resolved"
+      + "\nrpy cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateEulerRotation cannot be resolved"
+      + "\norigin cannot be resolved"
+      + "\nrpy cannot be resolved"
+      + "\nroll cannot be resolved"
+      + "\nparent cannot be resolved"
+      + "\nchild cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\nCONTINUOUS cannot be resolved"
+      + "\nlink cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\njoint cannot be resolved"
+      + "\nadd cannot be resolved");
+  }
+  
+  public static Object constructLinkAxisGeometry(final /* WheelAxis */Object axis, final /* Link */Object link) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateVisual cannot be resolved"
+      + "\nvisual cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateCylinder cannot be resolved"
+      + "\nlength cannot be resolved"
+      + "\nlength cannot be resolved"
+      + "\nradius cannot be resolved"
+      + "\ngeometry cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateCollision cannot be resolved"
+      + "\nparent_visual cannot be resolved"
+      + "\ncollision cannot be resolved"
+      + "\nadd cannot be resolved");
+  }
+  
+  public static Object constructHullGeometry(final /* HullComponent */Object hull, final /* Link */Object base_link) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateVisual cannot be resolved"
+      + "\nvisual cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\nmesh cannot be resolved"
+      + "\n!== cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateMesh cannot be resolved"
+      + "\nfilename cannot be resolved"
+      + "\nmesh cannot be resolved"
+      + "\npackage cannot be resolved"
+      + "\nmesh cannot be resolved"
+      + "\npath cannot be resolved"
+      + "\ngeometry cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateBox cannot be resolved"
+      + "\nwidth cannot be resolved"
+      + "\nwidth cannot be resolved"
+      + "\ndepth cannot be resolved"
+      + "\ndepth cannot be resolved"
+      + "\nheight cannot be resolved"
+      + "\ngeometry cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateCollision cannot be resolved"
+      + "\nparent_visual cannot be resolved"
+      + "\ncollision cannot be resolved"
+      + "\nadd cannot be resolved");
+  }
+  
+  public static Object constructWheelGeometry(final /* Link */Object wheel_link, final /* WheelParameters */Object wheel_param) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateVisual cannot be resolved"
+      + "\nvisual cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateCollision cannot be resolved"
+      + "\ncollision cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\nmesh cannot be resolved"
+      + "\n!== cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateMesh cannot be resolved"
+      + "\nfilename cannot be resolved"
+      + "\nmesh cannot be resolved"
+      + "\npackage cannot be resolved"
+      + "\nmesh cannot be resolved"
+      + "\npath cannot be resolved"
+      + "\ngeometry cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateCylinder cannot be resolved"
+      + "\nradius cannot be resolved"
+      + "\nradius cannot be resolved"
+      + "\nlength cannot be resolved"
+      + "\nwidth cannot be resolved"
+      + "\ngeometry cannot be resolved"
+      + "\nparent_visual cannot be resolved");
+  }
+  
+  public static Object constructTwoWheelAxis(final /* robotdescriptionpackage.Robot */Object robot_kinematics, final /* WheelAxis */Object axis, final /* Link */Object axis_root, final /* WheelParameters */Object wheelparameters) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nJOINT_TYPE cannot be resolved to a type."
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nJOINT_TYPE cannot be resolved to a type."
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method translateJoint(Joint, double, double, double) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\nThe method constructWheelGeometry(Link, WheelParameters) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\nThe method translateJoint(Joint, double, double, double) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\nThe method constructWheelGeometry(Link, WheelParameters) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateJoint cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateAxis cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\nx cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\ny cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\nz cannot be resolved"
+      + "\nlength cannot be resolved"
+      + "\n- cannot be resolved"
+      + "\n/ cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateLink cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nparent cannot be resolved"
+      + "\nchild cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\nCONTINUOUS cannot be resolved"
+      + "\nmass cannot be resolved"
+      + "\nmass cannot be resolved"
+      + "\njoint cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\nlink cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateJoint cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateAxis cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\nx cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\ny cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\nz cannot be resolved"
+      + "\nlength cannot be resolved"
+      + "\n/ cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\nCONTINUOUS cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateLink cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nparent cannot be resolved"
+      + "\nchild cannot be resolved"
+      + "\njoint cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\nlink cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\nmass cannot be resolved"
+      + "\nmass cannot be resolved");
+  }
+  
+  public static Object setupWheelAxisLink(final /* WheelAxis */Object axis) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateLink cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\ntoLowerCase cannot be resolved"
+      + "\nmass cannot be resolved");
+  }
+  
+  public static Object setupWheelAxisJoint(final /* WheelAxis */Object axis, final /* Link */Object axis_root, final /* Link */Object base_link) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method translateJoint(Joint, double, double, double) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateJoint cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\ntoLowerCase cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateAxis cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\nx cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\ny cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\nz cannot be resolved"
+      + "\nchild cannot be resolved"
+      + "\nparent cannot be resolved"
+      + "\naxislocation cannot be resolved"
+      + "\ndisplacement cannot be resolved"
+      + "\nx cannot be resolved"
+      + "\naxislocation cannot be resolved"
+      + "\ndisplacement cannot be resolved"
+      + "\ny cannot be resolved"
+      + "\naxislocation cannot be resolved"
+      + "\ndisplacement cannot be resolved"
+      + "\nz cannot be resolved"
+      + "\norigin cannot be resolved"
+      + "\nrpy cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateEulerRotation cannot be resolved");
+  }
+  
+  public static Robot constructRobotKinematicTree(final /* Robot */Object robot) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nrobotdescriptionpackage.Robot cannot be resolved to a type."
+      + "\nWheelAxis cannot be resolved to a type."
+      + "\nCamera cannot be resolved to a type."
+      + "\nStereoCamera cannot be resolved to a type."
+      + "\nLaserScanner cannot be resolved to a type."
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nJOINT_TYPE cannot be resolved to a type."
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nCameraType cannot be resolved to a type."
+      + "\nCameraType cannot be resolved to a type."
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method or field RobotdescriptionpackageFactory is undefined"
+      + "\nThe method constructHullGeometry(HullComponent, Link) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\nThe method setupWheelAxisLink(WheelAxis) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\nThe method setupWheelAxisJoint(WheelAxis, Link, Link) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\nThe method constructUniWheelAxis(Robot, WheelAxis, Link, WheelParameters) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\nThe method constructTwoWheelAxis(Robot, WheelAxis, Link, WheelParameters) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\nThe method constructLinkAxisGeometry(WheelAxis, Link) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\nThe method translateJoint(Joint, double, double, double) from the type GenerateDiffRobotKinematic refers to the missing type Object"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateRobot cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateLink cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nmass cannot be resolved"
+      + "\nhull cannot be resolved"
+      + "\nmass cannot be resolved"
+      + "\nlink cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\nhull cannot be resolved"
+      + "\nwheelaxis cannot be resolved"
+      + "\nwheels cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\nx cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\ny cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\nz cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\nCONTINUOUS cannot be resolved"
+      + "\nwheelparameters cannot be resolved"
+      + "\norigin cannot be resolved"
+      + "\nrpy cannot be resolved"
+      + "\nroll cannot be resolved"
+      + "\nwheelparameters cannot be resolved"
+      + "\njoint cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\nlink cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\nsensor cannot be resolved"
+      + "\nforEach cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateLink cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateJoint cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nchild cannot be resolved"
+      + "\nparent cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateAxis cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\nx cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\ny cannot be resolved"
+      + "\naxis cannot be resolved"
+      + "\nz cannot be resolved"
+      + "\norigin cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateOrigin cannot be resolved"
+      + "\ndisplacement cannot be resolved"
+      + "\n!== cannot be resolved"
+      + "\ndisplacement cannot be resolved"
+      + "\nx cannot be resolved"
+      + "\ndisplacement cannot be resolved"
+      + "\ny cannot be resolved"
+      + "\ndisplacement cannot be resolved"
+      + "\nz cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateCamera cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nlink cannot be resolved"
+      + "\nsensor cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\nSTEREO cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\nRGB cannot be resolved"
+      + "\ncameraparameters cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateCameraParameters cannot be resolved"
+      + "\ncameraparameters cannot be resolved"
+      + "\nwidth cannot be resolved"
+      + "\ncameraparameter cannot be resolved"
+      + "\nwidth cannot be resolved"
+      + "\ncameraparameters cannot be resolved"
+      + "\nheight cannot be resolved"
+      + "\ncameraparameter cannot be resolved"
+      + "\nheight cannot be resolved"
+      + "\ncameraparameters cannot be resolved"
+      + "\nhorizontal_fov cannot be resolved"
+      + "\ncameraparameter cannot be resolved"
+      + "\nfov cannot be resolved"
+      + "\ncameraparameters cannot be resolved"
+      + "\nclip_near cannot be resolved"
+      + "\ncameraparameter cannot be resolved"
+      + "\nclip_near cannot be resolved"
+      + "\ncameraparameters cannot be resolved"
+      + "\nclip_far cannot be resolved"
+      + "\ncameraparameter cannot be resolved"
+      + "\nclip_far cannot be resolved"
+      + "\nupdate_rate cannot be resolved"
+      + "\ncameraparameter cannot be resolved"
+      + "\nupdate_rate cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateLaser cannot be resolved"
+      + "\nlink cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nangle_min cannot be resolved"
+      + "\nlaserparameter cannot be resolved"
+      + "\nmin_angle cannot be resolved"
+      + "\nangle_max cannot be resolved"
+      + "\nlaserparameter cannot be resolved"
+      + "\nmax_angle cannot be resolved"
+      + "\nrange_min cannot be resolved"
+      + "\nlaserparameter cannot be resolved"
+      + "\nmin_range cannot be resolved"
+      + "\nrange_max cannot be resolved"
+      + "\nlaserparameter cannot be resolved"
+      + "\nmax_range cannot be resolved"
+      + "\nresolution_distance cannot be resolved"
+      + "\nlaserparameter cannot be resolved"
+      + "\nrange_resolution cannot be resolved"
+      + "\nsamples cannot be resolved"
+      + "\nlaserparameter cannot be resolved"
+      + "\nsamples cannot be resolved"
+      + "\nupdate_rate cannot be resolved"
+      + "\nlaserparameter cannot be resolved"
+      + "\nupdate_rate cannot be resolved"
+      + "\ntopic cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateTopic cannot be resolved"
+      + "\nsensor cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\nlink cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\njoint cannot be resolved"
+      + "\nadd cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreatePlugin cannot be resolved"
+      + "\nlibrary cannot be resolved"
+      + "\nsimulationparameters cannot be resolved"
+      + "\nsimulation_control_plugin cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nplugin cannot be resolved"
+      + "\nadd cannot be resolved");
+  }
+  
+  public Object generateKinematicDescription(final Document doc, final /* Robot */Object robot) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nGenerateUrdf cannot be resolved to a type."
+      + "\nGenerateUrdf cannot be resolved."
+      + "\nThe method constructRobotKinematicTree(Robot) from the type GenerateDiffRobotKinematic refers to the missing type Robot"
+      + "\ngenerateURDF cannot be resolved");
+  }
+  
+  public static Robot loadDiffRobotDescription(final String path) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nResourceSet cannot be resolved to a type."
+      + "\nURI cannot be resolved to a type."
+      + "\nResource cannot be resolved to a type."
+      + "\nRobot cannot be resolved to a type."
+      + "\nRobot cannot be resolved to a type."
+      + "\nRobot cannot be resolved to a type."
+      + "\nResourceSetImpl cannot be resolved."
+      + "\nThe method or field Resource is undefined"
+      + "\nXMIResourceFactoryImpl cannot be resolved."
+      + "\nThe method or field DiffrobotPackage is undefined"
+      + "\nThe method or field DiffrobotPackage is undefined"
+      + "\nThe method or field URI is undefined"
+      + "\ngetResourceFactoryRegistry cannot be resolved"
+      + "\ngetExtensionToFactoryMap cannot be resolved"
+      + "\nput cannot be resolved"
+      + "\nFactory cannot be resolved"
+      + "\nRegistry cannot be resolved"
+      + "\nDEFAULT_EXTENSION cannot be resolved"
+      + "\ngetPackageRegistry cannot be resolved"
+      + "\nput cannot be resolved"
+      + "\neNS_URI cannot be resolved"
+      + "\neINSTANCE cannot be resolved"
+      + "\ncreateFileURI cannot be resolved"
+      + "\ngetResource cannot be resolved"
+      + "\nallContents cannot be resolved"
+      + "\nfilter cannot be resolved"
+      + "\nhead cannot be resolved");
   }
 }

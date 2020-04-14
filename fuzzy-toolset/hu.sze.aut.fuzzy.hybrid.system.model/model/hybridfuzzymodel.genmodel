@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/hu.sze.aut.fuzzy.hybrid.system.model/src-gen"
+    creationIcons="false" editDirectory="/hu.sze.aut.fuzzy.hybrid.system.model.edit/src-gen"
+    editorDirectory="/hu.sze.aut.fuzzy.hybrid.system.model.editor/src-gen" modelPluginID="hu.sze.aut.fuzzy.hybrid.system.model"
+    modelName="Hybridfuzzymodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>hybridfuzzymodel.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Hybridfuzzymodel" basePackage="hu.sze.aut.fuzzy.hybrid.system.model"
+      disposableProviderFactory="true" ecorePackage="hybridfuzzymodel.ecore#/">
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//System">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//System/transition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//System/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//System/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//System/ruleset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//System/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//System/rate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//System/actiondefinition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//System/errorlocation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//System/startlocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//System/fuzzyset"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//Location">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//Location/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//Location/continuouseventruleset"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//Location/cyclicaction"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//Transition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//Transition/invariant"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//Transition/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//Transition/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//Transition/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//Transition/actiondefinition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//Transition/trigger"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//Variable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//FuzzyRule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//FuzzyRule/antecedent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//FuzzyRule/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//RuleSet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//RuleSet/name"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//Rule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//Rule/name"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//CrispGuard">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//CrispGuard/relationexpression"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//ActionDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//ActionDefinition/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//ActionDefinition/transition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//ActionDefinition/reset"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//DiscreteEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//DiscreteEvent/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//DiscreteEvent/transition"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//DiscreteEventRuleset">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//DiscreteEventRuleset/discreteevent"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//ContinuousEventRuleset">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//ContinuousEventRuleset/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//FuzzySet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//FuzzySet/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//FuzzySet/membershipfunction"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//MembershipFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//MembershipFunction/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//MembershipFunction/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//Lambda">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//Lambda/a"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//Lambda/b"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//Lambda/u"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//Trapezoid">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//Trapezoid/a"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//Trapezoid/b"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//Alpha">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//Alpha/a"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//Alpha/b"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//Clock"/>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//RelationExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hybridfuzzymodel.ecore#//RelationExpression/c"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hybridfuzzymodel.ecore#//RelationExpression/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//LessExpression"/>
+    <genClasses ecoreClass="hybridfuzzymodel.ecore#//GreaterExpression"/>
+  </genPackages>
+</genmodel:GenModel>

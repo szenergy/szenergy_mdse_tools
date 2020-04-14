@@ -3,7 +3,6 @@
  */
 package hu.sze.jkk.middleware.model.query;
 
-import hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.Node;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedHashSet;
@@ -17,6 +16,7 @@ import java.util.stream.Stream;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.viatra.query.runtime.api.IPatternMatch;
 import org.eclipse.viatra.query.runtime.api.IQuerySpecification;
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine;
@@ -73,21 +73,31 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
    * 
    */
   public static abstract class Match extends BasePatternMatch {
-    private Node fN;
+    private EObject fN;
     
     private static List<String> parameterNames = makeImmutableList("n");
     
-    private Match(final Node pN) {
+    private Match(final EObject pN) {
       this.fN = pN;
     }
     
     @Override
     public Object get(final String parameterName) {
-      if ("n".equals(parameterName)) return this.fN;
-      return null;
+      switch(parameterName) {
+          case "n": return this.fN;
+          default: return null;
+      }
     }
     
-    public Node getN() {
+    @Override
+    public Object get(final int index) {
+      switch(index) {
+          case 0: return this.fN;
+          default: return null;
+      }
+    }
+    
+    public EObject getN() {
       return this.fN;
     }
     
@@ -95,13 +105,13 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
     public boolean set(final String parameterName, final Object newValue) {
       if (!isMutable()) throw new java.lang.UnsupportedOperationException();
       if ("n".equals(parameterName) ) {
-          this.fN = (Node) newValue;
+          this.fN = (EObject) newValue;
           return true;
       }
       return false;
     }
     
-    public void setN(final Node pN) {
+    public void setN(final EObject pN) {
       if (!isMutable()) throw new java.lang.UnsupportedOperationException();
       this.fN = pN;
     }
@@ -182,7 +192,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
      * @return the new, mutable (partial) match object.
      * 
      */
-    public static SelectNodes.Match newMutableMatch(final Node pN) {
+    public static SelectNodes.Match newMutableMatch(final EObject pN) {
       return new Mutable(pN);
     }
     
@@ -194,12 +204,12 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
      * @return the (partial) match object.
      * 
      */
-    public static SelectNodes.Match newMatch(final Node pN) {
+    public static SelectNodes.Match newMatch(final EObject pN) {
       return new Immutable(pN);
     }
     
     private static final class Mutable extends SelectNodes.Match {
-      Mutable(final Node pN) {
+      Mutable(final EObject pN) {
         super(pN);
       }
       
@@ -210,7 +220,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
     }
     
     private static final class Immutable extends SelectNodes.Match {
-      Immutable(final Node pN) {
+      Immutable(final EObject pN) {
         super(pN);
       }
       
@@ -292,7 +302,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
      * @return matches represented as a Match object.
      * 
      */
-    public Collection<SelectNodes.Match> getAllMatches(final Node pN) {
+    public Collection<SelectNodes.Match> getAllMatches(final EObject pN) {
       return rawStreamAllMatches(new Object[]{pN}).collect(Collectors.toSet());
     }
     
@@ -306,7 +316,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
      * @return a stream of matches represented as a Match object.
      * 
      */
-    public Stream<SelectNodes.Match> streamAllMatches(final Node pN) {
+    public Stream<SelectNodes.Match> streamAllMatches(final EObject pN) {
       return rawStreamAllMatches(new Object[]{pN});
     }
     
@@ -317,7 +327,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
      * @return a match represented as a Match object, or null if no match is found.
      * 
      */
-    public Optional<SelectNodes.Match> getOneArbitraryMatch(final Node pN) {
+    public Optional<SelectNodes.Match> getOneArbitraryMatch(final EObject pN) {
       return rawGetOneArbitraryMatch(new Object[]{pN});
     }
     
@@ -328,7 +338,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
      * @return true if the input is a valid (partial) match of the pattern.
      * 
      */
-    public boolean hasMatch(final Node pN) {
+    public boolean hasMatch(final EObject pN) {
       return rawHasMatch(new Object[]{pN});
     }
     
@@ -338,7 +348,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
      * @return the number of pattern matches found.
      * 
      */
-    public int countMatches(final Node pN) {
+    public int countMatches(final EObject pN) {
       return rawCountMatches(new Object[]{pN});
     }
     
@@ -350,7 +360,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
      * @return true if the pattern has at least one match with the given parameter values, false if the processor was not invoked
      * 
      */
-    public boolean forOneArbitraryMatch(final Node pN, final Consumer<? super SelectNodes.Match> processor) {
+    public boolean forOneArbitraryMatch(final EObject pN, final Consumer<? super SelectNodes.Match> processor) {
       return rawForOneArbitraryMatch(new Object[]{pN}, processor);
     }
     
@@ -362,7 +372,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
      * @return the (partial) match object.
      * 
      */
-    public SelectNodes.Match newMatch(final Node pN) {
+    public SelectNodes.Match newMatch(final EObject pN) {
       return SelectNodes.Match.newMatch(pN);
     }
     
@@ -371,8 +381,8 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
      * @return the Set of all values or empty set if there are no matches
      * 
      */
-    protected Stream<Node> rawStreamAllValuesOfn(final Object[] parameters) {
-      return rawStreamAllValues(POSITION_N, parameters).map(Node.class::cast);
+    protected Stream<EObject> rawStreamAllValuesOfn(final Object[] parameters) {
+      return rawStreamAllValues(POSITION_N, parameters).map(EObject.class::cast);
     }
     
     /**
@@ -380,7 +390,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
      * @return the Set of all values or empty set if there are no matches
      * 
      */
-    public Set<Node> getAllValuesOfn() {
+    public Set<EObject> getAllValuesOfn() {
       return rawStreamAllValuesOfn(emptyArray()).collect(Collectors.toSet());
     }
     
@@ -389,14 +399,14 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
      * @return the Set of all values or empty set if there are no matches
      * 
      */
-    public Stream<Node> streamAllValuesOfn() {
+    public Stream<EObject> streamAllValuesOfn() {
       return rawStreamAllValuesOfn(emptyArray());
     }
     
     @Override
     protected SelectNodes.Match tupleToMatch(final Tuple t) {
       try {
-          return SelectNodes.Match.newMatch((Node) t.get(POSITION_N));
+          return SelectNodes.Match.newMatch((EObject) t.get(POSITION_N));
       } catch(ClassCastException e) {
           LOGGER.error("Element(s) in tuple not properly typed!",e);
           return null;
@@ -406,7 +416,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
     @Override
     protected SelectNodes.Match arrayToMatch(final Object[] match) {
       try {
-          return SelectNodes.Match.newMatch((Node) match[POSITION_N]);
+          return SelectNodes.Match.newMatch((EObject) match[POSITION_N]);
       } catch(ClassCastException e) {
           LOGGER.error("Element(s) in array not properly typed!",e);
           return null;
@@ -416,7 +426,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
     @Override
     protected SelectNodes.Match arrayToMatchMutable(final Object[] match) {
       try {
-          return SelectNodes.Match.newMutableMatch((Node) match[POSITION_N]);
+          return SelectNodes.Match.newMutableMatch((EObject) match[POSITION_N]);
       } catch(ClassCastException e) {
           LOGGER.error("Element(s) in array not properly typed!",e);
           return null;
@@ -467,13 +477,13 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
   
   @Override
   public SelectNodes.Match newMatch(final Object... parameters) {
-    return SelectNodes.Match.newMatch((hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.Node) parameters[0]);
+    return SelectNodes.Match.newMatch((org.eclipse.emf.ecore.EObject) parameters[0]);
   }
   
   /**
-   * Inner class allowing the singleton instance of {@link JvmGenericType: hu.sze.jkk.middleware.model.query.SelectNodes (visibility: PUBLIC, simpleName: SelectNodes, identifier: hu.sze.jkk.middleware.model.query.SelectNodes, deprecated: <unset>) (abstract: false, static: false, final: true, packageName: hu.sze.jkk.middleware.model.query) (interface: false, strictFloatingPoint: false, anonymous: false)} to be created 
+   * Inner class allowing the singleton instance of {@link SelectNodes} to be created 
    *     <b>not</b> at the class load time of the outer class, 
-   *     but rather at the first call to {@link JvmGenericType: hu.sze.jkk.middleware.model.query.SelectNodes (visibility: PUBLIC, simpleName: SelectNodes, identifier: hu.sze.jkk.middleware.model.query.SelectNodes, deprecated: <unset>) (abstract: false, static: false, final: true, packageName: hu.sze.jkk.middleware.model.query) (interface: false, strictFloatingPoint: false, anonymous: false)#instance()}.
+   *     but rather at the first call to {@link SelectNodes#instance()}.
    * 
    * <p> This workaround is required e.g. to support recursion.
    * 
@@ -499,7 +509,7 @@ public final class SelectNodes extends BaseGeneratedEMFQuerySpecification<Select
   private static class GeneratedPQuery extends BaseGeneratedEMFPQuery {
     private static final SelectNodes.GeneratedPQuery INSTANCE = new GeneratedPQuery();
     
-    private final PParameter parameter_n = new PParameter("n", "hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.Node", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://jkk.sze.hu/statepubsubmodel", "Node")), PParameterDirection.INOUT);
+    private final PParameter parameter_n = new PParameter("n", "org.eclipse.emf.ecore.EObject", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://jkk.sze.hu/statepubsubmodel", "Node")), PParameterDirection.INOUT);
     
     private final List<PParameter> parameters = Arrays.asList(parameter_n);
     

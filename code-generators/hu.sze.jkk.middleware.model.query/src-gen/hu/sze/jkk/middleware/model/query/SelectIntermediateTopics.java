@@ -3,7 +3,6 @@
  */
 package hu.sze.jkk.middleware.model.query;
 
-import hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.Topic;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedHashSet;
@@ -17,6 +16,7 @@ import java.util.stream.Stream;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.viatra.query.runtime.api.IPatternMatch;
 import org.eclipse.viatra.query.runtime.api.IQuerySpecification;
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine;
@@ -73,21 +73,31 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
    * 
    */
   public static abstract class Match extends BasePatternMatch {
-    private Topic fT;
+    private EObject fT;
     
     private static List<String> parameterNames = makeImmutableList("t");
     
-    private Match(final Topic pT) {
+    private Match(final EObject pT) {
       this.fT = pT;
     }
     
     @Override
     public Object get(final String parameterName) {
-      if ("t".equals(parameterName)) return this.fT;
-      return null;
+      switch(parameterName) {
+          case "t": return this.fT;
+          default: return null;
+      }
     }
     
-    public Topic getT() {
+    @Override
+    public Object get(final int index) {
+      switch(index) {
+          case 0: return this.fT;
+          default: return null;
+      }
+    }
+    
+    public EObject getT() {
       return this.fT;
     }
     
@@ -95,13 +105,13 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
     public boolean set(final String parameterName, final Object newValue) {
       if (!isMutable()) throw new java.lang.UnsupportedOperationException();
       if ("t".equals(parameterName) ) {
-          this.fT = (Topic) newValue;
+          this.fT = (EObject) newValue;
           return true;
       }
       return false;
     }
     
-    public void setT(final Topic pT) {
+    public void setT(final EObject pT) {
       if (!isMutable()) throw new java.lang.UnsupportedOperationException();
       this.fT = pT;
     }
@@ -182,7 +192,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
      * @return the new, mutable (partial) match object.
      * 
      */
-    public static SelectIntermediateTopics.Match newMutableMatch(final Topic pT) {
+    public static SelectIntermediateTopics.Match newMutableMatch(final EObject pT) {
       return new Mutable(pT);
     }
     
@@ -194,12 +204,12 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
      * @return the (partial) match object.
      * 
      */
-    public static SelectIntermediateTopics.Match newMatch(final Topic pT) {
+    public static SelectIntermediateTopics.Match newMatch(final EObject pT) {
       return new Immutable(pT);
     }
     
     private static final class Mutable extends SelectIntermediateTopics.Match {
-      Mutable(final Topic pT) {
+      Mutable(final EObject pT) {
         super(pT);
       }
       
@@ -210,7 +220,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
     }
     
     private static final class Immutable extends SelectIntermediateTopics.Match {
-      Immutable(final Topic pT) {
+      Immutable(final EObject pT) {
         super(pT);
       }
       
@@ -292,7 +302,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
      * @return matches represented as a Match object.
      * 
      */
-    public Collection<SelectIntermediateTopics.Match> getAllMatches(final Topic pT) {
+    public Collection<SelectIntermediateTopics.Match> getAllMatches(final EObject pT) {
       return rawStreamAllMatches(new Object[]{pT}).collect(Collectors.toSet());
     }
     
@@ -306,7 +316,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
      * @return a stream of matches represented as a Match object.
      * 
      */
-    public Stream<SelectIntermediateTopics.Match> streamAllMatches(final Topic pT) {
+    public Stream<SelectIntermediateTopics.Match> streamAllMatches(final EObject pT) {
       return rawStreamAllMatches(new Object[]{pT});
     }
     
@@ -317,7 +327,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
      * @return a match represented as a Match object, or null if no match is found.
      * 
      */
-    public Optional<SelectIntermediateTopics.Match> getOneArbitraryMatch(final Topic pT) {
+    public Optional<SelectIntermediateTopics.Match> getOneArbitraryMatch(final EObject pT) {
       return rawGetOneArbitraryMatch(new Object[]{pT});
     }
     
@@ -328,7 +338,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
      * @return true if the input is a valid (partial) match of the pattern.
      * 
      */
-    public boolean hasMatch(final Topic pT) {
+    public boolean hasMatch(final EObject pT) {
       return rawHasMatch(new Object[]{pT});
     }
     
@@ -338,7 +348,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
      * @return the number of pattern matches found.
      * 
      */
-    public int countMatches(final Topic pT) {
+    public int countMatches(final EObject pT) {
       return rawCountMatches(new Object[]{pT});
     }
     
@@ -350,7 +360,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
      * @return true if the pattern has at least one match with the given parameter values, false if the processor was not invoked
      * 
      */
-    public boolean forOneArbitraryMatch(final Topic pT, final Consumer<? super SelectIntermediateTopics.Match> processor) {
+    public boolean forOneArbitraryMatch(final EObject pT, final Consumer<? super SelectIntermediateTopics.Match> processor) {
       return rawForOneArbitraryMatch(new Object[]{pT}, processor);
     }
     
@@ -362,7 +372,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
      * @return the (partial) match object.
      * 
      */
-    public SelectIntermediateTopics.Match newMatch(final Topic pT) {
+    public SelectIntermediateTopics.Match newMatch(final EObject pT) {
       return SelectIntermediateTopics.Match.newMatch(pT);
     }
     
@@ -371,8 +381,8 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
      * @return the Set of all values or empty set if there are no matches
      * 
      */
-    protected Stream<Topic> rawStreamAllValuesOft(final Object[] parameters) {
-      return rawStreamAllValues(POSITION_T, parameters).map(Topic.class::cast);
+    protected Stream<EObject> rawStreamAllValuesOft(final Object[] parameters) {
+      return rawStreamAllValues(POSITION_T, parameters).map(EObject.class::cast);
     }
     
     /**
@@ -380,7 +390,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
      * @return the Set of all values or empty set if there are no matches
      * 
      */
-    public Set<Topic> getAllValuesOft() {
+    public Set<EObject> getAllValuesOft() {
       return rawStreamAllValuesOft(emptyArray()).collect(Collectors.toSet());
     }
     
@@ -389,14 +399,14 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
      * @return the Set of all values or empty set if there are no matches
      * 
      */
-    public Stream<Topic> streamAllValuesOft() {
+    public Stream<EObject> streamAllValuesOft() {
       return rawStreamAllValuesOft(emptyArray());
     }
     
     @Override
     protected SelectIntermediateTopics.Match tupleToMatch(final Tuple t) {
       try {
-          return SelectIntermediateTopics.Match.newMatch((Topic) t.get(POSITION_T));
+          return SelectIntermediateTopics.Match.newMatch((EObject) t.get(POSITION_T));
       } catch(ClassCastException e) {
           LOGGER.error("Element(s) in tuple not properly typed!",e);
           return null;
@@ -406,7 +416,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
     @Override
     protected SelectIntermediateTopics.Match arrayToMatch(final Object[] match) {
       try {
-          return SelectIntermediateTopics.Match.newMatch((Topic) match[POSITION_T]);
+          return SelectIntermediateTopics.Match.newMatch((EObject) match[POSITION_T]);
       } catch(ClassCastException e) {
           LOGGER.error("Element(s) in array not properly typed!",e);
           return null;
@@ -416,7 +426,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
     @Override
     protected SelectIntermediateTopics.Match arrayToMatchMutable(final Object[] match) {
       try {
-          return SelectIntermediateTopics.Match.newMutableMatch((Topic) match[POSITION_T]);
+          return SelectIntermediateTopics.Match.newMutableMatch((EObject) match[POSITION_T]);
       } catch(ClassCastException e) {
           LOGGER.error("Element(s) in array not properly typed!",e);
           return null;
@@ -467,13 +477,13 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
   
   @Override
   public SelectIntermediateTopics.Match newMatch(final Object... parameters) {
-    return SelectIntermediateTopics.Match.newMatch((hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.Topic) parameters[0]);
+    return SelectIntermediateTopics.Match.newMatch((org.eclipse.emf.ecore.EObject) parameters[0]);
   }
   
   /**
-   * Inner class allowing the singleton instance of {@link JvmGenericType: hu.sze.jkk.middleware.model.query.SelectIntermediateTopics (visibility: PUBLIC, simpleName: SelectIntermediateTopics, identifier: hu.sze.jkk.middleware.model.query.SelectIntermediateTopics, deprecated: <unset>) (abstract: false, static: false, final: true, packageName: hu.sze.jkk.middleware.model.query) (interface: false, strictFloatingPoint: false, anonymous: false)} to be created 
+   * Inner class allowing the singleton instance of {@link SelectIntermediateTopics} to be created 
    *     <b>not</b> at the class load time of the outer class, 
-   *     but rather at the first call to {@link JvmGenericType: hu.sze.jkk.middleware.model.query.SelectIntermediateTopics (visibility: PUBLIC, simpleName: SelectIntermediateTopics, identifier: hu.sze.jkk.middleware.model.query.SelectIntermediateTopics, deprecated: <unset>) (abstract: false, static: false, final: true, packageName: hu.sze.jkk.middleware.model.query) (interface: false, strictFloatingPoint: false, anonymous: false)#instance()}.
+   *     but rather at the first call to {@link SelectIntermediateTopics#instance()}.
    * 
    * <p> This workaround is required e.g. to support recursion.
    * 
@@ -499,7 +509,7 @@ public final class SelectIntermediateTopics extends BaseGeneratedEMFQuerySpecifi
   private static class GeneratedPQuery extends BaseGeneratedEMFPQuery {
     private static final SelectIntermediateTopics.GeneratedPQuery INSTANCE = new GeneratedPQuery();
     
-    private final PParameter parameter_t = new PParameter("t", "hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.Topic", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://jkk.sze.hu/statepubsubmodel", "Topic")), PParameterDirection.INOUT);
+    private final PParameter parameter_t = new PParameter("t", "org.eclipse.emf.ecore.EObject", new EClassTransitiveInstancesKey((EClass)getClassifierLiteralSafe("http://jkk.sze.hu/statepubsubmodel", "Topic")), PParameterDirection.INOUT);
     
     private final List<PParameter> parameters = Arrays.asList(parameter_t);
     

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated hybridfuzzymodel -->
+      <package
+            uri="http://aut.sze.hu/hybridfuzzymodel"
+            class="hu.sze.aut.fuzzy.hybrid.system.model.hybridfuzzymodel.HybridfuzzymodelPackage"
+            genModel="model/hybridfuzzymodel.genmodel"/>
+   </extension>
+
+</plugin>

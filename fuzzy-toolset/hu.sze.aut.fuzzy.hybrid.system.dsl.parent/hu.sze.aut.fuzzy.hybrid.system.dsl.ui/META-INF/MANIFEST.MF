@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: hu.sze.aut.fuzzy.hybrid.system.dsl.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: hu.sze.aut.fuzzy.hybrid.system.dsl.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: hu.sze.aut.fuzzy.hybrid.system.dsl.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: hu.sze.aut.fuzzy.hybrid.system.dsl,
+ hu.sze.aut.fuzzy.hybrid.system.dsl.ide,
+ hu.sze.aut.fuzzy.hybrid.system.model,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: hu.sze.aut.fuzzy.hybrid.system.ui.quickfix,
+ hu.sze.aut.fuzzy.hybrid.system.ui.contentassist,
+ hu.sze.aut.fuzzy.hybrid.system.dsl.ui.internal
+Bundle-Activator: hu.sze.aut.fuzzy.hybrid.system.dsl.ui.internal.DslActivator
