@@ -86,6 +86,7 @@ class RosCodeTemplates {
 		private:
 		protected:
 			/// ROS utils
+			std::shared_ptr<ros::NodeHandle> private_nh;
 			std::shared_ptr<ros::NodeHandle> nh;
 			/// ROS Subscribers
 			«FOR port: inputPorts»
@@ -108,7 +109,7 @@ class RosCodeTemplates {
 			// Set ALL STATES CB
 			virtual void setSyncStateMachineCallbacks() = 0;
 		public:
-			«classNameInterfaceRos(node)»(std::shared_ptr<ros::NodeHandle> nh, const bool debug=false): nh(nh) {}
+			«classNameInterfaceRos(node)»(std::shared_ptr<ros::NodeHandle> private_nh, std::shared_ptr<ros::NodeHandle> nh): private_nh(private_nh), nh(nh) {}
 			
 			virtual ~«classNameInterfaceRos(node)»() = 0;
 			
@@ -137,6 +138,7 @@ class RosCodeTemplates {
 			
 			/*
 			 * @brief: initialize middleware
+			 * @param debug: defines whether the debug information should be provided or not.
 			 */
 			virtual bool initMiddleware(const bool debug) override;
 			
