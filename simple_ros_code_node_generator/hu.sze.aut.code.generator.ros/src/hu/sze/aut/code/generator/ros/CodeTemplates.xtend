@@ -59,7 +59,8 @@ class RosCodeTemplates {
 		struct State«node.name.toFirstUpper.replace('_', '')»
 		{
 			// Flags
-			const bool debug;
+			const bool debug;				///< Publish debug parameters
+			const bool bypass_behavior;     ///< Bypass behavioral state machines
 			// ROS input messages
 			«FOR port: inputPorts»
 			«getMsgNamespace(topicMappings.get(port.topic).rosmsg)» msg_«port.id.toFirstLower»; ///< «port.id» store to «getMsgNamespace(topicMappings.get(port.topic).rosmsg)»
@@ -69,7 +70,7 @@ class RosCodeTemplates {
 			«getMsgNamespace(topicMappings.get(port.topic).rosmsg)» msg_«port.id.toFirstLower»; ///< «port.id» store to «getMsgNamespace(topicMappings.get(port.topic).rosmsg)»
 			«ENDFOR»
 			
-			State«node.name.toFirstUpper.replace('_', '')»(const bool debug): debug(debug) {}
+			State«node.name.toFirstUpper.replace('_', '')»(const bool debug, const bool bypass_behavior): debug(debug), bypass_behavior(bypass_behavior) {}
 		};
 		
 		/**
@@ -140,7 +141,7 @@ class RosCodeTemplates {
 			 * @brief: initialize middleware
 			 * @param debug: defines whether the debug information should be provided or not.
 			 */
-			virtual bool initMiddleware(const bool debug) override;
+			virtual bool initMiddleware(const bool debug, const bool bypass_behavior) override;
 			
 			/*
 			 * @brief: post initialize
@@ -153,7 +154,7 @@ class RosCodeTemplates {
 			 */
 			void cb«port.id.toFirstUpper»(const «getMsgNamespace(topicMappings.get(port.topic).rosmsg)»::ConstPtr& msg); ///< «port.id» subscriber to «getMsgNamespace(topicMappings.get(port.topic).rosmsg)»
 			«IF port.sync_function_name!==null»
-			virtual void execute«port.sync_function_name.toFirstUpper»() = 0;
+			virtual void execute«port.sync_function_name.toFirstUpper»(const «getMsgNamespace(topicMappings.get(port.topic).rosmsg)»::ConstPtr& msg) = 0;
 			«ENDIF»
 			«ENDFOR»
 			
@@ -216,10 +217,10 @@ class RosCodeTemplates {
 			return true;
 		}
 		
-		bool «classNameInterfaceRos(node)»::initMiddleware(const bool debug)
+		bool «classNameInterfaceRos(node)»::initMiddleware(const bool debug, const bool bypass_behavior)
 		{
 			/// Initialize internal pubsub state
-			pubsubstate = std::unique_ptr<State«node.name.toFirstUpper.replace('_', '')»>(new State«node.name.toFirstUpper.replace('_', '')»(debug));
+			pubsubstate = std::unique_ptr<State«node.name.toFirstUpper.replace('_', '')»>(new State«node.name.toFirstUpper.replace('_', '')»(debug, bypass_behavior));
 			if (pubsubstate==nullptr)
 			{
 				return false;
@@ -260,12 +261,12 @@ class RosCodeTemplates {
 			sm_mutex.unlock();
 			«IF port.sync_function_name!==null»
 			if (sync_sm_«port.synchronizesState.name»->isReady()){
-				execute«port.sync_function_name.toFirstUpper»();
+				execute«port.sync_function_name.toFirstUpper»(msg);
 			}
 			«ENDIF»
 			«ELSE»
 			«IF port.sync_function_name!==null»
-			execute«port.sync_function_name.toFirstUpper»();
+			execute«port.sync_function_name.toFirstUpper»(msg);
 			«ENDIF»
 			«ENDIF»
 			
